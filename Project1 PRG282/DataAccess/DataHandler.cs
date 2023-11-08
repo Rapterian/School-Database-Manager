@@ -8,11 +8,13 @@ namespace Project1_PRG282.DataAccess
 {
     internal class DataHandler
     {
+        string connect = "Server = (local); Initial Catalog = PRG281Databse; Integrated Security = SSPI";
+
         public void createStudent()
         {
-
+            String query = $"INSERT INTO Student VALUES ()";
         }
-        public void updateeStudent()
+        public void updateStudent()
         {
 
         }
