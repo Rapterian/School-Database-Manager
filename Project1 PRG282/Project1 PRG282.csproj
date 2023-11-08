@@ -52,6 +52,7 @@
     <Compile Include="CourseForm.Designer.cs">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\DataHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,5 +126,6 @@
   <ItemGroup>
     <None Include="Resources\kisspng-logo-person-user-person-icon-5b4d2bd25185e8.0544055615317841463339.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
