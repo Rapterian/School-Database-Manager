@@ -30,29 +30,29 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pbxHome = new System.Windows.Forms.PictureBox();
+            this.lblDelete = new System.Windows.Forms.Label();
+            this.lblUpdate = new System.Windows.Forms.Label();
             this.lblCreate = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvModule = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.lvModule = new System.Windows.Forms.ListView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnAction = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnEnd = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -68,27 +68,27 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.rtbxYoutubeLinks = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbxCourseDescription = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lblModuleCode = new System.Windows.Forms.Label();
+            this.txtModuleCode = new System.Windows.Forms.TextBox();
+            this.lblModuleName = new System.Windows.Forms.Label();
+            this.txtModuleName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModule)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -131,9 +131,9 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pbxHome, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblDelete, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblUpdate, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblCreate, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,41 +144,42 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1248, 44);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // pictureBox1
+            // pbxHome
             // 
-            this.pictureBox1.BackgroundImage = global::Project1_PRG282.Properties.Resources.kisspng_computer_icons_encapsulated_postscript_colorado_ca_home_icon_5acbee5249df14_6634978815233142583026;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Project1_PRG282.Properties.Resources.kisspng_computer_icons_encapsulated_postscript_colorado_ca_home_icon_5acbee5249df14_6634978815233142583026;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 38);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pbxHome.BackgroundImage = global::Project1_PRG282.Properties.Resources.kisspng_computer_icons_encapsulated_postscript_colorado_ca_home_icon_5acbee5249df14_6634978815233142583026;
+            this.pbxHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxHome.Image = global::Project1_PRG282.Properties.Resources.kisspng_computer_icons_encapsulated_postscript_colorado_ca_home_icon_5acbee5249df14_6634978815233142583026;
+            this.pbxHome.Location = new System.Drawing.Point(3, 3);
+            this.pbxHome.Name = "pbxHome";
+            this.pbxHome.Size = new System.Drawing.Size(54, 38);
+            this.pbxHome.TabIndex = 6;
+            this.pbxHome.TabStop = false;
             // 
-            // label5
+            // lblDelete
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(654, 4);
-            this.label5.Margin = new System.Windows.Forms.Padding(4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(287, 36);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Delete";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDelete.Location = new System.Drawing.Point(654, 4);
+            this.lblDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.lblDelete.Name = "lblDelete";
+            this.lblDelete.Size = new System.Drawing.Size(287, 36);
+            this.lblDelete.TabIndex = 4;
+            this.lblDelete.Text = "Delete";
+            this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // lblUpdate
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(359, 4);
-            this.label4.Margin = new System.Windows.Forms.Padding(4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(287, 36);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Update";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdate.Location = new System.Drawing.Point(359, 4);
+            this.lblUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.lblUpdate.Name = "lblUpdate";
+            this.lblUpdate.Size = new System.Drawing.Size(287, 36);
+            this.lblUpdate.TabIndex = 3;
+            this.lblUpdate.Text = "Update";
+            this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.MouseHover += new System.EventHandler(this.label4_MouseHover);
             // 
             // lblCreate
             // 
@@ -198,9 +199,9 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.pictureBox2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pbSearch, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblSearch, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtSearch, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(948, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -209,41 +210,41 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(297, 38);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
-            // pictureBox2
+            // pbSearch
             // 
-            this.pictureBox2.BackgroundImage = global::Project1_PRG282.Properties.Resources.kisspng_computer_icons_desktop_wallpaper_clip_art_search_5ac0b446211c70_0119185115225785021356;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 7);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(10, 7, 3, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(17, 24);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.pbSearch.BackgroundImage = global::Project1_PRG282.Properties.Resources.kisspng_computer_icons_desktop_wallpaper_clip_art_search_5ac0b446211c70_0119185115225785021356;
+            this.pbSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbSearch.Location = new System.Drawing.Point(10, 7);
+            this.pbSearch.Margin = new System.Windows.Forms.Padding(10, 7, 3, 7);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(17, 24);
+            this.pbSearch.TabIndex = 0;
+            this.pbSearch.TabStop = false;
             // 
-            // label6
+            // lblSearch
             // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(36, 5);
-            this.label6.Margin = new System.Windows.Forms.Padding(5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 28);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Search";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.Location = new System.Drawing.Point(36, 5);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(67, 28);
+            this.lblSearch.TabIndex = 1;
+            this.lblSearch.Text = "Search";
+            this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(113, 5);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 26);
-            this.textBox1.TabIndex = 2;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(113, 5);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(179, 26);
+            this.txtSearch.TabIndex = 2;
             // 
             // tableLayoutPanel4
             // 
@@ -312,7 +313,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView2);
+            this.tabPage1.Controls.Add(this.dgvModule);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -321,104 +322,104 @@
             this.tabPage1.Text = "Grid";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgvModule
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(669, 540);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvModule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvModule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvModule.Location = new System.Drawing.Point(3, 3);
+            this.dgvModule.Name = "dgvModule";
+            this.dgvModule.Size = new System.Drawing.Size(669, 540);
+            this.dgvModule.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.listView2);
+            this.tabPage2.Controls.Add(this.lvModule);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(675, 638);
+            this.tabPage2.Size = new System.Drawing.Size(675, 546);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "List";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // lvModule
             // 
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(3, 3);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(669, 632);
-            this.listView2.TabIndex = 0;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.lvModule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvModule.HideSelection = false;
+            this.lvModule.Location = new System.Drawing.Point(3, 3);
+            this.lvModule.Name = "lvModule";
+            this.lvModule.Size = new System.Drawing.Size(669, 540);
+            this.lvModule.TabIndex = 0;
+            this.lvModule.UseCompatibleStateImageBehavior = false;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.button7);
-            this.panel4.Controls.Add(this.button8);
-            this.panel4.Controls.Add(this.button9);
-            this.panel4.Controls.Add(this.button10);
+            this.panel4.Controls.Add(this.btnAction);
+            this.panel4.Controls.Add(this.btnNext);
+            this.panel4.Controls.Add(this.btnPrevious);
+            this.panel4.Controls.Add(this.btnEnd);
+            this.panel4.Controls.Add(this.btnStart);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 615);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(697, 63);
             this.panel4.TabIndex = 1;
             // 
-            // button6
+            // btnAction
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnAction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Location = new System.Drawing.Point(298, 23);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 17);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "--";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Visible = false;
+            this.btnAction.Location = new System.Drawing.Point(298, 23);
+            this.btnAction.Name = "btnAction";
+            this.btnAction.Size = new System.Drawing.Size(100, 19);
+            this.btnAction.TabIndex = 4;
+            this.btnAction.Text = "--";
+            this.btnAction.UseVisualStyleBackColor = true;
+            this.btnAction.Visible = false;
             // 
-            // button7
+            // btnNext
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(471, 22);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 17);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "/";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnNext.Location = new System.Drawing.Point(471, 22);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(100, 20);
+            this.btnNext.TabIndex = 3;
+            this.btnNext.Text = ">>";
+            this.btnNext.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnPrevious
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button8.Location = new System.Drawing.Point(128, 22);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 17);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "<<";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnPrevious.Location = new System.Drawing.Point(128, 22);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(100, 20);
+            this.btnPrevious.TabIndex = 2;
+            this.btnPrevious.Text = "<<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnEnd
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Location = new System.Drawing.Point(577, 22);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(100, 17);
-            this.button9.TabIndex = 1;
-            this.button9.Text = ">|";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnEnd.Location = new System.Drawing.Point(577, 22);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(100, 20);
+            this.btnEnd.TabIndex = 1;
+            this.btnEnd.Text = ">|";
+            this.btnEnd.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnStart
             // 
-            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button10.Location = new System.Drawing.Point(22, 22);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(100, 17);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "|<";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnStart.Location = new System.Drawing.Point(22, 22);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(100, 20);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "|<";
+            this.btnStart.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel6
             // 
@@ -592,7 +593,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.Controls.Add(this.richTextBox2, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.rtbxYoutubeLinks, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 333);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -602,17 +603,17 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(521, 324);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
-            // richTextBox2
+            // rtbxYoutubeLinks
             // 
-            this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(110, 13);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.richTextBox2.Size = new System.Drawing.Size(297, 298);
-            this.richTextBox2.TabIndex = 2;
-            this.richTextBox2.Text = "Youtube Links:";
+            this.rtbxYoutubeLinks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxYoutubeLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbxYoutubeLinks.Location = new System.Drawing.Point(110, 13);
+            this.rtbxYoutubeLinks.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.rtbxYoutubeLinks.Name = "rtbxYoutubeLinks";
+            this.rtbxYoutubeLinks.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
+            this.rtbxYoutubeLinks.Size = new System.Drawing.Size(297, 298);
+            this.rtbxYoutubeLinks.TabIndex = 2;
+            this.rtbxYoutubeLinks.Text = "Youtube Links:";
             // 
             // tableLayoutPanel8
             // 
@@ -620,7 +621,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.23529F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.52941F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.23529F));
-            this.tableLayoutPanel8.Controls.Add(this.richTextBox1, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.rtbxCourseDescription, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 135);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -629,17 +630,17 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 192);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
-            // richTextBox1
+            // rtbxCourseDescription
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(68, 3);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.richTextBox1.Size = new System.Drawing.Size(380, 186);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "Course Description:";
+            this.rtbxCourseDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxCourseDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbxCourseDescription.Location = new System.Drawing.Point(68, 3);
+            this.rtbxCourseDescription.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.rtbxCourseDescription.Name = "rtbxCourseDescription";
+            this.rtbxCourseDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
+            this.rtbxCourseDescription.Size = new System.Drawing.Size(380, 186);
+            this.rtbxCourseDescription.TabIndex = 2;
+            this.rtbxCourseDescription.Text = "Course Description:";
             // 
             // tableLayoutPanel9
             // 
@@ -658,10 +659,10 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label9);
-            this.flowLayoutPanel1.Controls.Add(this.textBox4);
-            this.flowLayoutPanel1.Controls.Add(this.label10);
-            this.flowLayoutPanel1.Controls.Add(this.textBox5);
+            this.flowLayoutPanel1.Controls.Add(this.lblModuleCode);
+            this.flowLayoutPanel1.Controls.Add(this.txtModuleCode);
+            this.flowLayoutPanel1.Controls.Add(this.lblModuleName);
+            this.flowLayoutPanel1.Controls.Add(this.txtModuleName);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(65, 3);
@@ -669,49 +670,49 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(382, 120);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // label9
+            // lblModuleCode
             // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 5);
-            this.label9.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(256, 23);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Module Code";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblModuleCode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblModuleCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModuleCode.Location = new System.Drawing.Point(10, 5);
+            this.lblModuleCode.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.lblModuleCode.Name = "lblModuleCode";
+            this.lblModuleCode.Size = new System.Drawing.Size(256, 23);
+            this.lblModuleCode.TabIndex = 8;
+            this.lblModuleCode.Text = "Module Code";
+            this.lblModuleCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox4
+            // txtModuleCode
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(10, 36);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(258, 26);
-            this.textBox4.TabIndex = 9;
+            this.txtModuleCode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtModuleCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModuleCode.Location = new System.Drawing.Point(10, 36);
+            this.txtModuleCode.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.txtModuleCode.Name = "txtModuleCode";
+            this.txtModuleCode.Size = new System.Drawing.Size(258, 26);
+            this.txtModuleCode.TabIndex = 9;
             // 
-            // label10
+            // lblModuleName
             // 
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(10, 70);
-            this.label10.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(256, 23);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Module Name";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblModuleName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblModuleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModuleName.Location = new System.Drawing.Point(10, 70);
+            this.lblModuleName.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.lblModuleName.Name = "lblModuleName";
+            this.lblModuleName.Size = new System.Drawing.Size(256, 23);
+            this.lblModuleName.TabIndex = 10;
+            this.lblModuleName.Text = "Module Name";
+            this.lblModuleName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox5
+            // txtModuleName
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(281, 3);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(258, 26);
-            this.textBox5.TabIndex = 11;
+            this.txtModuleName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtModuleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModuleName.Location = new System.Drawing.Point(281, 3);
+            this.txtModuleName.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.txtModuleName.Name = "txtModuleName";
+            this.txtModuleName.Size = new System.Drawing.Size(258, 26);
+            this.txtModuleName.TabIndex = 11;
             // 
             // CourseForm
             // 
@@ -724,17 +725,17 @@
             this.Text = "Courses";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModule)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -758,40 +759,40 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pbxHome;
+        private System.Windows.Forms.Label lblDelete;
+        private System.Windows.Forms.Label lblUpdate;
         private System.Windows.Forms.Label lblCreate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pbSearch;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbxCourseDescription;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox rtbxYoutubeLinks;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label lblModuleCode;
+        private System.Windows.Forms.TextBox txtModuleCode;
+        private System.Windows.Forms.Label lblModuleName;
+        private System.Windows.Forms.TextBox txtModuleName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvModule;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView lvModule;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnAction;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnEnd;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabControl tabControl1;
