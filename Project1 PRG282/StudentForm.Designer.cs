@@ -177,6 +177,8 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Create";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label3_MouseClick);
             // 
             // tableLayoutPanel3
             // 
@@ -642,6 +644,7 @@
             this.MinimumSize = new System.Drawing.Size(1270, 890);
             this.Name = "StudentForm";
             this.Text = "Students";
+            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
