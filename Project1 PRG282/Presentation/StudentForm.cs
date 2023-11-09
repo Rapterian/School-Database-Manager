@@ -21,5 +21,19 @@ namespace Project1_PRG282
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            button5.Visible = true;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            button5.Text = "Create";
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
