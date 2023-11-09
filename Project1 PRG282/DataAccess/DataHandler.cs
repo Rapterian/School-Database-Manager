@@ -40,7 +40,7 @@ namespace Project1_PRG282.DataAccess
         }
         public void updateStudent(Student student)
         {
-            string query = $"UPDATE Student SET StudentNumber = {student.Studentnumber}', Name = '{student.Name}', Surname = '{student.Surname}', " +
+            string query = $"UPDATE Student SET StudentNumber = '{student.Studentnumber}', Name = '{student.Name}', Surname = '{student.Surname}', " +
                 $"StudentImage = '{student.StudentImage}', DOB = '{student.DOB1}', Gender = '{student.Gender}'," +
                 $" Phone = '{student.Phone}', Address = '{student.Address}', ModuleCode = '{student.ModuleCode}'";
 
@@ -89,6 +89,87 @@ namespace Project1_PRG282.DataAccess
             }
         }
         public void searchStudent()
+        {
+            //JJ
+        }
+
+        public void createModule(Module module)
+        {
+            String query = $"INSERT INTO Module VALUES ('{module.ModuleCode}', '{module.ModuleName}', '{module.ModuleDescription}', '{module.Links}')";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show("Created Module");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void updateModule(Module module)
+        {
+            string query = $"UPDATE Module SET ModuleCode = '{module.ModuleCode}', ModuleName = '{module.ModuleName}', ModuleDescription = '{module.ModuleDescription}'," +
+                $" Links = '{module.Links}'";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show("Module Updated");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void deleteModule(int moduleNumber)
+        {
+            string query = $"Delete from Module Where ModuleNumber = '{moduleNumber}'";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show($"Data for Module {moduleNumber} deleted successfully");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void searchModule()
         {
 
         }
