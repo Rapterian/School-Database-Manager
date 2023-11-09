@@ -22,5 +22,10 @@ namespace Project1_PRG282
         {
             
         }
+
+        private void label4_MouseHover(object sender, EventArgs e)
+        {
+
+        }
     }
 }
