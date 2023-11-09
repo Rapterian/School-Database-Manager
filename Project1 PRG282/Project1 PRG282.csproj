@@ -59,6 +59,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogicLayer\Module.cs" />
     <Compile Include="LogicLayer\Student.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
