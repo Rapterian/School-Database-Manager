@@ -42,7 +42,11 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Grid = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.List = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -71,6 +75,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,7 +86,10 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.Grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.List.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -280,22 +289,65 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(10, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(10, 30, 10, 30);
+            this.panel1.Location = new System.Drawing.Point(10, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(10, 20, 10, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(683, 644);
+            this.panel1.Size = new System.Drawing.Size(683, 664);
             this.panel1.TabIndex = 0;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.Grid);
+            this.tabControl1.Controls.Add(this.List);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(683, 664);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // Grid
+            // 
+            this.Grid.Controls.Add(this.dataGridView1);
+            this.Grid.Location = new System.Drawing.Point(4, 22);
+            this.Grid.Name = "Grid";
+            this.Grid.Padding = new System.Windows.Forms.Padding(3);
+            this.Grid.Size = new System.Drawing.Size(675, 638);
+            this.Grid.TabIndex = 0;
+            this.Grid.Text = "Grid";
+            this.Grid.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(683, 644);
+            this.dataGridView1.Size = new System.Drawing.Size(669, 632);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // List
+            // 
+            this.List.Controls.Add(this.listView1);
+            this.List.Location = new System.Drawing.Point(4, 22);
+            this.List.Name = "List";
+            this.List.Padding = new System.Windows.Forms.Padding(3);
+            this.List.Size = new System.Drawing.Size(675, 638);
+            this.List.TabIndex = 1;
+            this.List.Text = "List";
+            this.List.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(669, 632);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // panel2
             // 
@@ -614,11 +666,14 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel8.Controls.Add(this.richTextBox1, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.richTextBox1, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.button6, 2, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 485);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 295);
             this.tableLayoutPanel8.TabIndex = 1;
@@ -627,13 +682,32 @@
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(115, 3);
+            this.richTextBox1.Location = new System.Drawing.Point(115, 28);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.richTextBox1.Size = new System.Drawing.Size(286, 289);
+            this.richTextBox1.Size = new System.Drawing.Size(286, 264);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "Course Codes:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(118, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(283, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Location = new System.Drawing.Point(407, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(111, 19);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Add";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // StudentForm
             // 
@@ -655,7 +729,10 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.Grid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.List.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -709,12 +786,18 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage Grid;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabPage List;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button6;
     }
 }
