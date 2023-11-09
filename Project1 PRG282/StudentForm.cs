@@ -21,5 +21,20 @@ namespace Project1_PRG282
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label3_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+        }
     }
 }
