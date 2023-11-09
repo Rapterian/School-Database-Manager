@@ -42,7 +42,11 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Grid = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.List = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -80,7 +84,10 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.Grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.List.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -278,22 +285,65 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(10, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(10, 30, 10, 30);
+            this.panel1.Location = new System.Drawing.Point(10, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(10, 20, 10, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(683, 644);
+            this.panel1.Size = new System.Drawing.Size(683, 664);
             this.panel1.TabIndex = 0;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.Grid);
+            this.tabControl1.Controls.Add(this.List);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(683, 664);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // Grid
+            // 
+            this.Grid.Controls.Add(this.dataGridView1);
+            this.Grid.Location = new System.Drawing.Point(4, 22);
+            this.Grid.Name = "Grid";
+            this.Grid.Padding = new System.Windows.Forms.Padding(3);
+            this.Grid.Size = new System.Drawing.Size(675, 638);
+            this.Grid.TabIndex = 0;
+            this.Grid.Text = "Grid";
+            this.Grid.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(683, 644);
+            this.dataGridView1.Size = new System.Drawing.Size(669, 632);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // List
+            // 
+            this.List.Controls.Add(this.listView1);
+            this.List.Location = new System.Drawing.Point(4, 22);
+            this.List.Name = "List";
+            this.List.Padding = new System.Windows.Forms.Padding(3);
+            this.List.Size = new System.Drawing.Size(675, 638);
+            this.List.TabIndex = 1;
+            this.List.Text = "List";
+            this.List.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(669, 632);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // panel2
             // 
@@ -652,7 +702,10 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.Grid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.List.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -706,12 +759,16 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage Grid;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabPage List;
+        private System.Windows.Forms.ListView listView1;
     }
 }
