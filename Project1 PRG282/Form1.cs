@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,15 +23,15 @@ namespace Project1_PRG282
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
-{         
-    MainMenu mainMenu = new MainMenu();
-    mainMenu.Show();
-    this.Hide();
-}
+        {         
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Hide();
+        }
 
-private void LogInForm_Load(object sender, EventArgs e)
-{
+        private void LogInForm_Load(object sender, EventArgs e)
+        {
 
-}
+        }
     }
 }
