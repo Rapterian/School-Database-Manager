@@ -173,5 +173,23 @@ namespace Project1_PRG282.DataAccess
         {
             //JJ
         }
+
+        public static DataTable showStudentData()
+{
+    string query = @"SELECT * FROM Student";
+    SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
+    DataTable datatable = new DataTable();
+    adapter.Fill(datatable);
+    return datatable;
+}
+
+public static DataTable showModuleData()
+{
+    string query = @"SELECT * FROM Modules";
+    SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
+    DataTable datatable = new DataTable();
+    adapter.Fill(datatable);
+    return datatable;
+}
     }
 }

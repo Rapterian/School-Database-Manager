@@ -36,5 +36,43 @@ namespace Project1_PRG282
         {
 
         }
+
+        private void pbxStudents_Click(object sender, EventArgs e)
+{
+    this.Hide();
+    StudentForm studentForm = new StudentForm();
+    studentForm.FormClosed += MainMenu_FormClosed;
+    studentForm.ShowDialog();
+}
+   
+private void pbxCourses_Click(object sender, EventArgs e)
+{
+    this.Hide();
+    CourseForm courseForm = new CourseForm();
+    courseForm.FormClosed += MainMenu_FormClosed;
+    courseForm.ShowDialog();
+}
+
+private void lblStudents_Click(object sender, EventArgs e)
+{
+    this.Hide();
+    StudentForm studentForm = new StudentForm();
+    studentForm.FormClosed += MainMenu_FormClosed;
+    studentForm.ShowDialog();
+}
+
+private void lblCourses_Click(object sender, EventArgs e)
+{
+    this.Hide();
+    CourseForm courseForm = new CourseForm();
+    courseForm.FormClosed += MainMenu_FormClosed;
+    courseForm.ShowDialog();
+}
+
+private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+{
+    this.Show();
+    Environment.Exit(0);
+}
     }
 }

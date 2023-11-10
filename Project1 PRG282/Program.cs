@@ -17,9 +17,9 @@ namespace Project1_PRG282
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogInForm());
-            Application.Run(new CourseForm());
-            Application.Run(new MainMenu());
-            Application.Run(new StudentForm());
+            //Application.Run(new CourseForm());
+            //Application.Run(new MainMenu());
+            //Application.Run(new StudentForm());
         }
     }
 }
