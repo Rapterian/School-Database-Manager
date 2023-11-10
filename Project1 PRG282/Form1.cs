@@ -21,5 +21,17 @@ namespace Project1_PRG282
         {
 
         }
+
+        private void btnLogIn_Click(object sender, EventArgs e)
+{         
+    MainMenu mainMenu = new MainMenu();
+    mainMenu.Show();
+    this.Hide();
+}
+
+private void LogInForm_Load(object sender, EventArgs e)
+{
+
+}
     }
 }
