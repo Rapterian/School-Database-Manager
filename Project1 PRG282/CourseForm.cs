@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1_PRG282.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace Project1_PRG282
         public CourseForm()
         {
             InitializeComponent();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label4_MouseHover(object sender, EventArgs e)
+        {
+
         }
     }
 }
