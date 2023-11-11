@@ -29,9 +29,5 @@ namespace Project1_PRG282
             this.Hide();
         }
 
-        private void LogInForm_Load(object sender, EventArgs e)
-        {
 
-        }
-    }
 }

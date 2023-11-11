@@ -72,7 +72,9 @@ namespace Project1_PRG282
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Show();
-            Environment.Exit(0);
+
+            Application.Exit();
+
         }
     }
 }

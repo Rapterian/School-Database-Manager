@@ -47,6 +47,15 @@
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.List = new System.Windows.Forms.TabPage();
             this.lvStudent = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -150,6 +159,7 @@
             this.pbxHome.Size = new System.Drawing.Size(54, 38);
             this.pbxHome.TabIndex = 6;
             this.pbxHome.TabStop = false;
+            this.pbxHome.Click += new System.EventHandler(this.pbxHome_Click);
             // 
             // lblDelete
             // 
@@ -162,6 +172,7 @@
             this.lblDelete.TabIndex = 4;
             this.lblDelete.Text = "Delete";
             this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelete.Click += new System.EventHandler(this.lblDelete_Click);
             // 
             // lblUpdate
             // 
@@ -174,6 +185,7 @@
             this.lblUpdate.TabIndex = 3;
             this.lblUpdate.Text = "Update";
             this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.Click += new System.EventHandler(this.lblUpdate_Click);
             // 
             // lblCreate
             // 
@@ -341,6 +353,16 @@
             // 
             // lvStudent
             // 
+            this.lvStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvStudent.HideSelection = false;
             this.lvStudent.Location = new System.Drawing.Point(3, 3);
@@ -348,6 +370,44 @@
             this.lvStudent.Size = new System.Drawing.Size(669, 540);
             this.lvStudent.TabIndex = 0;
             this.lvStudent.UseCompatibleStateImageBehavior = false;
+            this.lvStudent.View = System.Windows.Forms.View.Details;
+            this.lvStudent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvStudent_MouseClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "StudentNumber";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "fName";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Surname";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "StudentImage";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "DOB";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Gender";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Phone";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "hAddress";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "ModuleCode";
             // 
             // panel2
             // 
@@ -384,6 +444,7 @@
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -395,6 +456,7 @@
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // button2
             // 
@@ -404,8 +466,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 26);
             this.button2.TabIndex = 1;
-            this.button2.Text = "btnEnd";
+            this.button2.Text = ">|";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnStart
             // 
@@ -417,6 +480,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -799,5 +863,14 @@
         private System.Windows.Forms.ListView lvStudent;
         private System.Windows.Forms.ComboBox cbxCourseCodes;
         private System.Windows.Forms.Button btnAddCourseCodes;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }
