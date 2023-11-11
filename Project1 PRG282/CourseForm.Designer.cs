@@ -338,6 +338,7 @@
             this.dgvModule.Name = "dgvModule";
             this.dgvModule.Size = new System.Drawing.Size(699, 641);
             this.dgvModule.TabIndex = 0;
+            this.dgvModule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_CellContentClick);
             // 
             // tabPage2
             // 
@@ -407,6 +408,7 @@
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnNext
             // 
