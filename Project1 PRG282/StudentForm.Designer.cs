@@ -150,6 +150,7 @@
             this.pbxHome.Size = new System.Drawing.Size(54, 38);
             this.pbxHome.TabIndex = 6;
             this.pbxHome.TabStop = false;
+            this.pbxHome.Click += new System.EventHandler(this.pbxHome_Click);
             // 
             // lblDelete
             // 
@@ -162,6 +163,7 @@
             this.lblDelete.TabIndex = 4;
             this.lblDelete.Text = "Delete";
             this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelete.Click += new System.EventHandler(this.lblDelete_Click);
             // 
             // lblUpdate
             // 
@@ -174,6 +176,7 @@
             this.lblUpdate.TabIndex = 3;
             this.lblUpdate.Text = "Update";
             this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.Click += new System.EventHandler(this.lblUpdate_Click);
             // 
             // lblCreate
             // 
@@ -186,7 +189,7 @@
             this.lblCreate.TabIndex = 2;
             this.lblCreate.Text = "Create";
             this.lblCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCreate.Click += new System.EventHandler(this.label3_Click);
+            this.lblCreate.Click += new System.EventHandler(this.Create_Click);
             this.lblCreate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label3_MouseClick);
             // 
             // tableLayoutPanel3
@@ -216,6 +219,7 @@
             this.pbxSearch.Size = new System.Drawing.Size(17, 24);
             this.pbxSearch.TabIndex = 0;
             this.pbxSearch.TabStop = false;
+            this.pbxSearch.Click += new System.EventHandler(this.pbxSearch_Click);
             // 
             // lblSearch
             // 
@@ -229,6 +233,7 @@
             this.lblSearch.TabIndex = 1;
             this.lblSearch.Text = "Search";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
             // 
             // txtSearch
             // 
@@ -373,6 +378,7 @@
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnNext
             // 
@@ -384,6 +390,7 @@
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -395,6 +402,7 @@
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // button2
             // 
@@ -406,6 +414,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "btnEnd";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // btnStart
             // 
@@ -417,6 +426,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -708,6 +718,7 @@
             this.btnAddCourseCodes.TabIndex = 4;
             this.btnAddCourseCodes.Text = "Add";
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
+            this.btnAddCourseCodes.Click += new System.EventHandler(this.btnAddCourseCodes_Click);
             // 
             // StudentForm
             // 
