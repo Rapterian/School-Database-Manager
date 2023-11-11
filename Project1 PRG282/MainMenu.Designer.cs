@@ -82,6 +82,7 @@
             this.lblCourses.TabIndex = 2;
             this.lblCourses.Text = "Courses";
             this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCourses.Click += new System.EventHandler(this.lblCourses_Click);
             // 
             // pbxCourses
             // 
@@ -95,6 +96,7 @@
             this.pbxCourses.Size = new System.Drawing.Size(202, 212);
             this.pbxCourses.TabIndex = 0;
             this.pbxCourses.TabStop = false;
+            this.pbxCourses.Click += new System.EventHandler(this.pbxCourses_Click);
             // 
             // panel1
             // 
@@ -119,6 +121,7 @@
             this.lblStudents.TabIndex = 1;
             this.lblStudents.Text = "Students";
             this.lblStudents.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStudents.Click += new System.EventHandler(this.pbxStudents_Click);
             // 
             // pbxStudents
             // 
@@ -132,6 +135,7 @@
             this.pbxStudents.Size = new System.Drawing.Size(202, 212);
             this.pbxStudents.TabIndex = 0;
             this.pbxStudents.TabStop = false;
+            this.pbxStudents.Click += new System.EventHandler(this.pbxStudents_Click);
             // 
             // MainMenu
             // 
@@ -143,6 +147,7 @@
             this.Name = "MainMenu";
             this.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.Text = "MainMenu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
