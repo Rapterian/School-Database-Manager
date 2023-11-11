@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Project1_PRG282.LogicLayer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project1_PRG282
 {
@@ -296,6 +297,18 @@ namespace Project1_PRG282
             txtModuleCode.Text = lvModule.SelectedItems[0].SubItems[0].Text;
             txtModuleName.Text = lvModule.SelectedItems[0].SubItems[1].Text;
             rtbxCourseDescription.Text = lvModule.SelectedItems[0].SubItems[2].Text;
+
+
+            int desiredRowIndex = lvModule.SelectedIndices[0]; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvModule.Rows.Count)
+            {
+                // Set the focus to the desired row and select its first cell
+                dgvModule.CurrentCell = dgvModule.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvModule.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
         }
 
         private void btnAction_Click(object sender, EventArgs e)
@@ -338,6 +351,20 @@ namespace Project1_PRG282
 
         private void dgvModule_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //if (e.RowIndex >= 0)
+            //{
+
+            //    DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
+
+            //    txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
+            //    txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
+            //    rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
+            //    rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();  
+            //}
+        }
+
+        private void dgvModule_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
 
@@ -346,7 +373,7 @@ namespace Project1_PRG282
                 txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
                 txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
                 rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
-                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();  
+                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
             }
         }
     }
