@@ -423,7 +423,18 @@ namespace Project1_PRG282
                 txtSurname.Text = row.Cells["Surname"].Value.ToString();
                 txtPhone.Text = row.Cells["Phone"].Value.ToString();
                 txtAdress.Text = row.Cells["Address"].Value.ToString();
-                rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
+                //rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
+                Date.Value = DateTime.Parse(row.Cells["DOB"].Value.ToString());
+                lblStudentNr.Text= row.Cells["StudentNumber"].Value.ToString();
+
+                if (row.Cells["Gender"].Value.ToString().Equals("Female"))
+                {
+                    rbFemale.Checked = true;
+                }
+                else
+                {
+                    rbMale.Checked= true;
+                }
             }
         }
     }
