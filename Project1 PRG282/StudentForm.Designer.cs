@@ -353,6 +353,7 @@
             this.lvStudent.Size = new System.Drawing.Size(669, 540);
             this.lvStudent.TabIndex = 0;
             this.lvStudent.UseCompatibleStateImageBehavior = false;
+            this.lvStudent.SelectedIndexChanged += new System.EventHandler(this.lvStudent_SelectedIndexChanged);
             // 
             // panel2
             // 

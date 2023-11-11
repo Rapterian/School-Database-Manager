@@ -43,7 +43,7 @@ namespace Project1_PRG282.DataAccess
         {
             string query = $"UPDATE Student SET Name = '{student.Name}', Surname = '{student.Surname}', " +
                 $"StudentImage = '{student.StudentImage}', DOB = '{student.DOB1}', Gender = '{student.Gender}'," +
-                $" Phone = '{student.Phone}', Address = '{student.Address}' WHERE StudentNumber='{student.Studentnumber}'";/*, ModuleCode = '{student.ModuleCode}'*/
+                $" Phone = '{student.Phone}', Address = '{student.Address}' WHERE StudentNumber = '{student.Studentnumber}'";/*, ModuleCode = '{student.ModuleCode}'*/
 
             try
             {
