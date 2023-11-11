@@ -433,6 +433,7 @@
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnNext
             // 
