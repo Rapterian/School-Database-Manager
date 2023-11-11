@@ -178,7 +178,7 @@ namespace Project1_PRG282
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnEnd_Click(object sender, EventArgs e)
         {
             if (dgvStudent.Rows.Count > 0)
             {
