@@ -213,7 +213,7 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Student student = new Student("Dont know what to put here");
+                    Student student = new Student();
 
                     DataHandler.createStudent(student);
 
@@ -227,7 +227,7 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Student student = new Student("Dont know what to put here");
+                    Student student = new Student();
 
                     DataHandler.updateStudent(student);
 

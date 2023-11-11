@@ -196,7 +196,7 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Module module = new Module("Dont know what to put here");
+                    Module module = new Module();
 
                     DataHandler.createModule(module);
 
@@ -210,7 +210,7 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Module module = new Module("Dont know what to put here");
+                    Module module = new Module();
 
                     DataHandler.updateModule(module);
 
@@ -238,7 +238,7 @@ namespace Project1_PRG282
                 txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
                 txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
                 rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
-                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString()  
+                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();  
             }
         }
     }
