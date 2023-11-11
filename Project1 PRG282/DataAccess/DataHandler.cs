@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Project1_PRG282.LogicLayer;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Project1_PRG282.DataAccess
 {
@@ -172,6 +173,24 @@ namespace Project1_PRG282.DataAccess
         public static void searchModule()
         {
             //JJ
+        }
+
+        public static DataTable showStudentData()
+        {
+            string query = @"SELECT * FROM Student";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
+            DataTable datatable = new DataTable();
+            adapter.Fill(datatable);
+            return datatable;
+        }
+
+        public static DataTable showModuleData()
+        {
+            string query = @"SELECT * FROM Modules";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
+            DataTable datatable = new DataTable();
+            adapter.Fill(datatable);
+            return datatable;
         }
     }
 }
