@@ -27,33 +27,35 @@ namespace Project1_PRG282
 
         }
 
-        int createCounter = 0;
-        private void label3_Click(object sender, EventArgs e)
+
+        private void lblCreate_Click(object sender, EventArgs e)
         {
-            createCounter++;
-            if (createCounter == 1)
-            {
-                lblUpdate.Enabled = false;
-                lblDelete.Enabled = false;
-                txtSearch.Enabled = false;
-                btnAction.Text = "Create";
-                btnAction.Visible = true;
-                txtAdress.Text = "";
-                txtName.Text = "";
-                txtPhone.Text = "";
-                txtSearch.Text = "";
-                txtSurname.Text = "";
-                txtName.Focus();
-            }
-            else if (createCounter > 1)
-            {
-                lblUpdate.Enabled = true;
-                lblDelete.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Text = "--";
-                btnAction.Visible = false;
-                createCounter = 0;
-            }
+
+            lblUpdate.Text = "Cancel";
+            lblCreate.Enabled = false;
+            lblDelete.Enabled = false;
+            lblCreate.Visible = false;
+            lblDelete.Visible = false;
+
+            btnAction.Text = "Create";
+
+            txtAdress.Enabled = true;
+            txtName.Enabled = true;
+            txtPhone.Enabled = true;
+            txtSearch.Enabled = true;
+            txtSurname.Enabled = true;
+            Date.Enabled = true;
+            gbGender.Enabled = true;
+
+            btnAction.Visible = true;
+            txtAdress.Text = "";
+            txtName.Text = "";
+            txtPhone.Text = "";
+            txtSearch.Text = "";
+            txtSurname.Text = "";
+            cbxCourseCodes.Visible = true;
+            btnAddCourseCodes.Visible = true;
+            txtName.Focus();
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
@@ -79,53 +81,65 @@ namespace Project1_PRG282
 
         private void label3_MouseClick(object sender, MouseEventArgs e)
         {
-           
+
         }
 
-        int updateCounter = 0;
         private void lblUpdate_Click(object sender, EventArgs e)
         {
-            updateCounter++;
-            if (updateCounter == 1) 
+
+            if (btnAction.Text.Equals("--"))
             {
+                lblUpdate.Text = "Cancel";
                 lblCreate.Enabled = false;
                 lblDelete.Enabled = false;
-                txtSearch.Enabled = false;
+                lblCreate.Visible = false;
+                lblDelete.Visible = false;
+
                 btnAction.Text = "Update";
                 btnAction.Visible = true;
+
+                txtAdress.Enabled = true;
+                txtName.Enabled = true;
+                txtPhone.Enabled = true;
+                txtSearch.Enabled = true;
+                txtSurname.Enabled = true;
+                Date.Enabled = true;
+                gbGender.Enabled = true;
+                cbxCourseCodes.Visible = true;
+                btnAddCourseCodes.Visible = true;
             }
-            else if (updateCounter > 1)
+            else if (lblUpdate.Text.Equals("Cancel"))
             {
+                lblUpdate.Text = "Update";
                 lblCreate.Enabled = true;
                 lblDelete.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Visible = false;
+                lblCreate.Visible = true;
+                lblDelete.Visible = true;
+                btnAction.Visible = true;
+                cbxCourseCodes.Visible = false;
+                btnAddCourseCodes.Visible = false;
                 btnAction.Text = "--";
-                updateCounter = 0;
+
+                txtAdress.Enabled = false;
+                txtName.Enabled = false;
+                txtPhone.Enabled = false;
+                txtSurname.Enabled = false;
+                Date.Enabled = false;
+                gbGender.Enabled = false;
             }
         }
 
-        int deleteCounter = 0;
         private void lblDelete_Click(object sender, EventArgs e)
         {
-            deleteCounter++;
-            if (deleteCounter == 1)
-            {
-                lblCreate.Enabled = false;
-                lblUpdate.Enabled = false;
-                txtSearch.Enabled = false;
-                btnAction.Visible = true;
-                btnAction.Text = "Delete";
-            }
-            else if (deleteCounter > 1)
-            {
-                lblCreate.Enabled = true;
-                lblUpdate.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Visible = false;
-                btnAction.Text = "--";
-                deleteCounter = 0;
-            }
+
+            lblUpdate.Text = "Cancel";
+            lblCreate.Enabled = false;
+            lblDelete.Enabled = false;
+            lblCreate.Visible = false;
+            lblDelete.Visible = false;
+            btnAction.Visible = true;
+            btnAction.Text = "Delete";
+
         }
 
         private void pbxHome_Click(object sender, EventArgs e)
@@ -133,7 +147,7 @@ namespace Project1_PRG282
             this.Hide();
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
-            
+
         }
 
         private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -234,7 +248,7 @@ namespace Project1_PRG282
             //    currentRowIndex = 0; // Must try and alter this so when going next from last row, it goes to first row (it goes to second row if clicked twice when at last row)
             //}
 
-            int desiredRowIndex = dgvStudent.CurrentRow.Index+1; // Replace with the index of the row you want to set focus to
+            int desiredRowIndex = dgvStudent.CurrentRow.Index + 1; // Replace with the index of the row you want to set focus to
 
             if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
@@ -273,7 +287,7 @@ namespace Project1_PRG282
             //    dgvStudent.Rows[lastIndex].Selected = true;
 
             //}
-            int desiredRowIndex = dgvStudent.RowCount-2; // Replace with the index of the row you want to set focus to
+            int desiredRowIndex = dgvStudent.RowCount - 2; // Replace with the index of the row you want to set focus to
 
             if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
@@ -311,7 +325,8 @@ namespace Project1_PRG282
             if (lvStudent.SelectedItems[0].SubItems[5].Text == "Male")
             {
                 rbMale.Checked = true;
-            } else
+            }
+            else
             {
                 rbFemale.Checked = true;
             }
