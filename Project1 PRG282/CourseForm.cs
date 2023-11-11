@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Project1_PRG282.LogicLayer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project1_PRG282
 {
@@ -136,50 +137,158 @@ namespace Project1_PRG282
         int currentRowIndex = 0;
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (dgvModule.Rows.Count > 0)
+            //if (dgvModule.Rows.Count > 0)
+            //{
+            //    dgvModule.ClearSelection();
+            //    dgvModule.Rows[0].Selected = true;
+            //}
+            int desiredRowIndex = 0; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvModule.Rows.Count)
             {
-                dgvModule.ClearSelection();
-                dgvModule.Rows[0].Selected = true;
+                // Set the focus to the desired row and select its first cell
+                dgvModule.CurrentCell = dgvModule.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvModule.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
+
+            int desiredIndex = dgvModule.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvModule.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvModule.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvModule.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvModule.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            if (dgvModule.Rows.Count > 0)
+            //if (dgvModule.Rows.Count > 0)
+            //{
+            //    currentRowIndex--;
+            //    if (currentRowIndex < 0)
+            //    {
+            //        currentRowIndex = dgvModule.Rows.Count - 1;
+            //    }
+            //    dgvModule.ClearSelection();
+            //    dgvModule.Rows[currentRowIndex].Selected = true;
+            //}
+            int desiredRowIndex = dgvModule.CurrentRow.Index - 1; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvModule.Rows.Count)
             {
-                currentRowIndex--;
-                if (currentRowIndex < 0)
+                // Set the focus to the desired row and select its first cell
+                dgvModule.CurrentCell = dgvModule.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvModule.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
+
+            int desiredIndex = dgvModule.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvModule.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvModule.Items)
                 {
-                    currentRowIndex = dgvModule.Rows.Count - 1;
+                    item.Selected = false;
                 }
-                dgvModule.ClearSelection();
-                dgvModule.Rows[currentRowIndex].Selected = true;
+
+                // Highlight the desired row
+                lvModule.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvModule.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (currentRowIndex < dgvModule.Rows.Count - 1)
+            //if (currentRowIndex < dgvModule.Rows.Count - 1)
+            //{
+            //    currentRowIndex++;
+            //    dgvModule.ClearSelection();
+            //    dgvModule.Rows[currentRowIndex].Selected = true;
+            //}
+            //else
+            //{
+            //    currentRowIndex = 0; // Must try and alter this so when going next from last row, it goes to first row (it goes to second row if clicked twice when at last row)
+            //}
+            int desiredRowIndex = dgvModule.CurrentRow.Index + 1; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvModule.Rows.Count)
             {
-                currentRowIndex++;
-                dgvModule.ClearSelection();
-                dgvModule.Rows[currentRowIndex].Selected = true;
+                // Set the focus to the desired row and select its first cell
+                dgvModule.CurrentCell = dgvModule.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvModule.FirstDisplayedScrollingRowIndex = desiredRowIndex;
             }
-            else
+
+            int desiredIndex = dgvModule.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvModule.Items.Count)
             {
-                currentRowIndex = 0; // Must try and alter this so when going next from last row, it goes to first row (it goes to second row if clicked twice when at last row)
+                // Deselect all items first
+                foreach (ListViewItem item in lvModule.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvModule.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvModule.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            if (dgvModule.Rows.Count > 0)
+            //if (dgvModule.Rows.Count > 0)
+            //{
+            //    dgvModule.ClearSelection();
+
+            //    int lastIndex = dgvModule.Rows.Count - 1;
+            //    dgvModule.Rows[lastIndex].Selected = true;
+
+            //}
+            int desiredRowIndex = dgvModule.RowCount-2; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvModule.Rows.Count)
             {
-                dgvModule.ClearSelection();
+                // Set the focus to the desired row and select its first cell
+                dgvModule.CurrentCell = dgvModule.Rows[desiredRowIndex].Cells[0];
 
-                int lastIndex = dgvModule.Rows.Count - 1;
-                dgvModule.Rows[lastIndex].Selected = true;
+                // Optionally, scroll to the selected row
+                dgvModule.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
 
+            int desiredIndex = dgvModule.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvModule.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvModule.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvModule.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvModule.Items[desiredIndex].EnsureVisible();
             }
         }
 
@@ -188,6 +297,18 @@ namespace Project1_PRG282
             txtModuleCode.Text = lvModule.SelectedItems[0].SubItems[0].Text;
             txtModuleName.Text = lvModule.SelectedItems[0].SubItems[1].Text;
             rtbxCourseDescription.Text = lvModule.SelectedItems[0].SubItems[2].Text;
+
+
+            int desiredRowIndex = lvModule.SelectedIndices[0]; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvModule.Rows.Count)
+            {
+                // Set the focus to the desired row and select its first cell
+                dgvModule.CurrentCell = dgvModule.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvModule.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
         }
 
         private void btnAction_Click(object sender, EventArgs e)
@@ -196,7 +317,7 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Module module = new Module("Dont know what to put here");
+                    Module module = new Module();
 
                     DataHandler.createModule(module);
 
@@ -210,7 +331,7 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Module module = new Module("Dont know what to put here");
+                    Module module = new Module();
 
                     DataHandler.updateModule(module);
 
@@ -230,6 +351,20 @@ namespace Project1_PRG282
 
         private void dgvModule_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //if (e.RowIndex >= 0)
+            //{
+
+            //    DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
+
+            //    txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
+            //    txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
+            //    rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
+            //    rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();  
+            //}
+        }
+
+        private void dgvModule_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
 
@@ -238,7 +373,7 @@ namespace Project1_PRG282
                 txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
                 txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
                 rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
-                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString()  
+                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
             }
         }
     }
