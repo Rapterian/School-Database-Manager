@@ -36,73 +36,74 @@ namespace Project1_PRG282
         int createCounter = 0;
         private void lblCreate_Click(object sender, EventArgs e)
         {
-            createCounter++;
-            if (createCounter == 1)
-            {
-                lblUpdate.Enabled = false;
-                lblDelete.Enabled = false;
-                txtSearch.Enabled = false;
-                btnAction.Text = "Create";
-                btnAction.Visible = true;
-                txtModuleName.Text = "";
-                txtModuleCode.Text = "";
-                rtbxCourseDescription.Clear();
-            }
-            else if (createCounter > 1)
-            {
-                lblUpdate.Enabled = true;
-                lblDelete.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Visible = false;
-                btnAction.Text = "--";
-                createCounter = 0;
-            }
+            
+            lblUpdate.Text = "Cancel";
+            lblCreate.Enabled = false;
+            lblDelete.Enabled = false;
+            lblCreate.Visible = false;
+            lblDelete.Visible = false;
+
+            btnAction.Text = "Create";
+
+            txtModuleCode.Enabled = true;
+            txtModuleName.Enabled = true;
+            rtbxCourseDescription.Enabled = true;
+            rtbxYoutubeLinks.Enabled = true;
+            txtSearch.Enabled = true;
+            
+
+            btnAction.Visible = true;
+            txtModuleCode.Text = "";
+            txtModuleName.Text = "";
+            rtbxCourseDescription.Text = "";
+            txtSearch.Text = "";
+            rtbxYoutubeLinks.Text = "";
+            txtModuleCode.Focus();
         }
 
         int updateCounter = 0;
         private void lblUpdate_Click(object sender, EventArgs e)
         {
-            updateCounter++;
-            if (updateCounter == 1)
+            if (btnAction.Text.Equals("--"))
             {
+                lblUpdate.Text = "Cancel";
                 lblCreate.Enabled = false;
                 lblDelete.Enabled = false;
-                txtSearch.Enabled = false;
+                lblCreate.Visible = false;
+                lblDelete.Visible = false;
+
                 btnAction.Text = "Update";
                 btnAction.Visible = true;
             }
-            else if (updateCounter > 1)
+            else if (lblUpdate.Text.Equals("Cancel"))
             {
+                lblUpdate.Text = "Update";
                 lblCreate.Enabled = true;
                 lblDelete.Enabled = true;
-                txtSearch.Enabled = true;
+                lblCreate.Visible = true;
+                lblDelete.Visible = true;
                 btnAction.Visible = false;
+
                 btnAction.Text = "--";
-                updateCounter = 0;
+
+                txtModuleCode.Enabled = false;
+                txtModuleName.Enabled = false;
+                rtbxCourseDescription.Enabled = false;
+                rtbxYoutubeLinks.Enabled = false;
             }
         }
 
         int deleteCounter = 0;
         private void lblDelete_Click(object sender, EventArgs e)
         {
-            deleteCounter++;
-            if (deleteCounter == 1)
-            {
-                lblCreate.Enabled = false;
-                lblUpdate.Enabled = false;
-                txtSearch.Enabled = false;
-                btnAction.Text = "Delete";
-                btnAction.Visible = true;
-            }
-            else if (deleteCounter > 1)
-            {
-                lblCreate.Enabled = true;
-                lblUpdate.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Visible = false;
-                btnAction.Text = "--";
-                deleteCounter = 0;
-            }
+            lblUpdate.Text = "Cancel";
+            lblCreate.Enabled = false;
+            lblDelete.Enabled = false;
+            lblCreate.Visible = false;
+            lblDelete.Visible = false;
+
+            btnAction.Visible = true;
+            btnAction.Text = "Delete";
         }
 
         private void pbxHome_Click(object sender, EventArgs e)

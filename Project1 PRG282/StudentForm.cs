@@ -464,8 +464,6 @@ namespace Project1_PRG282
                         MessageBox.Show("Image file does not exist: " + imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
-
             }
         }
 
@@ -489,6 +487,11 @@ namespace Project1_PRG282
                     }
                 }
             }
+        }
+
+        private void lvStudent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
