@@ -339,6 +339,7 @@
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.Size = new System.Drawing.Size(669, 540);
             this.dgvStudent.TabIndex = 0;
+            this.dgvStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellContentClick);
             // 
             // List
             // 
@@ -433,6 +434,7 @@
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnNext
             // 

@@ -7,10 +7,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Project1_PRG282.LogicLayer;
 
 namespace Project1_PRG282
 {
@@ -204,6 +206,59 @@ namespace Project1_PRG282
             } else
             {
                 rbFemale.Checked = true;
+            }
+        }
+
+        private void btnAction_Click(object sender, EventArgs e)
+        {
+            if (btnAction.Text == "Create")
+            {
+                try
+                {
+                    Student student = new Student("Dont know what to put here");
+
+                    DataHandler.createStudent(student);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else if (btnAction.Text == "Update")
+            {
+                try
+                {
+                    Student student = new Student("Dont know what to put here");
+
+                    DataHandler.updateStudent(student);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else if (btnAction.Text == "Delete")
+            {
+                string name = txtName.Text;
+
+                DataHandler.deleteStudent(name);
+            }
+        }
+
+        private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
+
+                txtName.Text = row.Cells["Name"].Value.ToString();
+                txtSurname.Text = row.Cells["Surname"].Value.ToString();
+                txtPhone.Text = row.Cells["Phone"].Value.ToString();
+                txtAdress.Text = row.Cells["Address"].Value.ToString();
+                rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
             }
         }
     }
