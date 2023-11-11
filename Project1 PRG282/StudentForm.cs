@@ -14,10 +14,6 @@ namespace Project1_PRG282
 {
     public partial class StudentForm : Form
     {
-        int updateCounter = 0;
-        int createCounter = 0;
-        int deleteCounter = 0;
-        int currentRowIndex = 0;
         public StudentForm()
         {
             InitializeComponent();
@@ -28,8 +24,8 @@ namespace Project1_PRG282
 
         }
 
-        
-        private void Create_Click(object sender, EventArgs e)
+        int createCounter = 0;
+        private void label3_Click(object sender, EventArgs e)
         {
             createCounter++;
             if (createCounter == 1)
@@ -83,42 +79,11 @@ namespace Project1_PRG282
            
         }
 
-        
-
-        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
-        }
-
-
-        private void lvStudent_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtName.Text = lvStudent.SelectedItems[0].SubItems[1].Text;
-            txtSurname.Text = lvStudent.SelectedItems[0].SubItems[2].Text;
-            txtPhone.Text = lvStudent.SelectedItems[0].SubItems[6].Text;
-            txtAdress.Text = lvStudent.SelectedItems[0].SubItems[7].Text;
-            if (lvStudent.SelectedItems[0].SubItems[5].Text == "Male")
-            {
-                rbMale.Checked = true;
-            } else
-            {
-                rbFemale.Checked = true;
-            }
-        }
-
-        private void pbxHome_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
-        }
-
+        int updateCounter = 0;
         private void lblUpdate_Click(object sender, EventArgs e)
         {
-            
             updateCounter++;
-            if (updateCounter == 1)
+            if (updateCounter == 1) 
             {
                 lblCreate.Enabled = false;
                 lblDelete.Enabled = false;
@@ -137,11 +102,7 @@ namespace Project1_PRG282
             }
         }
 
-        private void btnAction_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        int deleteCounter = 0;
         private void lblDelete_Click(object sender, EventArgs e)
         {
             deleteCounter++;
@@ -164,23 +125,28 @@ namespace Project1_PRG282
             }
         }
 
-        private void lblSearch_Click(object sender, EventArgs e)
+        private void pbxHome_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            
         }
 
-        private void pbxSearch_Click(object sender, EventArgs e)
+        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
         }
 
+        int currentRowIndex = 0;
         private void btnStart_Click(object sender, EventArgs e)
         {
             if (dgvStudent.Rows.Count > 0)
             {
                 dgvStudent.ClearSelection();
                 dgvStudent.Rows[0].Selected = true;
-
+                
             }
         }
 
@@ -212,7 +178,7 @@ namespace Project1_PRG282
             }
         }
 
-        private void btnEnd_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             if (dgvStudent.Rows.Count > 0)
             {
@@ -224,9 +190,19 @@ namespace Project1_PRG282
             }
         }
 
-        private void btnAddCourseCodes_Click(object sender, EventArgs e)
+        private void lvStudent_MouseClick(object sender, MouseEventArgs e)
         {
-
+            txtName.Text = lvStudent.SelectedItems[0].SubItems[1].Text;
+            txtSurname.Text = lvStudent.SelectedItems[0].SubItems[2].Text;
+            txtPhone.Text = lvStudent.SelectedItems[0].SubItems[6].Text;
+            txtAdress.Text = lvStudent.SelectedItems[0].SubItems[7].Text;
+            if (lvStudent.SelectedItems[0].SubItems[5].Text == "Male")
+            {
+                rbMale.Checked = true;
+            } else
+            {
+                rbFemale.Checked = true;
+            }
         }
     }
 }
