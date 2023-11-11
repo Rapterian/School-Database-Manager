@@ -41,9 +41,9 @@ namespace Project1_PRG282.DataAccess
         }
         public static void updateStudent(Student student)
         {
-            string query = $"UPDATE Student SET StudentNumber = '{student.Studentnumber}', Name = '{student.Name}', Surname = '{student.Surname}', " +
+            string query = $"UPDATE Student SET Name = '{student.Name}', Surname = '{student.Surname}', " +
                 $"StudentImage = '{student.StudentImage}', DOB = '{student.DOB1}', Gender = '{student.Gender}'," +
-                $" Phone = '{student.Phone}', Address = '{student.Address}', ModuleCode = '{student.ModuleCode}'";
+                $" Phone = '{student.Phone}', Address = '{student.Address}' WHERE StudentNumber='{student.Studentnumber}'";/*, ModuleCode = '{student.ModuleCode}'*/
 
             try
             {
@@ -62,7 +62,7 @@ namespace Project1_PRG282.DataAccess
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                MessageBox.Show(e.Message);
             }
         }
         public static void deleteStudent(int StudentNumber)

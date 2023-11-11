@@ -507,6 +507,7 @@
             this.txtName.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtName.Location = new System.Drawing.Point(3, 36);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(211, 26);
@@ -538,11 +539,13 @@
             this.pbxStudent.BackgroundImage = global::Project1_PRG282.Properties.Resources.kisspng_logo_person_user_person_icon_5b4d2bd25185e8_0544055615317841463339;
             this.pbxStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxStudent.Enabled = false;
             this.pbxStudent.Location = new System.Drawing.Point(262, 3);
             this.pbxStudent.Name = "pbxStudent";
             this.pbxStudent.Size = new System.Drawing.Size(253, 133);
             this.pbxStudent.TabIndex = 1;
             this.pbxStudent.TabStop = false;
+            this.pbxStudent.Click += new System.EventHandler(this.pbxStudent_Click);
             // 
             // lblPhone
             // 

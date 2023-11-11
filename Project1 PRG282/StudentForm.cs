@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Project1_PRG282.LogicLayer;
 using System.Reflection;
+using System.IO;
 
 namespace Project1_PRG282
 {
@@ -46,6 +47,7 @@ namespace Project1_PRG282
             txtSurname.Enabled = true;
             Date.Enabled = true;
             gbGender.Enabled = true;
+            pbxStudent.Enabled = true;
 
             btnAction.Visible = true;
             txtAdress.Text = "";
@@ -106,8 +108,10 @@ namespace Project1_PRG282
                 txtSurname.Enabled = true;
                 Date.Enabled = true;
                 gbGender.Enabled = true;
+                pbxStudent.Enabled = true;  
                 cbxCourseCodes.Visible = true;
                 btnAddCourseCodes.Visible = true;
+
             }
             else if (lblUpdate.Text.Equals("Cancel"))
             {
@@ -116,7 +120,7 @@ namespace Project1_PRG282
                 lblDelete.Enabled = true;
                 lblCreate.Visible = true;
                 lblDelete.Visible = true;
-                btnAction.Visible = true;
+                btnAction.Visible = false;
                 cbxCourseCodes.Visible = false;
                 btnAddCourseCodes.Visible = false;
                 btnAction.Text = "--";
@@ -127,6 +131,7 @@ namespace Project1_PRG282
                 txtSurname.Enabled = false;
                 Date.Enabled = false;
                 gbGender.Enabled = false;
+                pbxStudent.Enabled = false;
             }
         }
 
@@ -138,6 +143,7 @@ namespace Project1_PRG282
             lblDelete.Enabled = false;
             lblCreate.Visible = false;
             lblDelete.Visible = false;
+
             btnAction.Visible = true;
             btnAction.Text = "Delete";
 
@@ -319,18 +325,18 @@ namespace Project1_PRG282
 
         private void lvStudent_MouseClick(object sender, MouseEventArgs e)
         {
-            txtName.Text = lvStudent.SelectedItems[0].SubItems[1].Text;
-            txtSurname.Text = lvStudent.SelectedItems[0].SubItems[2].Text;
-            txtPhone.Text = lvStudent.SelectedItems[0].SubItems[6].Text;
-            txtAdress.Text = lvStudent.SelectedItems[0].SubItems[7].Text;
-            if (lvStudent.SelectedItems[0].SubItems[5].Text == "Male")
-            {
-                rbMale.Checked = true;
-            }
-            else
-            {
-                rbFemale.Checked = true;
-            }
+            //txtName.Text = lvStudent.SelectedItems[0].SubItems[1].Text;
+            //txtSurname.Text = lvStudent.SelectedItems[0].SubItems[2].Text;
+            //txtPhone.Text = lvStudent.SelectedItems[0].SubItems[6].Text;
+            //txtAdress.Text = lvStudent.SelectedItems[0].SubItems[7].Text;
+            //if (lvStudent.SelectedItems[0].SubItems[5].Text == "Male")
+            //{
+            //    rbMale.Checked = true;
+            //}
+            //else
+            //{
+            //    rbFemale.Checked = true;
+            //}
 
             int desiredRowIndex = lvStudent.SelectedIndices[0]; // Replace with the index of the row you want to set focus to
 
@@ -346,7 +352,7 @@ namespace Project1_PRG282
 
         private void btnAction_Click(object sender, EventArgs e)
         {
-
+            
 
             Student student = new Student();
 
@@ -395,6 +401,8 @@ namespace Project1_PRG282
 
                 DataHandler.deleteStudent(studentNumber);
             }
+
+            dgvStudent.DataSource = DataHandler.showStudentData();
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -434,6 +442,51 @@ namespace Project1_PRG282
                 else
                 {
                     rbMale.Checked= true;
+                }
+
+                if (string.IsNullOrWhiteSpace(row.Cells["StudentImage"].Value?.ToString()))
+                {
+                    pbxStudent.BackgroundImage = Project1_PRG282.Properties.Resources.kisspng_logo_person_user_person_icon_5b4d2bd25185e8_0544055615317841463339;
+                }
+                else
+                {
+                    // Assuming the value in the "StudentImage" cell is a file path
+                    string imagePath = row.Cells["StudentImage"].Value.ToString();
+
+                    // Check if the file exists before setting it as the background image
+                    if (File.Exists(imagePath))
+                    {
+                        pbxStudent.BackgroundImage = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        // Handle the case where the file does not exist
+                        MessageBox.Show("Image file does not exist: " + imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+
+            }
+        }
+
+        private void pbxStudent_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                openFileDialog.Title = "Select an Image File";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Load the selected image into the PictureBox
+                        pbxStudent.BackgroundImage = Image.FromFile(openFileDialog.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading the image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
