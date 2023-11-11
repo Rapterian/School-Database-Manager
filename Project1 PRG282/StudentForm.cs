@@ -144,51 +144,160 @@ namespace Project1_PRG282
         int currentRowIndex = 0;
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (dgvStudent.Rows.Count > 0)
+            //if (dgvStudent.Rows.Count > 0)
+            //{
+            //    dgvStudent.ClearSelection();
+            //    dgvStudent.Rows[0].Selected = true;
+
+            //}
+            int desiredRowIndex = 0; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                dgvStudent.ClearSelection();
-                dgvStudent.Rows[0].Selected = true;
-                
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
+
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            if (dgvStudent.Rows.Count > 0)
+            //if (dgvStudent.Rows.Count > 0)
+            //{
+            //    currentRowIndex--;
+            //    if (currentRowIndex < 0)
+            //    {
+            //        currentRowIndex = dgvStudent.Rows.Count - 1;
+            //    }
+            //    dgvStudent.ClearSelection();
+            //    dgvStudent.Rows[currentRowIndex].Selected = true;
+            //}
+            int desiredRowIndex = dgvStudent.CurrentRow.Index - 1; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                currentRowIndex--;
-                if (currentRowIndex < 0)
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
+
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
                 {
-                    currentRowIndex = dgvStudent.Rows.Count - 1;
+                    item.Selected = false;
                 }
-                dgvStudent.ClearSelection();
-                dgvStudent.Rows[currentRowIndex].Selected = true;
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (currentRowIndex < dgvStudent.Rows.Count - 1)
+            //if (currentRowIndex < dgvStudent.Rows.Count - 1)
+            //{
+            //    currentRowIndex++;
+            //    dgvStudent.ClearSelection();
+            //    dgvStudent.Rows[currentRowIndex].Selected = true;
+            //}
+            //else
+            //{
+            //    currentRowIndex = 0; // Must try and alter this so when going next from last row, it goes to first row (it goes to second row if clicked twice when at last row)
+            //}
+
+            int desiredRowIndex = dgvStudent.CurrentRow.Index+1; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                currentRowIndex++;
-                dgvStudent.ClearSelection();
-                dgvStudent.Rows[currentRowIndex].Selected = true;
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
             }
-            else
+
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
             {
-                currentRowIndex = 0; // Must try and alter this so when going next from last row, it goes to first row (it goes to second row if clicked twice when at last row)
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            if (dgvStudent.Rows.Count > 0)
+            //if (dgvStudent.Rows.Count > 0)
+            //{
+            //    dgvStudent.ClearSelection();
+
+            //    int lastIndex = dgvStudent.Rows.Count - 1;
+            //    dgvStudent.Rows[lastIndex].Selected = true;
+
+            //}
+            int desiredRowIndex = dgvStudent.RowCount-2; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                dgvStudent.ClearSelection();
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
 
-                int lastIndex = dgvStudent.Rows.Count - 1;
-                dgvStudent.Rows[lastIndex].Selected = true;
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
 
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
