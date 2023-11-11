@@ -53,6 +53,7 @@ namespace Project1_PRG282
             txtPhone.Text = "";
             txtSearch.Text = "";
             txtSurname.Text = "";
+            rbMale.Checked = true;
             cbxCourseCodes.Visible = true;
             btnAddCourseCodes.Visible = true;
             txtName.Focus();
@@ -345,11 +346,27 @@ namespace Project1_PRG282
 
         private void btnAction_Click(object sender, EventArgs e)
         {
+
+
+            Student student = new Student();
+
+            student.Name = txtName.Text;
+            student.Surname = txtSurname.Text;
+            student.Phone = txtPhone.Text;
+            student.Address=txtAdress.Text;
+            student.DOB1 = Date.Value;
+            if (rbFemale.Checked) 
+            { 
+                student.Gender = "Female"; 
+            } else 
+            { 
+                student.Gender = "Male"; 
+            }
+
             if (btnAction.Text == "Create")
             {
                 try
                 {
-                    Student student = new Student();
 
                     DataHandler.createStudent(student);
 
@@ -363,7 +380,6 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Student student = new Student();
 
                     DataHandler.updateStudent(student);
 
@@ -375,9 +391,9 @@ namespace Project1_PRG282
             }
             else if (btnAction.Text == "Delete")
             {
-                string name = txtName.Text;
+                int studentNumber = int.Parse(lblStudentNr.Text);
 
-                DataHandler.deleteStudent(name);
+                DataHandler.deleteStudent(studentNumber);
             }
         }
 
