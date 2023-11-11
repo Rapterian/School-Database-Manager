@@ -47,6 +47,10 @@
             this.dgvModule = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvModule = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -155,6 +159,7 @@
             this.pbxHome.Size = new System.Drawing.Size(54, 38);
             this.pbxHome.TabIndex = 6;
             this.pbxHome.TabStop = false;
+            this.pbxHome.Click += new System.EventHandler(this.pbxHome_Click);
             // 
             // lblDelete
             // 
@@ -167,6 +172,7 @@
             this.lblDelete.TabIndex = 4;
             this.lblDelete.Text = "Delete";
             this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelete.Click += new System.EventHandler(this.lblDelete_Click);
             // 
             // lblUpdate
             // 
@@ -179,6 +185,7 @@
             this.lblUpdate.TabIndex = 3;
             this.lblUpdate.Text = "Update";
             this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.Click += new System.EventHandler(this.lblUpdate_Click);
             this.lblUpdate.MouseHover += new System.EventHandler(this.label4_MouseHover);
             // 
             // lblCreate
@@ -192,6 +199,7 @@
             this.lblCreate.TabIndex = 2;
             this.lblCreate.Text = "Create";
             this.lblCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCreate.Click += new System.EventHandler(this.lblCreate_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -344,6 +352,11 @@
             // 
             // lvModule
             // 
+            this.lvModule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvModule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvModule.HideSelection = false;
             this.lvModule.Location = new System.Drawing.Point(3, 3);
@@ -351,6 +364,24 @@
             this.lvModule.Size = new System.Drawing.Size(669, 540);
             this.lvModule.TabIndex = 0;
             this.lvModule.UseCompatibleStateImageBehavior = false;
+            this.lvModule.View = System.Windows.Forms.View.Details;
+            this.lvModule.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvModule_MouseClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ModuleCode";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "ModuleName";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "ModuleDescription";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Links";
             // 
             // panel4
             // 
@@ -371,7 +402,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAction.Location = new System.Drawing.Point(298, 23);
             this.btnAction.Name = "btnAction";
-            this.btnAction.Size = new System.Drawing.Size(100, 19);
+            this.btnAction.Size = new System.Drawing.Size(100, 27);
             this.btnAction.TabIndex = 4;
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
@@ -383,10 +414,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.Location = new System.Drawing.Point(471, 22);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(100, 20);
+            this.btnNext.Size = new System.Drawing.Size(100, 28);
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -394,10 +426,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrevious.Location = new System.Drawing.Point(128, 22);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(100, 20);
+            this.btnPrevious.Size = new System.Drawing.Size(100, 28);
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnEnd
             // 
@@ -405,10 +438,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnd.Location = new System.Drawing.Point(577, 22);
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(100, 20);
+            this.btnEnd.Size = new System.Drawing.Size(100, 28);
             this.btnEnd.TabIndex = 1;
             this.btnEnd.Text = ">|";
             this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // btnStart
             // 
@@ -416,10 +450,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnStart.Location = new System.Drawing.Point(22, 22);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(100, 20);
+            this.btnStart.Size = new System.Drawing.Size(100, 28);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -723,6 +758,7 @@
             this.MinimumSize = new System.Drawing.Size(1270, 718);
             this.Name = "CourseForm";
             this.Text = "Courses";
+            this.Load += new System.EventHandler(this.CourseForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).EndInit();
@@ -806,5 +842,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
