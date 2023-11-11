@@ -339,6 +339,7 @@
             this.dgvModule.Size = new System.Drawing.Size(699, 641);
             this.dgvModule.TabIndex = 0;
             this.dgvModule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_CellContentClick);
+            this.dgvModule.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_RowEnter);
             // 
             // tabPage2
             // 

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Project1_PRG282.LogicLayer;
+using System.Reflection;
 
 namespace Project1_PRG282
 {
@@ -26,33 +27,36 @@ namespace Project1_PRG282
 
         }
 
-        int createCounter = 0;
-        private void label3_Click(object sender, EventArgs e)
+
+        private void lblCreate_Click(object sender, EventArgs e)
         {
-            createCounter++;
-            if (createCounter == 1)
-            {
-                lblUpdate.Enabled = false;
-                lblDelete.Enabled = false;
-                txtSearch.Enabled = false;
-                btnAction.Text = "Create";
-                btnAction.Visible = true;
-                txtAdress.Text = "";
-                txtName.Text = "";
-                txtPhone.Text = "";
-                txtSearch.Text = "";
-                txtSurname.Text = "";
-                txtName.Focus();
-            }
-            else if (createCounter > 1)
-            {
-                lblUpdate.Enabled = true;
-                lblDelete.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Text = "--";
-                btnAction.Visible = false;
-                createCounter = 0;
-            }
+
+            lblUpdate.Text = "Cancel";
+            lblCreate.Enabled = false;
+            lblDelete.Enabled = false;
+            lblCreate.Visible = false;
+            lblDelete.Visible = false;
+
+            btnAction.Text = "Create";
+
+            txtAdress.Enabled = true;
+            txtName.Enabled = true;
+            txtPhone.Enabled = true;
+            txtSearch.Enabled = true;
+            txtSurname.Enabled = true;
+            Date.Enabled = true;
+            gbGender.Enabled = true;
+
+            btnAction.Visible = true;
+            txtAdress.Text = "";
+            txtName.Text = "";
+            txtPhone.Text = "";
+            txtSearch.Text = "";
+            txtSurname.Text = "";
+            rbMale.Checked = true;
+            cbxCourseCodes.Visible = true;
+            btnAddCourseCodes.Visible = true;
+            txtName.Focus();
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
@@ -78,53 +82,65 @@ namespace Project1_PRG282
 
         private void label3_MouseClick(object sender, MouseEventArgs e)
         {
-           
+
         }
 
-        int updateCounter = 0;
         private void lblUpdate_Click(object sender, EventArgs e)
         {
-            updateCounter++;
-            if (updateCounter == 1) 
+
+            if (btnAction.Text.Equals("--"))
             {
+                lblUpdate.Text = "Cancel";
                 lblCreate.Enabled = false;
                 lblDelete.Enabled = false;
-                txtSearch.Enabled = false;
+                lblCreate.Visible = false;
+                lblDelete.Visible = false;
+
                 btnAction.Text = "Update";
                 btnAction.Visible = true;
+
+                txtAdress.Enabled = true;
+                txtName.Enabled = true;
+                txtPhone.Enabled = true;
+                txtSearch.Enabled = true;
+                txtSurname.Enabled = true;
+                Date.Enabled = true;
+                gbGender.Enabled = true;
+                cbxCourseCodes.Visible = true;
+                btnAddCourseCodes.Visible = true;
             }
-            else if (updateCounter > 1)
+            else if (lblUpdate.Text.Equals("Cancel"))
             {
+                lblUpdate.Text = "Update";
                 lblCreate.Enabled = true;
                 lblDelete.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Visible = false;
+                lblCreate.Visible = true;
+                lblDelete.Visible = true;
+                btnAction.Visible = true;
+                cbxCourseCodes.Visible = false;
+                btnAddCourseCodes.Visible = false;
                 btnAction.Text = "--";
-                updateCounter = 0;
+
+                txtAdress.Enabled = false;
+                txtName.Enabled = false;
+                txtPhone.Enabled = false;
+                txtSurname.Enabled = false;
+                Date.Enabled = false;
+                gbGender.Enabled = false;
             }
         }
 
-        int deleteCounter = 0;
         private void lblDelete_Click(object sender, EventArgs e)
         {
-            deleteCounter++;
-            if (deleteCounter == 1)
-            {
-                lblCreate.Enabled = false;
-                lblUpdate.Enabled = false;
-                txtSearch.Enabled = false;
-                btnAction.Visible = true;
-                btnAction.Text = "Delete";
-            }
-            else if (deleteCounter > 1)
-            {
-                lblCreate.Enabled = true;
-                lblUpdate.Enabled = true;
-                txtSearch.Enabled = true;
-                btnAction.Visible = false;
-                btnAction.Text = "--";
-                deleteCounter = 0;
-            }
+
+            lblUpdate.Text = "Cancel";
+            lblCreate.Enabled = false;
+            lblDelete.Enabled = false;
+            lblCreate.Visible = false;
+            lblDelete.Visible = false;
+            btnAction.Visible = true;
+            btnAction.Text = "Delete";
+
         }
 
         private void pbxHome_Click(object sender, EventArgs e)
@@ -132,7 +148,7 @@ namespace Project1_PRG282
             this.Hide();
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
-            
+
         }
 
         private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -144,51 +160,160 @@ namespace Project1_PRG282
         int currentRowIndex = 0;
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (dgvStudent.Rows.Count > 0)
+            //if (dgvStudent.Rows.Count > 0)
+            //{
+            //    dgvStudent.ClearSelection();
+            //    dgvStudent.Rows[0].Selected = true;
+
+            //}
+            int desiredRowIndex = 0; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                dgvStudent.ClearSelection();
-                dgvStudent.Rows[0].Selected = true;
-                
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
+
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            if (dgvStudent.Rows.Count > 0)
+            //if (dgvStudent.Rows.Count > 0)
+            //{
+            //    currentRowIndex--;
+            //    if (currentRowIndex < 0)
+            //    {
+            //        currentRowIndex = dgvStudent.Rows.Count - 1;
+            //    }
+            //    dgvStudent.ClearSelection();
+            //    dgvStudent.Rows[currentRowIndex].Selected = true;
+            //}
+            int desiredRowIndex = dgvStudent.CurrentRow.Index - 1; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                currentRowIndex--;
-                if (currentRowIndex < 0)
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
+
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
                 {
-                    currentRowIndex = dgvStudent.Rows.Count - 1;
+                    item.Selected = false;
                 }
-                dgvStudent.ClearSelection();
-                dgvStudent.Rows[currentRowIndex].Selected = true;
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (currentRowIndex < dgvStudent.Rows.Count - 1)
+            //if (currentRowIndex < dgvStudent.Rows.Count - 1)
+            //{
+            //    currentRowIndex++;
+            //    dgvStudent.ClearSelection();
+            //    dgvStudent.Rows[currentRowIndex].Selected = true;
+            //}
+            //else
+            //{
+            //    currentRowIndex = 0; // Must try and alter this so when going next from last row, it goes to first row (it goes to second row if clicked twice when at last row)
+            //}
+
+            int desiredRowIndex = dgvStudent.CurrentRow.Index + 1; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                currentRowIndex++;
-                dgvStudent.ClearSelection();
-                dgvStudent.Rows[currentRowIndex].Selected = true;
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
             }
-            else
+
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
             {
-                currentRowIndex = 0; // Must try and alter this so when going next from last row, it goes to first row (it goes to second row if clicked twice when at last row)
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            if (dgvStudent.Rows.Count > 0)
+            //if (dgvStudent.Rows.Count > 0)
+            //{
+            //    dgvStudent.ClearSelection();
+
+            //    int lastIndex = dgvStudent.Rows.Count - 1;
+            //    dgvStudent.Rows[lastIndex].Selected = true;
+
+            //}
+            int desiredRowIndex = dgvStudent.RowCount - 2; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
             {
-                dgvStudent.ClearSelection();
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
 
-                int lastIndex = dgvStudent.Rows.Count - 1;
-                dgvStudent.Rows[lastIndex].Selected = true;
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
 
+            int desiredIndex = dgvStudent.CurrentRow.Index; // Replace with the index of the item you want to highlight
+
+            if (desiredIndex >= 0 && desiredIndex < lvStudent.Items.Count)
+            {
+                // Deselect all items first
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    item.Selected = false;
+                }
+
+                // Highlight the desired row
+                lvStudent.Items[desiredIndex].Selected = true;
+
+                // Ensure the highlighted item is visible
+                lvStudent.Items[desiredIndex].EnsureVisible();
             }
         }
 
@@ -201,19 +326,47 @@ namespace Project1_PRG282
             if (lvStudent.SelectedItems[0].SubItems[5].Text == "Male")
             {
                 rbMale.Checked = true;
-            } else
+            }
+            else
             {
                 rbFemale.Checked = true;
+            }
+
+            int desiredRowIndex = lvStudent.SelectedIndices[0]; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
+            {
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
             }
         }
 
         private void btnAction_Click(object sender, EventArgs e)
         {
+
+
+            Student student = new Student();
+
+            student.Name = txtName.Text;
+            student.Surname = txtSurname.Text;
+            student.Phone = txtPhone.Text;
+            student.Address=txtAdress.Text;
+            student.DOB1 = Date.Value;
+            if (rbFemale.Checked) 
+            { 
+                student.Gender = "Female"; 
+            } else 
+            { 
+                student.Gender = "Male"; 
+            }
+
             if (btnAction.Text == "Create")
             {
                 try
                 {
-                    Student student = new Student();
 
                     DataHandler.createStudent(student);
 
@@ -227,7 +380,6 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Student student = new Student();
 
                     DataHandler.updateStudent(student);
 
@@ -239,13 +391,28 @@ namespace Project1_PRG282
             }
             else if (btnAction.Text == "Delete")
             {
-                string name = txtName.Text;
+                int studentNumber = int.Parse(lblStudentNr.Text);
 
-                DataHandler.deleteStudent(name);
+                DataHandler.deleteStudent(studentNumber);
             }
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.RowIndex >= 0)
+            //{
+
+            //    DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
+
+            //    txtName.Text = row.Cells["Name"].Value.ToString();
+            //    txtSurname.Text = row.Cells["Surname"].Value.ToString();
+            //    txtPhone.Text = row.Cells["Phone"].Value.ToString();
+            //    txtAdress.Text = row.Cells["Address"].Value.ToString();
+            //    rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
+            //}
+        }
+
+        private void dgvStudent_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -256,7 +423,18 @@ namespace Project1_PRG282
                 txtSurname.Text = row.Cells["Surname"].Value.ToString();
                 txtPhone.Text = row.Cells["Phone"].Value.ToString();
                 txtAdress.Text = row.Cells["Address"].Value.ToString();
-                rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
+                //rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
+                Date.Value = DateTime.Parse(row.Cells["DOB"].Value.ToString());
+                lblStudentNr.Text= row.Cells["StudentNumber"].Value.ToString();
+
+                if (row.Cells["Gender"].Value.ToString().Equals("Female"))
+                {
+                    rbFemale.Checked = true;
+                }
+                else
+                {
+                    rbMale.Checked= true;
+                }
             }
         }
     }

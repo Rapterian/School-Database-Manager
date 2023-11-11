@@ -68,11 +68,11 @@
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.lblDOB = new System.Windows.Forms.Label();
             this.Date = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbGender = new System.Windows.Forms.GroupBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblStudentNr = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbxCourseCodes = new System.Windows.Forms.RichTextBox();
             this.cbxCourseCodes = new System.Windows.Forms.ComboBox();
@@ -96,7 +96,7 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbGender.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,7 +189,7 @@
             this.lblCreate.TabIndex = 2;
             this.lblCreate.Text = "Create";
             this.lblCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCreate.Click += new System.EventHandler(this.label3_Click);
+            this.lblCreate.Click += new System.EventHandler(this.lblCreate_Click);
             this.lblCreate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label3_MouseClick);
             // 
             // tableLayoutPanel3
@@ -331,6 +331,7 @@
             this.dgvStudent.Size = new System.Drawing.Size(669, 540);
             this.dgvStudent.TabIndex = 0;
             this.dgvStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellContentClick);
+            this.dgvStudent.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_RowEnter);
             // 
             // List
             // 
@@ -438,8 +439,8 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.59794F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.40206F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.07195F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.92805F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(527, 681);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -452,14 +453,14 @@
             this.flowLayoutPanel1.Controls.Add(this.txtAdress);
             this.flowLayoutPanel1.Controls.Add(this.lblDOB);
             this.flowLayoutPanel1.Controls.Add(this.Date);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel1.Controls.Add(this.gbGender);
             this.flowLayoutPanel1.Controls.Add(this.label12);
-            this.flowLayoutPanel1.Controls.Add(this.label13);
+            this.flowLayoutPanel1.Controls.Add(this.lblStudentNr);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(521, 413);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(521, 478);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -504,6 +505,7 @@
             // txtName
             // 
             this.txtName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(3, 36);
             this.txtName.Name = "txtName";
@@ -524,6 +526,7 @@
             // txtSurname
             // 
             this.txtSurname.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSurname.Enabled = false;
             this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSurname.Location = new System.Drawing.Point(3, 101);
             this.txtSurname.Name = "txtSurname";
@@ -556,6 +559,7 @@
             // txtPhone
             // 
             this.txtPhone.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtPhone.Enabled = false;
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(10, 181);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -578,6 +582,7 @@
             // txtAdress
             // 
             this.txtAdress.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtAdress.Enabled = false;
             this.txtAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdress.Location = new System.Drawing.Point(10, 246);
             this.txtAdress.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -601,6 +606,7 @@
             // 
             this.Date.CustomFormat = "";
             this.Date.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Date.Enabled = false;
             this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date.Location = new System.Drawing.Point(10, 311);
             this.Date.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -608,18 +614,19 @@
             this.Date.Size = new System.Drawing.Size(258, 26);
             this.Date.TabIndex = 10;
             // 
-            // groupBox1
+            // gbGender
             // 
-            this.groupBox1.Controls.Add(this.rbFemale);
-            this.groupBox1.Controls.Add(this.rbMale);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(10, 343);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.groupBox1.Size = new System.Drawing.Size(258, 58);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
+            this.gbGender.Controls.Add(this.rbFemale);
+            this.gbGender.Controls.Add(this.rbMale);
+            this.gbGender.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbGender.Enabled = false;
+            this.gbGender.Location = new System.Drawing.Point(10, 343);
+            this.gbGender.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.gbGender.Name = "gbGender";
+            this.gbGender.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.gbGender.Size = new System.Drawing.Size(258, 58);
+            this.gbGender.TabIndex = 11;
+            this.gbGender.TabStop = false;
             // 
             // rbFemale
             // 
@@ -649,7 +656,7 @@
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(534, 5);
+            this.label12.Location = new System.Drawing.Point(10, 409);
             this.label12.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(256, 23);
@@ -657,17 +664,17 @@
             this.label12.Text = "Student Number";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label13
+            // lblStudentNr
             // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(534, 38);
-            this.label13.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(256, 23);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "-";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblStudentNr.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblStudentNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentNr.Location = new System.Drawing.Point(10, 442);
+            this.lblStudentNr.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.lblStudentNr.Name = "lblStudentNr";
+            this.lblStudentNr.Size = new System.Drawing.Size(256, 23);
+            this.lblStudentNr.TabIndex = 13;
+            this.lblStudentNr.Text = "-";
+            this.lblStudentNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel8
             // 
@@ -679,23 +686,24 @@
             this.tableLayoutPanel8.Controls.Add(this.cbxCourseCodes, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.btnAddCourseCodes, 2, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 422);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 487);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 256);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 191);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // rtbxCourseCodes
             // 
             this.rtbxCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxCourseCodes.Enabled = false;
             this.rtbxCourseCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbxCourseCodes.Location = new System.Drawing.Point(115, 28);
             this.rtbxCourseCodes.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.rtbxCourseCodes.Name = "rtbxCourseCodes";
             this.rtbxCourseCodes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.rtbxCourseCodes.Size = new System.Drawing.Size(286, 225);
+            this.rtbxCourseCodes.Size = new System.Drawing.Size(286, 160);
             this.rtbxCourseCodes.TabIndex = 2;
             this.rtbxCourseCodes.Text = "Course Codes:";
             // 
@@ -707,6 +715,7 @@
             this.cbxCourseCodes.Name = "cbxCourseCodes";
             this.cbxCourseCodes.Size = new System.Drawing.Size(283, 21);
             this.cbxCourseCodes.TabIndex = 3;
+            this.cbxCourseCodes.Visible = false;
             // 
             // btnAddCourseCodes
             // 
@@ -717,6 +726,7 @@
             this.btnAddCourseCodes.TabIndex = 4;
             this.btnAddCourseCodes.Text = "Add";
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
+            this.btnAddCourseCodes.Visible = false;
             // 
             // StudentForm
             // 
@@ -750,8 +760,8 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbGender.ResumeLayout(false);
+            this.gbGender.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -779,12 +789,12 @@
         private System.Windows.Forms.TextBox txtAdress;
         private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.DateTimePicker Date;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbGender;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblStudentNr;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtName;
