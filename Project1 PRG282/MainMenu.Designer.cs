@@ -121,7 +121,9 @@
             this.lblStudents.TabIndex = 1;
             this.lblStudents.Text = "Students";
             this.lblStudents.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
             this.lblStudents.Click += new System.EventHandler(this.lblStudents_Click);
+
             // 
             // pbxStudents
             // 
@@ -147,6 +149,7 @@
             this.Name = "MainMenu";
             this.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.Text = "MainMenu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,5 +29,5 @@ namespace Project1_PRG282
             this.Hide();
         }
 
-    }
+
 }
