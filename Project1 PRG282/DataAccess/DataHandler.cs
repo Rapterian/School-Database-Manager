@@ -13,80 +13,84 @@ namespace Project1_PRG282.DataAccess
     internal static class DataHandler
     {
         static string connect = "Server = (local); Initial Catalog = PRG281Databse; Integrated Security = SSPI";
+        //connects to the database
 
         public static void createStudent(Student student)
         {
             String query = $"INSERT INTO Student VALUES ('{student.Name}', '{student.Surname}', '{student.StudentImage}', '{student.DOB1}', '{student.Gender}'," +
                 $" '{student.Phone}', '{student.Address}', '{student.ModuleCode}' )";
+            //the query to insert all the values into the table
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))
+                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
                 {
-                    conn.Open();
+                    conn.Open();//opens the connection
 
-                    using(SqlCommand command = new SqlCommand(query, conn))
+                    using(SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
                     {
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                        command.ExecuteNonQuery();//executes the query
+                        conn.Close();//closes the connection
                     }
 
-                    MessageBox.Show("Created Student");
+                    MessageBox.Show("Created Student");//dislpays if the student was created
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);//displays if the student was not created
             }
         }
         public static void updateStudent(Student student)
         {
             string query = $"UPDATE Student SET Name = '{student.Name}', Surname = '{student.Surname}', " +
                 $"StudentImage = '{student.StudentImage}', DOB = '{student.DOB1}', Gender = '{student.Gender}'," +
-                $" Phone = '{student.Phone}', Address = '{student.Address}' WHERE StudentNumber = '{student.Studentnumber}'";/*, ModuleCode = '{student.ModuleCode}'*/
+                $" Phone = '{student.Phone}', Address = '{student.Address}' WHERE StudentNumber = '{student.Studentnumber}'";
+            //the query to update all the values 
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))
+                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
                 {
-                    conn.Open();
+                    conn.Open();//opens the connection
 
-                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
                     {
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                        command.ExecuteNonQuery();//executes the query
+                        conn.Close();//closes the connection
                     }
 
-                    MessageBox.Show("Student Updated");
+                    MessageBox.Show("Student Updated");//dislpays if the student was updated
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message);//displays if the student was not updated
             }
         }
         public static void deleteStudent(int StudentNumber)
         {
             string query = $"Delete from Student Where StudentNumber = '{StudentNumber}'";
+            //the query to delete all the values
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))
+                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
                 {
-                    conn.Open();
+                    conn.Open();//opens the connection
 
-                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
                     {
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                        command.ExecuteNonQuery();//executes the query
+                        conn.Close();//closes the connection
                     }
 
-                    MessageBox.Show($"Data for student {StudentNumber} deleted successfully");
+                    MessageBox.Show($"Data for student {StudentNumber} deleted successfully");//dislpays if the student was deleted
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);//displays if the student was not deleted
             }
         }
         public static void searchStudent()
@@ -97,25 +101,26 @@ namespace Project1_PRG282.DataAccess
         public static void createModule(Module module)
         {
             String query = $"INSERT INTO Module VALUES ('{module.ModuleCode}', '{module.ModuleName}', '{module.ModuleDescription}', '{module.Links}')";
+            //the query to insert all the values
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))
+                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
                 {
-                    conn.Open();
+                    conn.Open();//opens the connection
 
-                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
                     {
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                        command.ExecuteNonQuery();//executes the query
+                        conn.Close();//closes the connection
                     }
 
-                    MessageBox.Show("Created Module");
+                    MessageBox.Show("Created Module");//dislpays if the module was created
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);//displays if the module was not created
             }
         }
 
@@ -123,50 +128,52 @@ namespace Project1_PRG282.DataAccess
         {
             string query = $"UPDATE Module SET ModuleCode = '{module.ModuleCode}', ModuleName = '{module.ModuleName}', ModuleDescription = '{module.ModuleDescription}'," +
                 $" Links = '{module.Links}'";
+            //the query to update all the values
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))
+                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
                 {
-                    conn.Open();
+                    conn.Open();//opens the connection
 
-                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
                     {
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                        command.ExecuteNonQuery();//executes the query
+                        conn.Close();//closes the connection
                     }
 
-                    MessageBox.Show("Module Updated");
+                    MessageBox.Show("Module Updated");//dislpays if the module was updated
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);//displays if the module was not updated
             }
         }
 
         public static void deleteModule(int moduleNumber)
         {
             string query = $"Delete from Module Where ModuleNumber = '{moduleNumber}'";
+            //the query to delete all the values
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))
+                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
                 {
-                    conn.Open();
+                    conn.Open();//opens the connection
 
-                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
                     {
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                        command.ExecuteNonQuery();//executes the query
+                        conn.Close();//closes the connection
                     }
 
-                    MessageBox.Show($"Data for Module {moduleNumber} deleted successfully");
+                    MessageBox.Show($"Data for Module {moduleNumber} deleted successfully");//dislpays if the module was deleted
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);//displays if the module was not deleted
             }
         }
 
@@ -177,20 +184,20 @@ namespace Project1_PRG282.DataAccess
 
         public static DataTable showStudentData()
         {
-            string query = @"SELECT * FROM Student";
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
-            DataTable datatable = new DataTable();
-            adapter.Fill(datatable);
-            return datatable;
+            string query = @"SELECT * FROM Student";//Selects all the values from the student table using datatable
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);//connects the query to the sqldataadapter
+            DataTable datatable = new DataTable();//creates a new datatable
+            adapter.Fill(datatable);//fills the datatable using the adapter
+            return datatable;//returns the datatable
         }
 
         public static DataTable showModuleData()
         {
-            string query = @"SELECT * FROM Modules";
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
-            DataTable datatable = new DataTable();
-            adapter.Fill(datatable);
-            return datatable;
+            string query = @"SELECT * FROM Modules";//Selects all the values from the Modules table using datatable
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);//connects the query to the sqldataadapter
+            DataTable datatable = new DataTable();//creates a new datatable
+            adapter.Fill(datatable);//fills the datatable using the adapter
+            return datatable;//returns the datatable
         }
     }
 }

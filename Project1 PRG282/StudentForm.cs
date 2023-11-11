@@ -354,32 +354,32 @@ namespace Project1_PRG282
         {
             
 
-            Student student = new Student();
+            Student student = new Student();//creates a new instance of Student
 
             student.Name = txtName.Text;
             student.Surname = txtSurname.Text;
             student.Phone = txtPhone.Text;
             student.Address=txtAdress.Text;
             student.DOB1 = Date.Value;
+            //sets the values of the inputed data to the propertis of student
+            
             if (rbFemale.Checked) 
             { 
-                student.Gender = "Female"; 
+                student.Gender = "Female"; //checks if female was chosen
             } else 
             { 
-                student.Gender = "Male"; 
+                student.Gender = "Male"; //checks if male was chosen
             }
 
             if (btnAction.Text == "Create")
             {
                 try
                 {
-
-                    DataHandler.createStudent(student);
-
+                    DataHandler.createStudent(student);//if the button had text of Create it will call the function createStudent
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message);//an error will show if the student could not be created
                 }
             }
             else if (btnAction.Text == "Update")
@@ -387,22 +387,22 @@ namespace Project1_PRG282
                 try
                 {
 
-                    DataHandler.updateStudent(student);
+                    DataHandler.updateStudent(student);//if the button had text of Update it will call the function updateStudent
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message);// an error will show if the student could not be Updated
                 }
             }
             else if (btnAction.Text == "Delete")
             {
                 int studentNumber = int.Parse(lblStudentNr.Text);
 
-                DataHandler.deleteStudent(studentNumber);
+                DataHandler.deleteStudent(studentNumber);//if the button had text of Delete it will call the function deleteStudent
             }
 
-            dgvStudent.DataSource = DataHandler.showStudentData();
+            dgvStudent.DataSource = DataHandler.showStudentData();//fills the datagridview with the new updated table
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
