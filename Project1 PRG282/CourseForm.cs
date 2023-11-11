@@ -318,35 +318,35 @@ namespace Project1_PRG282
             {
                 try
                 {
-                    Module module = new Module();
+                    Module module = new Module();//creates a new nstance of module
 
-                    DataHandler.createModule(module);
+                    DataHandler.createModule(module);//if the button had text of Create it will call the function createModule
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message);//an error will show if the Module could not be created
                 }
             }
             else if (btnAction.Text == "Update")
             {
                 try
                 {
-                    Module module = new Module();
+                    Module module = new Module();//creates a new nstance of module
 
-                    DataHandler.updateModule(module);
+                    DataHandler.updateModule(module);//if the button had text of Update it will call the function updateModule
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message); ;// an error will show if the Module could not be Updated
                 }
             }
             else if (btnAction.Text == "Delete")
             {
                 int number = int.Parse(txtModuleCode.Text);
 
-                DataHandler.deleteModule(number);
+                DataHandler.deleteModule(number);//if the button had text of Delete it will call the function deleteModule
             }
         }
 
