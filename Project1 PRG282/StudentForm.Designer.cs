@@ -150,6 +150,7 @@
             this.pbxHome.Size = new System.Drawing.Size(54, 38);
             this.pbxHome.TabIndex = 6;
             this.pbxHome.TabStop = false;
+            this.pbxHome.Click += new System.EventHandler(this.pbxHome_Click);
             // 
             // lblDelete
             // 
@@ -162,6 +163,7 @@
             this.lblDelete.TabIndex = 4;
             this.lblDelete.Text = "Delete";
             this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelete.Click += new System.EventHandler(this.lblDelete_Click);
             // 
             // lblUpdate
             // 
@@ -174,6 +176,7 @@
             this.lblUpdate.TabIndex = 3;
             this.lblUpdate.Text = "Update";
             this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.Click += new System.EventHandler(this.lblUpdate_Click);
             // 
             // lblCreate
             // 
@@ -384,6 +387,7 @@
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -395,6 +399,7 @@
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // button2
             // 
@@ -404,8 +409,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 26);
             this.button2.TabIndex = 1;
-            this.button2.Text = "btnEnd";
+            this.button2.Text = ">|";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnStart
             // 
@@ -417,6 +423,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // tableLayoutPanel6
             // 
