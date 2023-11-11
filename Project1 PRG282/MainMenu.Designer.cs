@@ -95,6 +95,7 @@
             this.pbxCourses.Size = new System.Drawing.Size(202, 212);
             this.pbxCourses.TabIndex = 0;
             this.pbxCourses.TabStop = false;
+            this.pbxCourses.Click += new System.EventHandler(this.pbxCourses_Click);
             // 
             // panel1
             // 
@@ -132,6 +133,7 @@
             this.pbxStudents.Size = new System.Drawing.Size(202, 212);
             this.pbxStudents.TabIndex = 0;
             this.pbxStudents.TabStop = false;
+            this.pbxStudents.Click += new System.EventHandler(this.pbxStudents_Click);
             // 
             // MainMenu
             // 
