@@ -246,5 +246,20 @@ namespace Project1_PRG282
                 DataHandler.deleteStudent(name);
             }
         }
+
+        private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
+
+                txtName.Text = row.Cells["Name"].Value.ToString();
+                txtSurname.Text = row.Cells["Surname"].Value.ToString();
+                txtPhone.Text = row.Cells["Phone"].Value.ToString();
+                txtAdress.Text = row.Cells["Address"].Value.ToString();
+                rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
+            }
+        }
     }
 }

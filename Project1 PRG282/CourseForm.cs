@@ -227,5 +227,19 @@ namespace Project1_PRG282
                 DataHandler.deleteModule(number);
             }
         }
+
+        private void dgvModule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
+
+                txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
+                txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
+                rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
+                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString()  
+            }
+        }
     }
 }
