@@ -331,6 +331,7 @@
             this.dgvStudent.Size = new System.Drawing.Size(669, 540);
             this.dgvStudent.TabIndex = 0;
             this.dgvStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellContentClick);
+            this.dgvStudent.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_RowEnter);
             // 
             // List
             // 

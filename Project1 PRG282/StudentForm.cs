@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Project1_PRG282.LogicLayer;
+using System.Reflection;
 
 namespace Project1_PRG282
 {
@@ -314,6 +315,17 @@ namespace Project1_PRG282
             {
                 rbFemale.Checked = true;
             }
+
+            int desiredRowIndex = lvStudent.SelectedIndices[0]; // Replace with the index of the row you want to set focus to
+
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
+            {
+                // Set the focus to the desired row and select its first cell
+                dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
+
+                // Optionally, scroll to the selected row
+                dgvStudent.FirstDisplayedScrollingRowIndex = desiredRowIndex;
+            }
         }
 
         private void btnAction_Click(object sender, EventArgs e)
@@ -355,6 +367,21 @@ namespace Project1_PRG282
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.RowIndex >= 0)
+            //{
+
+            //    DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
+
+            //    txtName.Text = row.Cells["Name"].Value.ToString();
+            //    txtSurname.Text = row.Cells["Surname"].Value.ToString();
+            //    txtPhone.Text = row.Cells["Phone"].Value.ToString();
+            //    txtAdress.Text = row.Cells["Address"].Value.ToString();
+            //    rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
+            //}
+        }
+
+        private void dgvStudent_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
