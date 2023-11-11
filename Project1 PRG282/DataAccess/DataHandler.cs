@@ -16,7 +16,7 @@ namespace Project1_PRG282.DataAccess
 
         public static void createStudent(Student student)
         {
-            String query = $"INSERT INTO Student VALUES ('{student.Studentnumber}', '{student.Name}', '{student.Surname}', '{student.StudentImage}', '{student.DOB1}', '{student.Gender}'," +
+            String query = $"INSERT INTO Student VALUES ('{student.Name}', '{student.Surname}', '{student.StudentImage}', '{student.DOB1}', '{student.Gender}'," +
                 $" '{student.Phone}', '{student.Address}', '{student.ModuleCode}' )";
 
             try
@@ -36,7 +36,7 @@ namespace Project1_PRG282.DataAccess
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
         public static void updateStudent(Student student)
@@ -65,9 +65,9 @@ namespace Project1_PRG282.DataAccess
                 Console.WriteLine(e.Message);
             }
         }
-        public static void deleteStudent( int StudentNumber)
+        public static void deleteStudent(string Name)
         {
-            string query = $"Delete from Student Where StudentNumber = '{StudentNumber}'";
+            string query = $"Delete from Student Where Name = '{Name}'";
 
             try
             {
@@ -81,7 +81,7 @@ namespace Project1_PRG282.DataAccess
                         conn.Close();
                     }
 
-                    MessageBox.Show($"Data for student {StudentNumber} deleted successfully");
+                    MessageBox.Show($"Data for student {Name} deleted successfully");
                 }
             }
             catch (Exception e)

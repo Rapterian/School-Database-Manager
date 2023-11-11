@@ -121,7 +121,9 @@
             this.lblStudents.TabIndex = 1;
             this.lblStudents.Text = "Students";
             this.lblStudents.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStudents.Click += new System.EventHandler(this.pbxStudents_Click);
+
+            this.lblStudents.Click += new System.EventHandler(this.lblStudents_Click);
+
             // 
             // pbxStudents
             // 

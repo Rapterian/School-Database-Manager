@@ -1,4 +1,5 @@
 using Project1_PRG282.DataAccess;
+
 using Project1_PRG282.LogicLayer;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using Project1_PRG282.LogicLayer;
 
 namespace Project1_PRG282
 {
@@ -185,6 +188,58 @@ namespace Project1_PRG282
             txtModuleCode.Text = lvModule.SelectedItems[0].SubItems[0].Text;
             txtModuleName.Text = lvModule.SelectedItems[0].SubItems[1].Text;
             rtbxCourseDescription.Text = lvModule.SelectedItems[0].SubItems[2].Text;
+        }
+
+        private void btnAction_Click(object sender, EventArgs e)
+        {
+            if (btnAction.Text == "Create")
+            {
+                try
+                {
+                    Module module = new Module();
+
+                    DataHandler.createModule(module);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else if (btnAction.Text == "Update")
+            {
+                try
+                {
+                    Module module = new Module();
+
+                    DataHandler.updateModule(module);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else if (btnAction.Text == "Delete")
+            {
+                int number = int.Parse(txtModuleCode.Text);
+
+                DataHandler.deleteModule(number);
+            }
+        }
+
+        private void dgvModule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
+
+                txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
+                txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
+                rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
+                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();  
+            }
         }
     }
 }
