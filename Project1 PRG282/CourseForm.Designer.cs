@@ -345,7 +345,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(675, 546);
+            this.tabPage2.Size = new System.Drawing.Size(705, 647);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "List";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -361,7 +361,7 @@
             this.lvModule.HideSelection = false;
             this.lvModule.Location = new System.Drawing.Point(3, 3);
             this.lvModule.Name = "lvModule";
-            this.lvModule.Size = new System.Drawing.Size(669, 540);
+            this.lvModule.Size = new System.Drawing.Size(699, 641);
             this.lvModule.TabIndex = 0;
             this.lvModule.UseCompatibleStateImageBehavior = false;
             this.lvModule.View = System.Windows.Forms.View.Details;
@@ -402,9 +402,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAction.Location = new System.Drawing.Point(298, 23);
             this.btnAction.Name = "btnAction";
-
             this.btnAction.Size = new System.Drawing.Size(100, 30);
-
             this.btnAction.TabIndex = 4;
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
@@ -416,9 +414,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.Location = new System.Drawing.Point(501, 22);
             this.btnNext.Name = "btnNext";
-
             this.btnNext.Size = new System.Drawing.Size(100, 31);
-
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -430,9 +426,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrevious.Location = new System.Drawing.Point(128, 22);
             this.btnPrevious.Name = "btnPrevious";
-
             this.btnPrevious.Size = new System.Drawing.Size(100, 31);
-
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
@@ -444,10 +438,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnd.Location = new System.Drawing.Point(607, 22);
             this.btnEnd.Name = "btnEnd";
-
-
             this.btnEnd.Size = new System.Drawing.Size(100, 31);
-
             this.btnEnd.TabIndex = 1;
             this.btnEnd.Text = ">|";
             this.btnEnd.UseVisualStyleBackColor = true;
@@ -459,9 +450,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnStart.Location = new System.Drawing.Point(22, 22);
             this.btnStart.Name = "btnStart";
-
             this.btnStart.Size = new System.Drawing.Size(100, 31);
-
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;

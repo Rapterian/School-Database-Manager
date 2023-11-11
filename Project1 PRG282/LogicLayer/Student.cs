@@ -25,6 +25,18 @@ namespace Project1_PRG282.LogicLayer
             this.Address = address;
             this.ModuleCode = moduleCode;
         }
+        public Student( string name, string surname, string studentImage, DateTime dOB, string gender, string phone, string address, string moduleCode)
+        {
+            
+            this.Name = name;
+            this.Surname = surname;
+            this.StudentImage = studentImage;
+            DOB1 = dOB;
+            this.Gender = gender;
+            this.Phone = phone;
+            this.Address = address;
+            this.ModuleCode = moduleCode;
+        }
 
         public Student()
         {
