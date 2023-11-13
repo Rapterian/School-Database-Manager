@@ -169,3 +169,22 @@ BEGIN
         Links = @Links
     WHERE ModuleCode = @ModuleCode; -- Assuming ModuleCode is a unique identifier
 END;
+
+USE [PRG281Database]
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteModule]    Script Date: 2023/11/13 23:04:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[DeleteModule]
+    @ModuleCode varchar(200)
+AS
+BEGIN
+    DELETE FROM Modules WHERE ModuleCode = @ModuleCode;
+END;
+
+/****** Object:  StoredProcedure [dbo].[GetStudentImage]    Script Date: 2023/11/13 21:48:33 ******/
+SET ANSI_NULLS ON
+
