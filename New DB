@@ -30,7 +30,7 @@ CREATE TABLE Student (
     StudentNumber int PRIMARY KEY  IDENTITY (1,1),
     Name varchar(30) NOT NULL,
     Surname varchar(30) NOT NULL,
-    StudentImage varchar(100) NOT NULL,
+    StudentImage VARBINARY(MAX),
     DOB Date,
     Gender varchar(10) NOT NULL,
     Phone varchar(15) NOT NULL,
@@ -39,16 +39,17 @@ CREATE TABLE Student (
 GO
 
 INSERT INTO Student VALUES
-( 'Olivia', 'Davis', ' ', '2001-03-10', 'Female', '(555) 555-1212', '789 Oak Ave'),
-( 'Noah', 'Miller', ' ', '1998-11-30', 'Male', '(555) 369-8521', '101 Pine Rd'),
-( 'Sophia', 'Wilson', ' ', '2002-07-08', 'Female', '(555) 246-8130', '222 Cedar Ln'),
-('Ethan', 'Brown', ' ', '1997-04-25', 'Male', '(555) 777-8888', '333 Birch Pl'),
-( 'Mia', 'Anderson', ' ', '2003-01-19', 'Female', '(555) 444-3322', '444 Maple Dr'),
-( 'Aiden', 'Taylor', ' ', '1996-09-05', 'Male', '(555) 999-5555', '555 Spruce Ave'),
-('Isabella', 'White', ' ', '2004-06-12', 'Female', '(555) 123-9876', '66 Willow Rd'),
-('Jackson', 'Martinez', ' ', '1995-02-28', 'Male', '(555) 987-1234', '777 Redwood St'),
-( 'Emma', 'Thompson', ' ', '2000-08-15', 'Female', '(555) 111-2222', '888 Pine St'),
-( 'Liam', 'Williams', ' ', '1999-05-21', 'Male', '(555) 333-4444', '999 Oak Ave');
+( 'Olivia', 'Davis', 0x, '2001-03-10', 'Female', '(555) 555-1212', '789 Oak Ave'),
+( 'Noah', 'Miller', 0x, '1998-11-30', 'Male', '(555) 369-8521', '101 Pine Rd'),
+( 'Sophia', 'Wilson', 0x, '2002-07-08', 'Female', '(555) 246-8130', '222 Cedar Ln'),
+('Ethan', 'Brown', 0x, '1997-04-25', 'Male', '(555) 777-8888', '333 Birch Pl'),
+( 'Mia', 'Anderson', 0x, '2003-01-19', 'Female', '(555) 444-3322', '444 Maple Dr'),
+( 'Aiden', 'Taylor', 0x, '1996-09-05', 'Male', '(555) 999-5555', '555 Spruce Ave'),
+('Isabella', 'White', 0x, '2004-06-12', 'Female', '(555) 123-9876', '66 Willow Rd'),
+('Jackson', 'Martinez', 0x, '1995-02-28', 'Male', '(555) 987-1234', '777 Redwood St'),
+( 'Emma', 'Thompson', 0x, '2000-08-15', 'Female', '(555) 111-2222', '888 Pine St'),
+( 'Liam', 'Williams', 0x, '1999-05-21', 'Male', '(555) 333-4444', '999 Oak Ave');
+
 
 
 -- Create the StudentModules junction table
