@@ -348,6 +348,11 @@ namespace Project1_PRG282
 
                 DataHandler.deleteModule(number);//if the button had text of Delete it will call the function deleteModule
             }
+
+            dgvModule.DataSource = DataHandler.showModuleData();
+
+            // Clear any previous cell highlighting
+            dgvModule.ClearSelection();
         }
 
         private void dgvModule_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -375,6 +380,33 @@ namespace Project1_PRG282
                 txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
                 rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
                 rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
+            }
+        }
+
+        private void lblSearch_Click(object sender, EventArgs e)
+        {
+            dgvModule.DataSource = DataHandler.searchStudent(txtSearch.Text);
+
+            // Clear any previous cell highlighting
+            dgvModule.ClearSelection();
+
+            if (!txtSearch.Text.Equals(""))
+            {
+                // Iterate through each row in the DataGridView
+                foreach (DataGridViewRow row in dgvModule.Rows)
+                {
+                    // Iterate through each cell in the row
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        // Check if the cell value contains the search term
+                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(txtSearch.Text.ToLower()))
+                        {
+                            // Highlight the cell
+                            cell.Style.BackColor = Color.Yellow;
+                            cell.Style.ForeColor = Color.Black; // Optionally, set text color
+                        }
+                    }
+                }
             }
         }
     }

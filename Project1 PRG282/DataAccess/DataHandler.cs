@@ -202,9 +202,30 @@ namespace Project1_PRG282.DataAccess
             }
         }
 
-        public static void searchModule()
+        public static DataTable searchModule(string search)
         {
-            //JJ
+            string query = @"SELECT *
+                     FROM Modules
+                     WHERE ModuleCode LIKE @Search
+                        OR ModuleName LIKE @Search
+                        OR ModuleDescription LIKE @Search
+                        OR Links LIKE @Search";
+
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    // Use SqlParameter to safely handle the search parameter
+                    command.Parameters.AddWithValue("@Search", "%" + search + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
         }
 
         public static DataTable showStudentData()
