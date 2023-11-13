@@ -45,7 +45,7 @@ BEGIN
         Name = @Name,
         Surname = @Surname,
         StudentImage = @StudentImage,
-        DOB1 = @DOB1,
+        DOB = @DOB1,
         Gender = @Gender,
         Phone = @Phone,
         Address = @Address
