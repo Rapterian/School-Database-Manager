@@ -81,8 +81,6 @@
             this.txtModuleCode = new System.Windows.Forms.TextBox();
             this.lblModuleName = new System.Windows.Forms.Label();
             this.txtModuleName = new System.Windows.Forms.TextBox();
-            this.dgvModule = new System.Windows.Forms.DataGridView();
-
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -758,17 +756,6 @@
             this.txtModuleName.Name = "txtModuleName";
             this.txtModuleName.Size = new System.Drawing.Size(258, 26);
             this.txtModuleName.TabIndex = 11;
-            // 
-            // dgvModule
-            // 
-            this.dgvModule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvModule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvModule.Location = new System.Drawing.Point(3, 3);
-            this.dgvModule.Name = "dgvModule";
-            this.dgvModule.Size = new System.Drawing.Size(699, 641);
-            this.dgvModule.TabIndex = 0;
-            this.dgvModule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_CellContentClick);
-            this.dgvModule.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_RowEnter);
             // 
             // CourseForm
             // 
