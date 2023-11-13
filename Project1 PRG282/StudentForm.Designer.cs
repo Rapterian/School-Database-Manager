@@ -232,6 +232,7 @@
             this.lblSearch.TabIndex = 1;
             this.lblSearch.Text = "Search";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
             // 
             // txtSearch
             // 
