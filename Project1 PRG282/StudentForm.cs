@@ -56,6 +56,7 @@ namespace Project1_PRG282
             txtSearch.Text = "";
             txtSurname.Text = "";
             lblStudentNr.Text = "-";
+            rtbxCourseCodes.Text = "Module Codes:";
             rbMale.Checked = true;
             cbxCourseCodes.Visible = true;
             btnAddCourseCodes.Visible = true;
@@ -391,6 +392,20 @@ namespace Project1_PRG282
                 try
                 {
                     DataHandler.createStudent(student);//if the button had text of Create it will call the function createStudent
+                    List<string> modules = new List<string>();
+
+                    string[] lines = rtbxCourseCodes.Text.Split('\n');
+
+                    foreach (string line in lines)
+                    {
+                        string trimmedLine = line.Trim(); // Trim to remove leading or trailing spaces
+                        if (!string.IsNullOrEmpty(trimmedLine) && trimmedLine != "Module Codes:")
+                        {
+                            modules.Add(trimmedLine);
+                        }
+                    }
+                    DataHandler.deleteStudentModules(DataHandler.GetLastStudentNumber());
+                    DataHandler.addStudentModules(modules, DataHandler.GetLastStudentNumber());
                 }
                 catch (Exception ex)
                 {
@@ -403,6 +418,20 @@ namespace Project1_PRG282
                 {
 
                     DataHandler.updateStudent(student);//if the button had text of Update it will call the function updateStudent
+                    List<string> modules = new List<string>();
+
+                    string[] lines = rtbxCourseCodes.Text.Split('\n');
+
+                    foreach (string line in lines)
+                    {
+                        string trimmedLine = line.Trim(); // Trim to remove leading or trailing spaces
+                        if (!string.IsNullOrEmpty(trimmedLine) && trimmedLine != "Module Codes:")
+                        {
+                            modules.Add(trimmedLine);
+                        }
+                    }
+                    DataHandler.deleteStudentModules(DataHandler.GetLastStudentNumber());
+                    DataHandler.addStudentModules(modules, DataHandler.GetLastStudentNumber());
 
                 }
                 catch (Exception ex)
@@ -493,7 +522,7 @@ namespace Project1_PRG282
 
                 rtbxCourseCodes.Clear();
                 List<string> moduleCodes = DataHandler.GetModuleCodesForStudent(int.Parse(lblStudentNr.Text));
-                rtbxCourseCodes.AppendText("Module Codes" + Environment.NewLine);
+                rtbxCourseCodes.AppendText("Module Codes:" + Environment.NewLine);
                 foreach (string moduleCode in moduleCodes)
                 {
                     rtbxCourseCodes.AppendText(moduleCode + Environment.NewLine);
@@ -579,6 +608,16 @@ namespace Project1_PRG282
 
             
 
+
+        }
+
+        private void btnAddCourseCodes_Click(object sender, EventArgs e)
+        {
+            rtbxCourseCodes.AppendText(cbxCourseCodes.Text + Environment.NewLine);
+        }
+
+        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

@@ -18,7 +18,7 @@ namespace Project1_PRG282.DataAccess
         public static void createStudent(Student student)
         {
             String query = $"INSERT INTO Student VALUES ('{student.Name}', '{student.Surname}', '{student.StudentImage}', '{student.DOB1}', '{student.Gender}'," +
-                $" '{student.Phone}', '{student.Address}' )";
+                $" '{student.Phone}', '{student.Address}' );";
             //the query to insert all the values into the table
 
             try
@@ -27,7 +27,7 @@ namespace Project1_PRG282.DataAccess
                 {
                     conn.Open();//opens the connection
 
-                    using(SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
                     {
                         command.ExecuteNonQuery();//executes the query
                         conn.Close();//closes the connection
@@ -90,7 +90,7 @@ namespace Project1_PRG282.DataAccess
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);//displays if the student was not deleted
+                MessageBox.Show(e.Message);//displays if the student was not deleted
             }
         }
         public static DataTable searchStudent(string search)
@@ -144,7 +144,7 @@ namespace Project1_PRG282.DataAccess
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);//displays if the module was not created
+                MessageBox.Show(ex.Message);//displays if the module was not created
             }
         }
 
@@ -171,7 +171,7 @@ namespace Project1_PRG282.DataAccess
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);//displays if the module was not updated
+                MessageBox.Show(e.Message);//displays if the module was not updated
             }
         }
 
@@ -197,7 +197,7 @@ namespace Project1_PRG282.DataAccess
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);//displays if the module was not deleted
+                MessageBox.Show(e.Message);//displays if the module was not deleted
             }
         }
 
@@ -245,7 +245,7 @@ namespace Project1_PRG282.DataAccess
             return datatable;//returns the datatable
         }
 
-        
+
 
         public static List<string> GetModuleCodesForStudent(int studentNumber)
         {
@@ -277,10 +277,100 @@ namespace Project1_PRG282.DataAccess
             catch (Exception ex)
             {
                 // Handle exceptions, log, or throw as needed
-                Console.WriteLine("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
 
             return moduleCodes;
+        }
+
+        public static void addStudentModules(List<string> studentModules, int studentNumber)
+        {
+            foreach (string moduleCode in studentModules)
+            {
+                String query = $"INSERT INTO StudentModules VALUES ('{studentNumber}', '{moduleCode}')";
+                //the query to insert all the values
+
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+                    {
+                        conn.Open();//opens the connection
+
+                        using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                        {
+                            command.ExecuteNonQuery();//executes the query
+                            conn.Close();//closes the connection
+                        }
+
+                        MessageBox.Show("Created Module");//dislpays if the module was created
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);//displays if the module was not created
+                }
+            }
+
+        }
+
+        public static int GetLastStudentNumber()
+        {
+            string query = "SELECT TOP 1 * FROM Student ORDER BY StudentNumber DESC";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        // ExecuteScalar is used to retrieve the last inserted identity value
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            // Handle the case where no identity value was returned
+                            return -1; // or throw an exception, return null, etc.
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1; // or throw an exception, return null, etc.
+            }
+        }
+
+        public static void deleteStudentModules(int studentNumber)
+        {
+            string query = $"Delete from StudentModules Where studentNumber = '{studentNumber}'";
+            //the query to delete all the values
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+                {
+                    conn.Open();//opens the connection
+
+                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                    {
+                        command.ExecuteNonQuery();//executes the query
+                        conn.Close();//closes the connection
+                    }
+
+                    
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);//displays if the module was not deleted
+            }
         }
     }
 }
