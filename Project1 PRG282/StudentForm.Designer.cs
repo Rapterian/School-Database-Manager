@@ -761,6 +761,9 @@
             this.btnDeleteCourseCodes.Text = "Delete";
             this.btnDeleteCourseCodes.UseVisualStyleBackColor = true;
             this.btnDeleteCourseCodes.Visible = false;
+<
+            this.btnDeleteCourseCodes.Click += new System.EventHandler(this.btnDeleteCourseCodes_Click);
+
             // 
             // btnAddCourseCodes
             // 
@@ -772,6 +775,9 @@
             this.btnAddCourseCodes.Text = "Add";
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
             this.btnAddCourseCodes.Visible = false;
+
+            this.btnAddCourseCodes.Click += new System.EventHandler(this.btnAddCourseCodes_Click);
+
             // 
             // rtbxCourseCodes
             // 
