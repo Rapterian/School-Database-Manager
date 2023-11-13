@@ -453,7 +453,7 @@ namespace Project1_PRG282
                 {
                     student.Studentnumber=int.Parse(lblStudentNr.Text);
 
-                    DataHandler.UpdateStudent(student);//if the button had text of Update it will call the function updateStudent
+                    DataHandler.updateStudent(student);//if the button had text of Update it will call the function updateStudent
                     List<string> modules = new List<string>();
 
                     string[] lines = rtbxCourseCodes.Text.Split('\n');
@@ -689,7 +689,5 @@ namespace Project1_PRG282
             }
             rtbxCourseCodes.Lines = linesList.ToArray();
         }
-
-
     }
 }

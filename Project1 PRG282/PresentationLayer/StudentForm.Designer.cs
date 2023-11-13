@@ -371,10 +371,12 @@
             this.lvStudent.TabIndex = 1;
             this.lvStudent.UseCompatibleStateImageBehavior = false;
             this.lvStudent.View = System.Windows.Forms.View.Details;
+            this.lvStudent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvStudent_MouseClick);
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "StudentNumber";
+            this.columnHeader9.Width = 104;
             // 
             // columnHeader10
             // 
