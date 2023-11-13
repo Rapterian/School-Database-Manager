@@ -260,7 +260,7 @@ namespace Project1_PRG282
 
             int desiredRowIndex = dgvStudent.CurrentRow.Index + 1; // Replace with the index of the row you want to set focus to
 
-            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count-1)
             {
                 // Set the focus to the desired row and select its first cell
                 dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
@@ -436,7 +436,7 @@ namespace Project1_PRG282
 
         private void dgvStudent_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 )
             {
 
                 DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];

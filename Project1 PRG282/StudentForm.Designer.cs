@@ -77,6 +77,14 @@
             this.cbxCourseCodes = new System.Windows.Forms.ComboBox();
             this.btnAddCourseCodes = new System.Windows.Forms.Button();
             this.lvStudent = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -724,16 +732,55 @@
             // 
             // lvStudent
             // 
+            this.lvStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16});
             this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvStudent.FullRowSelect = true;
             this.lvStudent.HideSelection = false;
             this.lvStudent.Location = new System.Drawing.Point(3, 3);
             this.lvStudent.Name = "lvStudent";
-            this.lvStudent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lvStudent.Size = new System.Drawing.Size(669, 540);
-            this.lvStudent.TabIndex = 0;
+            this.lvStudent.TabIndex = 1;
             this.lvStudent.UseCompatibleStateImageBehavior = false;
-            this.lvStudent.SelectedIndexChanged += new System.EventHandler(this.lvStudent_SelectedIndexChanged);
+            this.lvStudent.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "StudentNumber";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Name";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Surname";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "StudentImage";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "DOB";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Gender";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Phone";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Address";
             // 
             // StudentForm
             // 
@@ -825,5 +872,13 @@
         private System.Windows.Forms.ComboBox cbxCourseCodes;
         private System.Windows.Forms.Button btnAddCourseCodes;
         private System.Windows.Forms.ListView lvStudent;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
     }
 }

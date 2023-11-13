@@ -392,56 +392,7 @@ namespace Project1_PRG282
 
         private void lblSearch_Click(object sender, EventArgs e)
         {
-            dgvModule.DataSource = DataHandler.searchStudent(txtSearch.Text);
 
-            // Clear any previous cell highlighting
-            dgvModule.ClearSelection();
-
-            // Clear any previous highlighting
-            foreach (ListViewItem item in lvModule.Items)
-            {
-                item.BackColor = SystemColors.Window;
-                item.ForeColor = SystemColors.WindowText;
-            }
-
-            if (!txtSearch.Text.Equals(""))
-            {
-                // Iterate through each row in the DataGridView
-                foreach (DataGridViewRow row in dgvModule.Rows)
-                {
-                    // Iterate through each cell in the row
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        // Check if the cell value contains the search term
-                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(txtSearch.Text.ToLower()))
-                        {
-                            // Highlight the cell
-                            cell.Style.BackColor = Color.Yellow;
-                            cell.Style.ForeColor = Color.Black; // Optionally, set text color
-                        }
-                    }
-                }
-
-                // Iterate through each ListViewItem
-                foreach (ListViewItem item in lvModule.Items)
-                {
-                    // Iterate through each subitem in the ListViewItem
-                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
-                    {
-                        // Check if the subitem text contains the search term
-                        if (subItem.Text.ToLower().Contains(txtSearch.Text.ToLower()))
-                        {
-                            // Highlight the subitem
-                            subItem.BackColor = Color.Yellow;
-                            subItem.ForeColor = Color.Black; // Optionally, set text color
-                        }
-                    }
-                }
-            }
-
-            
-
-           
         }
     }
 }
