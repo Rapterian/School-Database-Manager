@@ -403,6 +403,10 @@ namespace Project1_PRG282
             }
 
             dgvStudent.DataSource = DataHandler.showStudentData();//fills the datagridview with the new updated table
+
+            // Clear any previous cell highlighting
+            dgvStudent.ClearSelection();
+
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -491,6 +495,37 @@ namespace Project1_PRG282
 
         private void lvStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void lblSearch_Click(object sender, EventArgs e)
+        {
+            dgvStudent.DataSource = DataHandler.searchStudent(txtSearch.Text);
+
+            // Clear any previous cell highlighting
+            dgvStudent.ClearSelection();
+
+            if (!txtSearch.Text.Equals(""))
+            {
+                // Iterate through each row in the DataGridView
+                foreach (DataGridViewRow row in dgvStudent.Rows)
+                {
+                    // Iterate through each cell in the row
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        // Check if the cell value contains the search term
+                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(txtSearch.Text.ToLower()))
+                        {
+                            // Highlight the cell
+                            cell.Style.BackColor = Color.Yellow;
+                            cell.Style.ForeColor = Color.Black; // Optionally, set text color
+                        }
+                    }
+                }
+            }
+
+            
+
 
         }
     }
