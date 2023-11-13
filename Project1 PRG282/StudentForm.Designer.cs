@@ -46,7 +46,6 @@
             this.Grid = new System.Windows.Forms.TabPage();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.List = new System.Windows.Forms.TabPage();
-            this.lvStudent = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -68,15 +67,25 @@
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.lblDOB = new System.Windows.Forms.Label();
             this.Date = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbGender = new System.Windows.Forms.GroupBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblStudentNr = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbxCourseCodes = new System.Windows.Forms.RichTextBox();
             this.cbxCourseCodes = new System.Windows.Forms.ComboBox();
+            this.lvStudent = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAddCourseCodes = new System.Windows.Forms.Button();
+            this.btnDeleteCourseCodes = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -96,7 +105,7 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbGender.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +159,7 @@
             this.pbxHome.Size = new System.Drawing.Size(54, 38);
             this.pbxHome.TabIndex = 6;
             this.pbxHome.TabStop = false;
+            this.pbxHome.Click += new System.EventHandler(this.pbxHome_Click);
             // 
             // lblDelete
             // 
@@ -162,6 +172,7 @@
             this.lblDelete.TabIndex = 4;
             this.lblDelete.Text = "Delete";
             this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelete.Click += new System.EventHandler(this.lblDelete_Click);
             // 
             // lblUpdate
             // 
@@ -174,6 +185,7 @@
             this.lblUpdate.TabIndex = 3;
             this.lblUpdate.Text = "Update";
             this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.Click += new System.EventHandler(this.lblUpdate_Click);
             // 
             // lblCreate
             // 
@@ -186,7 +198,7 @@
             this.lblCreate.TabIndex = 2;
             this.lblCreate.Text = "Create";
             this.lblCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCreate.Click += new System.EventHandler(this.label3_Click);
+            this.lblCreate.Click += new System.EventHandler(this.lblCreate_Click);
             this.lblCreate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label3_MouseClick);
             // 
             // tableLayoutPanel3
@@ -229,6 +241,7 @@
             this.lblSearch.TabIndex = 1;
             this.lblSearch.Text = "Search";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
             // 
             // txtSearch
             // 
@@ -327,6 +340,8 @@
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.Size = new System.Drawing.Size(669, 540);
             this.dgvStudent.TabIndex = 0;
+            this.dgvStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellContentClick);
+            this.dgvStudent.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_RowEnter);
             // 
             // List
             // 
@@ -338,16 +353,6 @@
             this.List.TabIndex = 1;
             this.List.Text = "List";
             this.List.UseVisualStyleBackColor = true;
-            // 
-            // lvStudent
-            // 
-            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvStudent.HideSelection = false;
-            this.lvStudent.Location = new System.Drawing.Point(3, 3);
-            this.lvStudent.Name = "lvStudent";
-            this.lvStudent.Size = new System.Drawing.Size(669, 540);
-            this.lvStudent.TabIndex = 0;
-            this.lvStudent.UseCompatibleStateImageBehavior = false;
             // 
             // panel2
             // 
@@ -373,6 +378,7 @@
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnNext
             // 
@@ -384,6 +390,7 @@
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -395,6 +402,7 @@
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // button2
             // 
@@ -404,8 +412,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 26);
             this.button2.TabIndex = 1;
-            this.button2.Text = "btnEnd";
+            this.button2.Text = ">|";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // btnStart
             // 
@@ -417,6 +426,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -429,8 +439,8 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.59794F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.40206F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.07195F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.92805F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(527, 681);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -443,14 +453,14 @@
             this.flowLayoutPanel1.Controls.Add(this.txtAdress);
             this.flowLayoutPanel1.Controls.Add(this.lblDOB);
             this.flowLayoutPanel1.Controls.Add(this.Date);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel1.Controls.Add(this.gbGender);
             this.flowLayoutPanel1.Controls.Add(this.label12);
-            this.flowLayoutPanel1.Controls.Add(this.label13);
+            this.flowLayoutPanel1.Controls.Add(this.lblStudentNr);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(521, 413);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(521, 478);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -495,7 +505,9 @@
             // txtName
             // 
             this.txtName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtName.Location = new System.Drawing.Point(3, 36);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(211, 26);
@@ -515,6 +527,7 @@
             // txtSurname
             // 
             this.txtSurname.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSurname.Enabled = false;
             this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSurname.Location = new System.Drawing.Point(3, 101);
             this.txtSurname.Name = "txtSurname";
@@ -526,11 +539,13 @@
             this.pbxStudent.BackgroundImage = global::Project1_PRG282.Properties.Resources.kisspng_logo_person_user_person_icon_5b4d2bd25185e8_0544055615317841463339;
             this.pbxStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxStudent.Enabled = false;
             this.pbxStudent.Location = new System.Drawing.Point(262, 3);
             this.pbxStudent.Name = "pbxStudent";
             this.pbxStudent.Size = new System.Drawing.Size(253, 133);
             this.pbxStudent.TabIndex = 1;
             this.pbxStudent.TabStop = false;
+            this.pbxStudent.Click += new System.EventHandler(this.pbxStudent_Click);
             // 
             // lblPhone
             // 
@@ -547,6 +562,7 @@
             // txtPhone
             // 
             this.txtPhone.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtPhone.Enabled = false;
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(10, 181);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -569,6 +585,7 @@
             // txtAdress
             // 
             this.txtAdress.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtAdress.Enabled = false;
             this.txtAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdress.Location = new System.Drawing.Point(10, 246);
             this.txtAdress.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -592,6 +609,7 @@
             // 
             this.Date.CustomFormat = "";
             this.Date.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Date.Enabled = false;
             this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date.Location = new System.Drawing.Point(10, 311);
             this.Date.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -599,18 +617,19 @@
             this.Date.Size = new System.Drawing.Size(258, 26);
             this.Date.TabIndex = 10;
             // 
-            // groupBox1
+            // gbGender
             // 
-            this.groupBox1.Controls.Add(this.rbFemale);
-            this.groupBox1.Controls.Add(this.rbMale);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(10, 343);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.groupBox1.Size = new System.Drawing.Size(258, 58);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
+            this.gbGender.Controls.Add(this.rbFemale);
+            this.gbGender.Controls.Add(this.rbMale);
+            this.gbGender.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbGender.Enabled = false;
+            this.gbGender.Location = new System.Drawing.Point(10, 343);
+            this.gbGender.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.gbGender.Name = "gbGender";
+            this.gbGender.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.gbGender.Size = new System.Drawing.Size(258, 58);
+            this.gbGender.TabIndex = 11;
+            this.gbGender.TabStop = false;
             // 
             // rbFemale
             // 
@@ -640,7 +659,7 @@
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(534, 5);
+            this.label12.Location = new System.Drawing.Point(10, 409);
             this.label12.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(256, 23);
@@ -648,17 +667,17 @@
             this.label12.Text = "Student Number";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label13
+            // lblStudentNr
             // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(534, 38);
-            this.label13.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(256, 23);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "-";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblStudentNr.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblStudentNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentNr.Location = new System.Drawing.Point(10, 442);
+            this.lblStudentNr.Margin = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.lblStudentNr.Name = "lblStudentNr";
+            this.lblStudentNr.Size = new System.Drawing.Size(256, 23);
+            this.lblStudentNr.TabIndex = 13;
+            this.lblStudentNr.Text = "-";
+            this.lblStudentNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel8
             // 
@@ -666,29 +685,32 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
+            this.tableLayoutPanel8.Controls.Add(this.btnDeleteCourseCodes, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnAddCourseCodes, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.rtbxCourseCodes, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.cbxCourseCodes, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.btnAddCourseCodes, 2, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 422);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 487);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 256);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 191);
             this.tableLayoutPanel8.TabIndex = 1;
+            this.tableLayoutPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel8_Paint);
             // 
             // rtbxCourseCodes
             // 
             this.rtbxCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxCourseCodes.Enabled = false;
             this.rtbxCourseCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbxCourseCodes.Location = new System.Drawing.Point(115, 28);
             this.rtbxCourseCodes.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.rtbxCourseCodes.Name = "rtbxCourseCodes";
             this.rtbxCourseCodes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.rtbxCourseCodes.Size = new System.Drawing.Size(286, 225);
+            this.rtbxCourseCodes.Size = new System.Drawing.Size(286, 160);
             this.rtbxCourseCodes.TabIndex = 2;
-            this.rtbxCourseCodes.Text = "Course Codes:";
+            this.rtbxCourseCodes.Text = "Module Codes:";
             // 
             // cbxCourseCodes
             // 
@@ -698,16 +720,81 @@
             this.cbxCourseCodes.Name = "cbxCourseCodes";
             this.cbxCourseCodes.Size = new System.Drawing.Size(283, 21);
             this.cbxCourseCodes.TabIndex = 3;
+            this.cbxCourseCodes.Visible = false;
+            // 
+            // lvStudent
+            // 
+            this.lvStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16});
+            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvStudent.HideSelection = false;
+            this.lvStudent.Location = new System.Drawing.Point(3, 3);
+            this.lvStudent.Name = "lvStudent";
+            this.lvStudent.Size = new System.Drawing.Size(669, 540);
+            this.lvStudent.TabIndex = 1;
+            this.lvStudent.UseCompatibleStateImageBehavior = false;
+            this.lvStudent.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "StudentNumber";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Name";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Surname";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "StudentImage";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "DOB";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Gender";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Phone";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Address";
             // 
             // btnAddCourseCodes
             // 
             this.btnAddCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddCourseCodes.Location = new System.Drawing.Point(407, 3);
+            this.btnAddCourseCodes.Location = new System.Drawing.Point(3, 3);
             this.btnAddCourseCodes.Name = "btnAddCourseCodes";
-            this.btnAddCourseCodes.Size = new System.Drawing.Size(111, 19);
-            this.btnAddCourseCodes.TabIndex = 4;
+            this.btnAddCourseCodes.Size = new System.Drawing.Size(109, 19);
+            this.btnAddCourseCodes.TabIndex = 6;
             this.btnAddCourseCodes.Text = "Add";
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
+            this.btnAddCourseCodes.Visible = false;
+            // 
+            // btnDeleteCourseCodes
+            // 
+            this.btnDeleteCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteCourseCodes.Location = new System.Drawing.Point(407, 3);
+            this.btnDeleteCourseCodes.Name = "btnDeleteCourseCodes";
+            this.btnDeleteCourseCodes.Size = new System.Drawing.Size(111, 19);
+            this.btnDeleteCourseCodes.TabIndex = 7;
+            this.btnDeleteCourseCodes.Text = "Delete";
+            this.btnDeleteCourseCodes.UseVisualStyleBackColor = true;
+            this.btnDeleteCourseCodes.Visible = false;
             // 
             // StudentForm
             // 
@@ -741,8 +828,8 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStudent)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbGender.ResumeLayout(false);
+            this.gbGender.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -770,12 +857,12 @@
         private System.Windows.Forms.TextBox txtAdress;
         private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.DateTimePicker Date;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbGender;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblStudentNr;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtName;
@@ -796,8 +883,17 @@
         private System.Windows.Forms.TabPage Grid;
         private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.TabPage List;
-        private System.Windows.Forms.ListView lvStudent;
         private System.Windows.Forms.ComboBox cbxCourseCodes;
+        private System.Windows.Forms.ListView lvStudent;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.Button btnDeleteCourseCodes;
         private System.Windows.Forms.Button btnAddCourseCodes;
     }
 }
