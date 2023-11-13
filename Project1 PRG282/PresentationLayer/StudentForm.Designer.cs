@@ -46,6 +46,15 @@
             this.Grid = new System.Windows.Forms.TabPage();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.List = new System.Windows.Forms.TabPage();
+            this.lvStudent = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -73,19 +82,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lblStudentNr = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDeleteCourseCodes = new System.Windows.Forms.Button();
+            this.btnAddCourseCodes = new System.Windows.Forms.Button();
             this.rtbxCourseCodes = new System.Windows.Forms.RichTextBox();
             this.cbxCourseCodes = new System.Windows.Forms.ComboBox();
-            this.lvStudent = new System.Windows.Forms.ListView();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAddCourseCodes = new System.Windows.Forms.Button();
-            this.btnDeleteCourseCodes = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -353,6 +353,58 @@
             this.List.TabIndex = 1;
             this.List.Text = "List";
             this.List.UseVisualStyleBackColor = true;
+            // 
+            // lvStudent
+            // 
+            this.lvStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16});
+            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvStudent.HideSelection = false;
+            this.lvStudent.Location = new System.Drawing.Point(3, 3);
+            this.lvStudent.Name = "lvStudent";
+            this.lvStudent.Size = new System.Drawing.Size(669, 540);
+            this.lvStudent.TabIndex = 1;
+            this.lvStudent.UseCompatibleStateImageBehavior = false;
+            this.lvStudent.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "StudentNumber";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Name";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Surname";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "StudentImage";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "DOB";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Gender";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Phone";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Address";
             // 
             // panel2
             // 
@@ -699,6 +751,34 @@
             this.tableLayoutPanel8.TabIndex = 1;
             this.tableLayoutPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel8_Paint);
             // 
+            // btnDeleteCourseCodes
+            // 
+            this.btnDeleteCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteCourseCodes.Location = new System.Drawing.Point(407, 3);
+            this.btnDeleteCourseCodes.Name = "btnDeleteCourseCodes";
+            this.btnDeleteCourseCodes.Size = new System.Drawing.Size(111, 19);
+            this.btnDeleteCourseCodes.TabIndex = 7;
+            this.btnDeleteCourseCodes.Text = "Delete";
+            this.btnDeleteCourseCodes.UseVisualStyleBackColor = true;
+            this.btnDeleteCourseCodes.Visible = false;
+<
+            this.btnDeleteCourseCodes.Click += new System.EventHandler(this.btnDeleteCourseCodes_Click);
+
+            // 
+            // btnAddCourseCodes
+            // 
+            this.btnAddCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddCourseCodes.Location = new System.Drawing.Point(3, 3);
+            this.btnAddCourseCodes.Name = "btnAddCourseCodes";
+            this.btnAddCourseCodes.Size = new System.Drawing.Size(109, 19);
+            this.btnAddCourseCodes.TabIndex = 6;
+            this.btnAddCourseCodes.Text = "Add";
+            this.btnAddCourseCodes.UseVisualStyleBackColor = true;
+            this.btnAddCourseCodes.Visible = false;
+
+            this.btnAddCourseCodes.Click += new System.EventHandler(this.btnAddCourseCodes_Click);
+
+            // 
             // rtbxCourseCodes
             // 
             this.rtbxCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -721,80 +801,6 @@
             this.cbxCourseCodes.Size = new System.Drawing.Size(283, 21);
             this.cbxCourseCodes.TabIndex = 3;
             this.cbxCourseCodes.Visible = false;
-            // 
-            // lvStudent
-            // 
-            this.lvStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15,
-            this.columnHeader16});
-            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvStudent.HideSelection = false;
-            this.lvStudent.Location = new System.Drawing.Point(3, 3);
-            this.lvStudent.Name = "lvStudent";
-            this.lvStudent.Size = new System.Drawing.Size(669, 540);
-            this.lvStudent.TabIndex = 1;
-            this.lvStudent.UseCompatibleStateImageBehavior = false;
-            this.lvStudent.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "StudentNumber";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Name";
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Surname";
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "StudentImage";
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "DOB";
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Gender";
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Phone";
-            // 
-            // columnHeader16
-            // 
-            this.columnHeader16.Text = "Address";
-            // 
-            // btnAddCourseCodes
-            // 
-            this.btnAddCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddCourseCodes.Location = new System.Drawing.Point(3, 3);
-            this.btnAddCourseCodes.Name = "btnAddCourseCodes";
-            this.btnAddCourseCodes.Size = new System.Drawing.Size(109, 19);
-            this.btnAddCourseCodes.TabIndex = 6;
-            this.btnAddCourseCodes.Text = "Add";
-            this.btnAddCourseCodes.UseVisualStyleBackColor = true;
-            this.btnAddCourseCodes.Visible = false;
-            // 
-            // btnDeleteCourseCodes
-            // 
-            this.btnDeleteCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDeleteCourseCodes.Location = new System.Drawing.Point(407, 3);
-            this.btnDeleteCourseCodes.Name = "btnDeleteCourseCodes";
-            this.btnDeleteCourseCodes.Size = new System.Drawing.Size(111, 19);
-            this.btnDeleteCourseCodes.TabIndex = 7;
-            this.btnDeleteCourseCodes.Text = "Delete";
-            this.btnDeleteCourseCodes.UseVisualStyleBackColor = true;
-            this.btnDeleteCourseCodes.Visible = false;
             // 
             // StudentForm
             // 

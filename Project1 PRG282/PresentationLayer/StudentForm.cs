@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Project1_PRG282.LogicLayer;
 using System.Reflection;
 using System.IO;
+using System.Collections;
 
 namespace Project1_PRG282
 {
@@ -60,6 +61,7 @@ namespace Project1_PRG282
             rbMale.Checked = true;
             cbxCourseCodes.Visible = true;
             btnAddCourseCodes.Visible = true;
+            btnDeleteCourseCodes.Visible = true;
             txtName.Focus();
         }
 
@@ -124,9 +126,10 @@ namespace Project1_PRG282
                 txtSurname.Enabled = true;
                 Date.Enabled = true;
                 gbGender.Enabled = true;
-                pbxStudent.Enabled = true;  
+                pbxStudent.Enabled = true;
                 cbxCourseCodes.Visible = true;
                 btnAddCourseCodes.Visible = true;
+                btnDeleteCourseCodes.Visible = true;
 
             }
             else if (lblUpdate.Text.Equals("Cancel"))
@@ -139,6 +142,7 @@ namespace Project1_PRG282
                 btnAction.Visible = false;
                 cbxCourseCodes.Visible = false;
                 btnAddCourseCodes.Visible = false;
+                btnDeleteCourseCodes.Visible = false;
                 btnAction.Text = "--";
 
                 txtAdress.Enabled = false;
@@ -273,7 +277,7 @@ namespace Project1_PRG282
 
             int desiredRowIndex = dgvStudent.CurrentRow.Index + 1; // Replace with the index of the row you want to set focus to
 
-            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count-1)
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count - 1)
             {
                 // Set the focus to the desired row and select its first cell
                 dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
@@ -368,22 +372,23 @@ namespace Project1_PRG282
 
         private void btnAction_Click(object sender, EventArgs e)
         {
-            
+
 
             Student student = new Student();//creates a new instance of Student
 
             student.Name = txtName.Text;
             student.Surname = txtSurname.Text;
             student.Phone = txtPhone.Text;
-            student.Address=txtAdress.Text;
+            student.Address = txtAdress.Text;
             student.DOB1 = Date.Value;
             //sets the values of the inputed data to the propertis of student
-            
-            if (rbFemale.Checked) 
-            { 
+
+            if (rbFemale.Checked)
+            {
                 student.Gender = "Female"; //checks if female was chosen
-            } else 
-            { 
+            }
+            else
+            {
                 student.Gender = "Male"; //checks if male was chosen
             }
 
@@ -409,7 +414,7 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);//an error will show if the student could not be created
+                    MessageBox.Show(ex.Message);//an error will show if the student could not be created
                 }
             }
             else if (btnAction.Text == "Update")
@@ -417,7 +422,7 @@ namespace Project1_PRG282
                 try
                 {
 
-                    DataHandler.updateStudent(student);//if the button had text of Update it will call the function updateStudent
+                    DataHandler.UpdateStudent(student);//if the button had text of Update it will call the function updateStudent
                     List<string> modules = new List<string>();
 
                     string[] lines = rtbxCourseCodes.Text.Split('\n');
@@ -436,14 +441,14 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);// an error will show if the student could not be Updated
+                    MessageBox.Show(ex.Message);// an error will show if the student could not be Updated
                 }
             }
             else if (btnAction.Text == "Delete")
             {
                 int studentNumber = int.Parse(lblStudentNr.Text);
 
-                DataHandler.deleteStudent(studentNumber);//if the button had text of Delete it will call the function deleteStudent
+                DataHandler.DeleteStudent(studentNumber);//if the button had text of Delete it will call the function deleteStudent
             }
 
             dgvStudent.DataSource = DataHandler.showStudentData();//fills the datagridview with the new updated table
@@ -477,7 +482,7 @@ namespace Project1_PRG282
 
         private void dgvStudent_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 )
+            if (e.RowIndex >= 0)
             {
 
                 DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
@@ -488,7 +493,7 @@ namespace Project1_PRG282
                 txtAdress.Text = row.Cells["Address"].Value.ToString();
                 //rtbxCourseCodes.Text = row.Cells["ModuleCode"].Value.ToString();
                 Date.Value = DateTime.Parse(row.Cells["DOB"].Value.ToString());
-                lblStudentNr.Text= row.Cells["StudentNumber"].Value.ToString();
+                lblStudentNr.Text = row.Cells["StudentNumber"].Value.ToString();
 
                 if (row.Cells["Gender"].Value.ToString().Equals("Female"))
                 {
@@ -496,7 +501,7 @@ namespace Project1_PRG282
                 }
                 else
                 {
-                    rbMale.Checked= true;
+                    rbMale.Checked = true;
                 }
 
                 if (string.IsNullOrWhiteSpace(row.Cells["StudentImage"].Value?.ToString()))
@@ -606,19 +611,42 @@ namespace Project1_PRG282
                 }
             }
 
-            
+
 
 
         }
 
         private void btnAddCourseCodes_Click(object sender, EventArgs e)
         {
-            rtbxCourseCodes.AppendText(cbxCourseCodes.Text + Environment.NewLine);
+
+            List<string> linesList = rtbxCourseCodes.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToList();
+            linesList.Add(cbxCourseCodes.Text);
+            rtbxCourseCodes.Lines = linesList.ToArray(); ;
         }
 
         private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
         {
+            //int lastLineIndex = rtbxCourseCodes.Lines.Length - 1;
 
+            //if (lastLineIndex >= 0)
+            //{
+            //    int lastLineStartPosition = rtbxCourseCodes.GetFirstCharIndexFromLine(lastLineIndex);
+            //    int lastLineEndPosition = rtbxCourseCodes.GetFirstCharIndexFromLine(lastLineIndex + 1) - 1;
+
+            //    rtbxCourseCodes.Select(lastLineStartPosition, lastLineEndPosition - lastLineStartPosition + 1);
+            //    rtbxCourseCodes.SelectedText = string.Empty;
+            //}
+        }
+
+        private void btnDeleteCourseCodes_Click(object sender, EventArgs e)
+        {
+            List<string> linesList = new List<string>(rtbxCourseCodes.Lines);
+            if (linesList.Count > 0)
+            {
+                // Remove the last item (assuming you know the value)
+                linesList.Remove(linesList.Last());
+            }
+            rtbxCourseCodes.Lines = linesList.ToArray();
         }
     }
 }
