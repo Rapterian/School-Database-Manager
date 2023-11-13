@@ -1,7 +1,13 @@
 create procedure spDisplayStudents
 as 
 begin
-select * from Student
+select [StudentNumber]
+      ,[Name]
+      ,[Surname]
+      ,[DOB]
+      ,[Gender]
+      ,[Phone]
+      ,[Address] from Student
 end
 
 
@@ -52,3 +58,12 @@ BEGIN
     WHERE
         StudentNumber = @StudentNumber;
 END
+
+CREATE PROCEDURE GetStudentImage
+    @StudentNumber INT
+AS
+BEGIN
+    SELECT StudentImage
+    FROM Student
+    WHERE StudentNumber = @StudentNumber;
+END;
