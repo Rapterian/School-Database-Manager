@@ -55,6 +55,7 @@ namespace Project1_PRG282
             txtPhone.Text = "";
             txtSearch.Text = "";
             txtSurname.Text = "";
+            lblStudentNr.Text = "-";
             rbMale.Checked = true;
             cbxCourseCodes.Visible = true;
             btnAddCourseCodes.Visible = true;
@@ -77,9 +78,11 @@ namespace Project1_PRG282
                 item.SubItems.Add(row["Gender"].ToString());
                 item.SubItems.Add(row["Phone"].ToString());
                 item.SubItems.Add(row["Address"].ToString());
-                item.SubItems.Add(row["ModuleCode"].ToString());
                 lvStudent.Items.Add(item);
             }
+
+
+
         }
 
         private void label3_MouseClick(object sender, MouseEventArgs e)
@@ -474,6 +477,14 @@ namespace Project1_PRG282
                         // Handle the case where the file does not exist
                         MessageBox.Show("Image file does not exist: " + imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+
+                rtbxCourseCodes.Clear();
+                List<string> moduleCodes = DataHandler.GetModuleCodesForStudent(int.Parse(lblStudentNr.Text));
+                rtbxCourseCodes.AppendText("Module Codes" + Environment.NewLine);
+                foreach (string moduleCode in moduleCodes)
+                {
+                    rtbxCourseCodes.AppendText(moduleCode + Environment.NewLine);
                 }
             }
         }

@@ -46,7 +46,6 @@
             this.Grid = new System.Windows.Forms.TabPage();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.List = new System.Windows.Forms.TabPage();
-            this.lvStudent = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -77,6 +76,7 @@
             this.rtbxCourseCodes = new System.Windows.Forms.RichTextBox();
             this.cbxCourseCodes = new System.Windows.Forms.ComboBox();
             this.btnAddCourseCodes = new System.Windows.Forms.Button();
+            this.lvStudent = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -344,17 +344,6 @@
             this.List.TabIndex = 1;
             this.List.Text = "List";
             this.List.UseVisualStyleBackColor = true;
-            // 
-            // lvStudent
-            // 
-            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvStudent.HideSelection = false;
-            this.lvStudent.Location = new System.Drawing.Point(3, 3);
-            this.lvStudent.Name = "lvStudent";
-            this.lvStudent.Size = new System.Drawing.Size(669, 540);
-            this.lvStudent.TabIndex = 0;
-            this.lvStudent.UseCompatibleStateImageBehavior = false;
-            this.lvStudent.SelectedIndexChanged += new System.EventHandler(this.lvStudent_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -733,6 +722,19 @@
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
             this.btnAddCourseCodes.Visible = false;
             // 
+            // lvStudent
+            // 
+            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvStudent.FullRowSelect = true;
+            this.lvStudent.HideSelection = false;
+            this.lvStudent.Location = new System.Drawing.Point(3, 3);
+            this.lvStudent.Name = "lvStudent";
+            this.lvStudent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lvStudent.Size = new System.Drawing.Size(669, 540);
+            this.lvStudent.TabIndex = 0;
+            this.lvStudent.UseCompatibleStateImageBehavior = false;
+            this.lvStudent.SelectedIndexChanged += new System.EventHandler(this.lvStudent_SelectedIndexChanged);
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -820,8 +822,8 @@
         private System.Windows.Forms.TabPage Grid;
         private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.TabPage List;
-        private System.Windows.Forms.ListView lvStudent;
         private System.Windows.Forms.ComboBox cbxCourseCodes;
         private System.Windows.Forms.Button btnAddCourseCodes;
+        private System.Windows.Forms.ListView lvStudent;
     }
 }

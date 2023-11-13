@@ -12,7 +12,7 @@ namespace Project1_PRG282.DataAccess
 {
     internal static class DataHandler
     {
-        static string connect = "Server = (local); Initial Catalog = PRG281Databse; Integrated Security = SSPI";
+        static string connect = "Server = (local); Initial Catalog = PRG281Database; Integrated Security = SSPI";
         //connects to the database
 
         public static void createStudent(Student student)
@@ -243,6 +243,44 @@ namespace Project1_PRG282.DataAccess
             DataTable datatable = new DataTable();//creates a new datatable
             adapter.Fill(datatable);//fills the datatable using the adapter
             return datatable;//returns the datatable
+        }
+
+        
+
+        public static List<string> GetModuleCodesForStudent(int studentNumber)
+        {
+            List<string> moduleCodes = new List<string>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connect))
+                {
+                    connection.Open();
+
+                    string query = "SELECT ModuleCode FROM StudentModules WHERE StudentNumber = @StudentNumber";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string moduleCode = reader["ModuleCode"].ToString();
+                                moduleCodes.Add(moduleCode);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, log, or throw as needed
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return moduleCodes;
         }
     }
 }
