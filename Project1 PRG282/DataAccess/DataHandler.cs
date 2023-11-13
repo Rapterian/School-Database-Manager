@@ -93,9 +93,34 @@ namespace Project1_PRG282.DataAccess
                 Console.WriteLine(e.Message);//displays if the student was not deleted
             }
         }
-        public static void searchStudent()
+        public static DataTable searchStudent(string search)
         {
-            //JJ
+            string query = @"SELECT *
+                    FROM Student
+                    WHERE Name LIKE @Search
+                       OR Surname LIKE @Search
+                       OR StudentImage LIKE @Search
+                       OR CONVERT(VARCHAR, DOB, 23) LIKE @Search
+                       OR Gender LIKE @Search
+                       OR Phone LIKE @Search
+                       OR Address LIKE @Search
+                       OR ModuleCode LIKE @Search";
+
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    // Use SqlParameter to safely handle the search parameter
+                    command.Parameters.AddWithValue("@Search", "%" + search + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
         }
 
         public static void createModule(Module module)
