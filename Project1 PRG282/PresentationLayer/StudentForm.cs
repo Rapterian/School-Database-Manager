@@ -391,6 +391,7 @@ namespace Project1_PRG282
                 student.Gender = "Male"; //checks if male was chosen
             }
 
+            student.StudentImage = pbxStudent.Image;
 
             //string filePath = DataHandler.createPermanentFilePath("StudentImages");
 
@@ -417,7 +418,7 @@ namespace Project1_PRG282
             //    }
             //}
 
-            student.StudentImage = pbxStudent.Image as Image;
+
 
 
 
@@ -450,6 +451,7 @@ namespace Project1_PRG282
             {
                 try
                 {
+                    student.Studentnumber=int.Parse(lblStudentNr.Text);
 
                     DataHandler.UpdateStudent(student);//if the button had text of Update it will call the function updateStudent
                     List<string> modules = new List<string>();
@@ -480,6 +482,8 @@ namespace Project1_PRG282
                 DataHandler.DeleteStudent(studentNumber);//if the button had text of Delete it will call the function deleteStudent
             }
 
+            dgvStudent.DataSource = null;
+            dgvStudent.DataBindings.Clear();
             dgvStudent.DataSource = DataHandler.showStudentData();//fills the datagridview with the new updated table
 
             // Clear any previous cell highlighting
@@ -587,6 +591,20 @@ namespace Project1_PRG282
         {
             dgvStudent.DataSource = DataHandler.searchStudent(txtSearch.Text);
 
+            lvStudent.Items.Clear();
+
+            foreach (DataRow row in DataHandler.searchStudent(txtSearch.Text).Rows)
+            {
+                ListViewItem item = new ListViewItem(row["StudentNumber"].ToString());
+                item.SubItems.Add(row["Name"].ToString());
+                item.SubItems.Add(row["Surname"].ToString());
+                item.SubItems.Add(row["DOB"].ToString());
+                item.SubItems.Add(row["Gender"].ToString());
+                item.SubItems.Add(row["Phone"].ToString());
+                item.SubItems.Add(row["Address"].ToString());
+                lvStudent.Items.Add(item);
+            }
+
             // Clear any previous cell highlighting
             dgvStudent.ClearSelection();
 
@@ -615,18 +633,20 @@ namespace Project1_PRG282
                     }
                 }
 
-                // Iterate through each ListViewItem
                 foreach (ListViewItem item in lvStudent.Items)
                 {
-                    // Iterate through each subitem in the ListViewItem
                     foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
                     {
-                        // Check if the subitem text contains the search term
                         if (subItem.Text.ToLower().Contains(txtSearch.Text.ToLower()))
                         {
-                            // Highlight the subitem
                             subItem.BackColor = Color.Yellow;
-                            subItem.ForeColor = Color.Black; // Optionally, set text color
+                            subItem.ForeColor = Color.Black;
+                        }
+                        else
+                        {
+                            // Reset the background and text color for non-matching subitems
+                            subItem.BackColor = lvStudent.BackColor;
+                            subItem.ForeColor = lvStudent.ForeColor;
                         }
                     }
                 }
