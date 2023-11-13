@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Project1_PRG282.LogicLayer;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project1_PRG282
@@ -33,7 +32,7 @@ namespace Project1_PRG282
 
         }
 
-        int createCounter = 0;
+       
         private void lblCreate_Click(object sender, EventArgs e)
         {
             
@@ -71,9 +70,17 @@ namespace Project1_PRG282
                 lblDelete.Enabled = false;
                 lblCreate.Visible = false;
                 lblDelete.Visible = false;
+                btnAction.Visible = true;
+
 
                 btnAction.Text = "Update";
-                btnAction.Visible = true;
+
+                txtModuleCode.Enabled = true;
+                txtModuleName.Enabled = true;
+                rtbxCourseDescription.Enabled = true;
+                rtbxYoutubeLinks.Enabled = true;
+                txtSearch.Enabled = true;
+
             }
             else if (lblUpdate.Text.Equals("Cancel"))
             {
@@ -83,14 +90,21 @@ namespace Project1_PRG282
                 lblCreate.Visible = true;
                 lblDelete.Visible = true;
                 btnAction.Visible = false;
+                
 
                 btnAction.Text = "--";
-
                 txtModuleCode.Enabled = false;
                 txtModuleName.Enabled = false;
                 rtbxCourseDescription.Enabled = false;
                 rtbxYoutubeLinks.Enabled = false;
+
+
+                btnAction.Visible = false;
+                txtModuleCode.Focus();
+
             }
+
+            
         }
 
         int deleteCounter = 0;
@@ -315,26 +329,28 @@ namespace Project1_PRG282
 
         private void btnAction_Click(object sender, EventArgs e)
         {
+            Module module = new Module();//creates a new nstance of module
+            module.ModuleCode = txtModuleCode.Text;
+            module.ModuleName = txtModuleName.Text;
+            module.ModuleDescription=rtbxCourseDescription.Text;
+            module.Links=rtbxYoutubeLinks.Text;
+
             if (btnAction.Text == "Create")
             {
                 try
                 {
-                    Module module = new Module();//creates a new nstance of module
-
                     DataHandler.createModule(module);//if the button had text of Create it will call the function createModule
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);//an error will show if the Module could not be created
+                    MessageBox.Show(ex.Message+"?????");//an error will show if the Module could not be created
                 }
             }
             else if (btnAction.Text == "Update")
             {
                 try
                 {
-                    Module module = new Module();//creates a new nstance of module
-
                     DataHandler.updateModule(module);//if the button had text of Update it will call the function updateModule
 
                 }
@@ -345,9 +361,9 @@ namespace Project1_PRG282
             }
             else if (btnAction.Text == "Delete")
             {
-                int number = int.Parse(txtModuleCode.Text);
+                string moduleCode = txtModuleCode.Text;
 
-                DataHandler.deleteModule(number);//if the button had text of Delete it will call the function deleteModule
+                DataHandler.deleteModule(moduleCode);//if the button had text of Delete it will call the function deleteModule
             }
 
             dgvModule.DataSource = DataHandler.showModuleData();

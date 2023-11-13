@@ -76,7 +76,6 @@ namespace Project1_PRG282
                 ListViewItem item = new ListViewItem(row["StudentNumber"].ToString());
                 item.SubItems.Add(row["Name"].ToString());
                 item.SubItems.Add(row["Surname"].ToString());
-                item.SubItems.Add(row["StudentImage"].ToString());
                 item.SubItems.Add(row["DOB"].ToString());
                 item.SubItems.Add(row["Gender"].ToString());
                 item.SubItems.Add(row["Phone"].ToString());
@@ -183,7 +182,7 @@ namespace Project1_PRG282
             mainMenu.Show();
         }
 
-        int currentRowIndex = 0;
+
         private void btnStart_Click(object sender, EventArgs e)
         {
             //if (dgvStudent.Rows.Count > 0)
@@ -392,6 +391,37 @@ namespace Project1_PRG282
                 student.Gender = "Male"; //checks if male was chosen
             }
 
+            student.StudentImage = pbxStudent.Image;
+
+            //string filePath = DataHandler.createPermanentFilePath("StudentImages");
+
+
+            //// Optionally, you can check if the file exists
+            //if (!File.Exists(filePath))
+            //{
+            //    File.Create(filePath).Close();
+            //}
+            //else
+            //{
+            //    // Get the image from pbxStudent
+            //    Image image = pbxStudent.Image as Image;
+
+            //    // Save the image to the file path
+            //    if (image != null)
+            //    {
+            //        image.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //        Console.WriteLine("Image saved successfully.");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("pbxStudent.Image is not an Image object.");
+            //    }
+            //}
+
+
+
+
+
             if (btnAction.Text == "Create")
             {
                 try
@@ -421,8 +451,9 @@ namespace Project1_PRG282
             {
                 try
                 {
+                    student.Studentnumber=int.Parse(lblStudentNr.Text);
 
-                    DataHandler.UpdateStudent(student);//if the button had text of Update it will call the function updateStudent
+                    DataHandler.updateStudent(student);//if the button had text of Update it will call the function updateStudent
                     List<string> modules = new List<string>();
 
                     string[] lines = rtbxCourseCodes.Text.Split('\n');
@@ -451,6 +482,8 @@ namespace Project1_PRG282
                 DataHandler.DeleteStudent(studentNumber);//if the button had text of Delete it will call the function deleteStudent
             }
 
+            dgvStudent.DataSource = null;
+            dgvStudent.DataBindings.Clear();
             dgvStudent.DataSource = DataHandler.showStudentData();//fills the datagridview with the new updated table
 
             // Clear any previous cell highlighting
@@ -482,7 +515,7 @@ namespace Project1_PRG282
 
         private void dgvStudent_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < lvStudent.Items.Count)
             {
 
                 DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
@@ -504,26 +537,18 @@ namespace Project1_PRG282
                     rbMale.Checked = true;
                 }
 
-                if (string.IsNullOrWhiteSpace(row.Cells["StudentImage"].Value?.ToString()))
+                int studentNumber = int.Parse(lblStudentNr.Text);
+                Image studentImage = DataHandler.GetStudentImage(studentNumber);
+
+                if (studentImage != null)
                 {
-                    pbxStudent.BackgroundImage = Project1_PRG282.Properties.Resources.kisspng_logo_person_user_person_icon_5b4d2bd25185e8_0544055615317841463339;
+                    pbxStudent.Image = studentImage;
                 }
                 else
                 {
-                    // Assuming the value in the "StudentImage" cell is a file path
-                    string imagePath = row.Cells["StudentImage"].Value.ToString();
-
-                    // Check if the file exists before setting it as the background image
-                    if (File.Exists(imagePath))
-                    {
-                        pbxStudent.BackgroundImage = Image.FromFile(imagePath);
-                    }
-                    else
-                    {
-                        // Handle the case where the file does not exist
-                        MessageBox.Show("Image file does not exist: " + imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    pbxStudent.Image = Project1_PRG282.Properties.Resources.kisspng_logo_person_user_person_icon_5b4d2bd25185e8_0544055615317841463339;
                 }
+
 
                 rtbxCourseCodes.Clear();
                 List<string> moduleCodes = DataHandler.GetModuleCodesForStudent(int.Parse(lblStudentNr.Text));
@@ -547,7 +572,7 @@ namespace Project1_PRG282
                     try
                     {
                         // Load the selected image into the PictureBox
-                        pbxStudent.BackgroundImage = Image.FromFile(openFileDialog.FileName);
+                        pbxStudent.Image = Image.FromFile(openFileDialog.FileName);
                     }
                     catch (Exception ex)
                     {
@@ -565,6 +590,20 @@ namespace Project1_PRG282
         private void lblSearch_Click(object sender, EventArgs e)
         {
             dgvStudent.DataSource = DataHandler.searchStudent(txtSearch.Text);
+
+            lvStudent.Items.Clear();
+
+            foreach (DataRow row in DataHandler.searchStudent(txtSearch.Text).Rows)
+            {
+                ListViewItem item = new ListViewItem(row["StudentNumber"].ToString());
+                item.SubItems.Add(row["Name"].ToString());
+                item.SubItems.Add(row["Surname"].ToString());
+                item.SubItems.Add(row["DOB"].ToString());
+                item.SubItems.Add(row["Gender"].ToString());
+                item.SubItems.Add(row["Phone"].ToString());
+                item.SubItems.Add(row["Address"].ToString());
+                lvStudent.Items.Add(item);
+            }
 
             // Clear any previous cell highlighting
             dgvStudent.ClearSelection();
@@ -594,18 +633,20 @@ namespace Project1_PRG282
                     }
                 }
 
-                // Iterate through each ListViewItem
                 foreach (ListViewItem item in lvStudent.Items)
                 {
-                    // Iterate through each subitem in the ListViewItem
                     foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
                     {
-                        // Check if the subitem text contains the search term
                         if (subItem.Text.ToLower().Contains(txtSearch.Text.ToLower()))
                         {
-                            // Highlight the subitem
                             subItem.BackColor = Color.Yellow;
-                            subItem.ForeColor = Color.Black; // Optionally, set text color
+                            subItem.ForeColor = Color.Black;
+                        }
+                        else
+                        {
+                            // Reset the background and text color for non-matching subitems
+                            subItem.BackColor = lvStudent.BackColor;
+                            subItem.ForeColor = lvStudent.ForeColor;
                         }
                     }
                 }
