@@ -63,28 +63,48 @@ namespace Project1_PRG282
         int updateCounter = 0;
         private void lblUpdate_Click(object sender, EventArgs e)
         {
-            lblUpdate.Text = "Cancel";
-            lblCreate.Enabled = false;
-            lblDelete.Enabled = false;
-            lblCreate.Visible = false;
-            lblDelete.Visible = false;
-
-            btnAction.Text = "Update";
-
-            txtModuleCode.Enabled = true;
-            txtModuleName.Enabled = true;
-            rtbxCourseDescription.Enabled = true;
-            rtbxYoutubeLinks.Enabled = true;
-            txtSearch.Enabled = true;
+            if (btnAction.Text.Equals("--"))
+            {
+                lblUpdate.Text = "Cancel";
+                lblCreate.Enabled = false;
+                lblDelete.Enabled = false;
+                lblCreate.Visible = false;
+                lblDelete.Visible = false;
+                btnAction.Visible = true;
 
 
-            btnAction.Visible = true;
-            txtModuleCode.Text = "";
-            txtModuleName.Text = "";
-            rtbxCourseDescription.Text = "";
-            txtSearch.Text = "";
-            rtbxYoutubeLinks.Text = "";
-            txtModuleCode.Focus();
+                btnAction.Text = "Update";
+
+                txtModuleCode.Enabled = true;
+                txtModuleName.Enabled = true;
+                rtbxCourseDescription.Enabled = true;
+                rtbxYoutubeLinks.Enabled = true;
+                txtSearch.Enabled = true;
+
+            }
+            else if (lblUpdate.Text.Equals("Cancel"))
+            {
+                lblUpdate.Text = "Update";
+                lblCreate.Enabled = true;
+                lblDelete.Enabled = true;
+                lblCreate.Visible = true;
+                lblDelete.Visible = true;
+                btnAction.Visible = false;
+                
+
+                btnAction.Text = "--";
+                txtModuleCode.Enabled = false;
+                txtModuleName.Enabled = false;
+                rtbxCourseDescription.Enabled = false;
+                rtbxYoutubeLinks.Enabled = false;
+
+
+                btnAction.Visible = false;
+                txtModuleCode.Focus();
+
+            }
+
+            
         }
 
         int deleteCounter = 0;
@@ -341,9 +361,9 @@ namespace Project1_PRG282
             }
             else if (btnAction.Text == "Delete")
             {
-                int number = int.Parse(txtModuleCode.Text);
+                string moduleCode = txtModuleCode.Text;
 
-                DataHandler.deleteModule(number);//if the button had text of Delete it will call the function deleteModule
+                DataHandler.deleteModule(moduleCode);//if the button had text of Delete it will call the function deleteModule
             }
 
             dgvModule.DataSource = DataHandler.showModuleData();
