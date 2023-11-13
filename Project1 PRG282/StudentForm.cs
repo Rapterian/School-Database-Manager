@@ -505,6 +505,13 @@ namespace Project1_PRG282
             // Clear any previous cell highlighting
             dgvStudent.ClearSelection();
 
+            // Clear any previous highlighting
+            foreach (ListViewItem item in lvStudent.Items)
+            {
+                item.BackColor = SystemColors.Window;
+                item.ForeColor = SystemColors.WindowText;
+            }
+
             if (!txtSearch.Text.Equals(""))
             {
                 // Iterate through each row in the DataGridView
@@ -519,6 +526,22 @@ namespace Project1_PRG282
                             // Highlight the cell
                             cell.Style.BackColor = Color.Yellow;
                             cell.Style.ForeColor = Color.Black; // Optionally, set text color
+                        }
+                    }
+                }
+
+                // Iterate through each ListViewItem
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    // Iterate through each subitem in the ListViewItem
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        // Check if the subitem text contains the search term
+                        if (subItem.Text.ToLower().Contains(txtSearch.Text.ToLower()))
+                        {
+                            // Highlight the subitem
+                            subItem.BackColor = Color.Yellow;
+                            subItem.ForeColor = Color.Black; // Optionally, set text color
                         }
                     }
                 }

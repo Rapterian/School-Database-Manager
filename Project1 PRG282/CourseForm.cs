@@ -371,16 +371,16 @@ namespace Project1_PRG282
 
         private void dgvModule_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
+            //if (e.RowIndex >= 0)
+            //{
 
-                DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
+            //    DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
 
-                txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
-                txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
-                rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
-                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
-            }
+            //    txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
+            //    txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
+            //    rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
+            //    rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
+            //}
         }
 
         private void lblSearch_Click(object sender, EventArgs e)
@@ -389,6 +389,13 @@ namespace Project1_PRG282
 
             // Clear any previous cell highlighting
             dgvModule.ClearSelection();
+
+            // Clear any previous highlighting
+            foreach (ListViewItem item in lvModule.Items)
+            {
+                item.BackColor = SystemColors.Window;
+                item.ForeColor = SystemColors.WindowText;
+            }
 
             if (!txtSearch.Text.Equals(""))
             {
@@ -407,7 +414,27 @@ namespace Project1_PRG282
                         }
                     }
                 }
+
+                // Iterate through each ListViewItem
+                foreach (ListViewItem item in lvModule.Items)
+                {
+                    // Iterate through each subitem in the ListViewItem
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        // Check if the subitem text contains the search term
+                        if (subItem.Text.ToLower().Contains(txtSearch.Text.ToLower()))
+                        {
+                            // Highlight the subitem
+                            subItem.BackColor = Color.Yellow;
+                            subItem.ForeColor = Color.Black; // Optionally, set text color
+                        }
+                    }
+                }
             }
+
+            
+
+           
         }
     }
 }
