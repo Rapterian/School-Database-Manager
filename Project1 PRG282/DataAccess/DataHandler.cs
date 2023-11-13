@@ -59,7 +59,7 @@ namespace Project1_PRG282.DataAccess
                         // Define the parameters for the stored procedure
                         command.Parameters.Add(new SqlParameter("@Name", student.Name));
                         command.Parameters.Add(new SqlParameter("@Surname", student.Surname));
-                        command.Parameters.Add(new SqlParameter("@StudentImage", student.StudentImage));
+                        command.Parameters.Add(new SqlParameter("@StudentImage", ImageToByteArray(student.StudentImage)));
                         command.Parameters.Add(new SqlParameter("@DOB1", student.DOB1));
                         command.Parameters.Add(new SqlParameter("@Gender", student.Gender));
                         command.Parameters.Add(new SqlParameter("@Phone", student.Phone));
@@ -118,14 +118,11 @@ namespace Project1_PRG282.DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        // Convert Image to byte array
-                        byte[] imageBytes = ImageToByteArray(student.StudentImage);
-
                         // Define the parameters for the stored procedure
                         command.Parameters.Add(new SqlParameter("@StudentNumber", student.Studentnumber));
                         command.Parameters.Add(new SqlParameter("@Name", student.Name));
                         command.Parameters.Add(new SqlParameter("@Surname", student.Surname));
-                        command.Parameters.Add(new SqlParameter("@StudentImage", SqlDbType.VarBinary) { Value = imageBytes });
+                        command.Parameters.Add(new SqlParameter("@StudentImage", ImageToByteArray(student.StudentImage)));
                         command.Parameters.Add(new SqlParameter("@DOB1", student.DOB1));
                         command.Parameters.Add(new SqlParameter("@Gender", student.Gender));
                         command.Parameters.Add(new SqlParameter("@Phone", student.Phone));
@@ -136,7 +133,7 @@ namespace Project1_PRG282.DataAccess
 
                     conn.Close();
 
-                    MessageBox.Show("Student Updated");
+                    MessageBox.Show("Updated Student");
                 }
             }
             catch (Exception ex)
@@ -189,7 +186,7 @@ namespace Project1_PRG282.DataAccess
                 {
                     conn.Open();
 
-                    using (SqlCommand command = new SqlCommand("spDeleteStudents", conn))
+                    using (SqlCommand command = new SqlCommand("spDeletStudents", conn))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -286,7 +283,7 @@ namespace Project1_PRG282.DataAccess
                         conn.Close();
                     }
 
-                    MessageBox.Show("Created Module");
+                    MessageBox.Show("Created Module ");
                 }
             }
             catch (Exception ex)
@@ -566,7 +563,7 @@ namespace Project1_PRG282.DataAccess
                             conn.Close();//closes the connection
                         }
 
-                        MessageBox.Show("Created Module");//dislpays if the module was created
+                        
                     }
                 }
                 catch (Exception ex)
