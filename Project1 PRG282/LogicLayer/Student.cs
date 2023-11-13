@@ -12,7 +12,10 @@ namespace Project1_PRG282.LogicLayer
         string name, surname, studentImage;
         DateTime DOB;
         string gender, phone, address, moduleCode;
+        //creates new variebles for the student class
 
+
+        //creates a constructor
         public Student(int studentnumber, string name, string surname, string studentImage, DateTime dOB, string gender, string phone, string address, string moduleCode)
         {
             this.Studentnumber = studentnumber;
@@ -38,11 +41,15 @@ namespace Project1_PRG282.LogicLayer
             this.ModuleCode = moduleCode;
         }
 
+
+        //creates an empty constructor
         public Student()
         {
 
         }
 
+
+        //gets and sets all the variables
         public int Studentnumber { get => studentnumber; set => studentnumber = value; }
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
