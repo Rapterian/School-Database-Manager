@@ -238,7 +238,7 @@ namespace Project1_PRG282.DataAccess
             }
         }
 
-        public static void createModule(Module module)
+        /*public static void createModule(Module module)
         {
             String query = $"INSERT INTO Module VALUES ('{module.ModuleCode}', '{module.ModuleName}', '{module.ModuleDescription}', '{module.Links}')";
             //the query to insert all the values
@@ -262,9 +262,41 @@ namespace Project1_PRG282.DataAccess
             {
                 MessageBox.Show(ex.Message);//displays if the module was not created
             }
+        }*/
+
+        public static void createModule(Module module)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand("InsertModule", conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        command.Parameters.AddWithValue("@ModuleCode", module.ModuleCode);
+                        command.Parameters.AddWithValue("@ModuleName", module.ModuleName);
+                        command.Parameters.AddWithValue("@ModuleDescription", module.ModuleDescription);
+                        command.Parameters.AddWithValue("@Links", module.Links);
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show("Created Module");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        public static void updateModule(Module module)
+
+        /*public static void updateModule(Module module)
         {
             string query = $"UPDATE Modules SET ModuleCode = '{module.ModuleCode}', ModuleName = '{module.ModuleName}', ModuleDescription = '{module.ModuleDescription}'," +
                 $" Links = '{module.Links}'";
@@ -289,9 +321,41 @@ namespace Project1_PRG282.DataAccess
             {
                 MessageBox.Show(e.Message);//displays if the module was not updated
             }
+        }*/
+
+        public static void updateModule(Module module)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand("UpdateModule", conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        command.Parameters.AddWithValue("@ModuleCode", module.ModuleCode);
+                        command.Parameters.AddWithValue("@ModuleName", module.ModuleName);
+                        command.Parameters.AddWithValue("@ModuleDescription", module.ModuleDescription);
+                        command.Parameters.AddWithValue("@Links", module.Links);
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show("Module Updated");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        public static void deleteModule(int moduleNumber)
+
+        /*public static void deleteModule(int moduleNumber)
         {
             string query = $"Delete from Module Where ModuleNumber = '{moduleNumber}'";
             //the query to delete all the values
@@ -311,11 +375,42 @@ namespace Project1_PRG282.DataAccess
                     MessageBox.Show($"Data for Module {moduleNumber} deleted successfully");//dislpays if the module was deleted
                 }
             }
+
+
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);//displays if the module was not deleted
             }
+        }*/
+
+        public static void deleteModule(int moduleNumber)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand("DeleteModule", conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        command.Parameters.AddWithValue("@ModuleNumber", moduleNumber);
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show($"Data for Module {moduleNumber} deleted successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         public static DataTable searchModule(string search)
         {
@@ -384,14 +479,35 @@ namespace Project1_PRG282.DataAccess
         }
 
 
-        public static DataTable showModuleData()
+        /*public static DataTable showModuleData()
         {
             string query = @"SELECT * FROM Modules";//Selects all the values from the Modules table using datatable
             SqlDataAdapter adapter = new SqlDataAdapter(query, connect);//connects the query to the sqldataadapter
             DataTable datatable = new DataTable();//creates a new datatable
             adapter.Fill(datatable);//fills the datatable using the adapter
             return datatable;//returns the datatable
+        }*/
+
+        public static DataTable showModuleData()
+        {
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand("ShowModuleData", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable datatable = new DataTable();
+                        adapter.Fill(datatable);
+                        return datatable;
+                    }
+                }
+            }
         }
+
 
 
 
