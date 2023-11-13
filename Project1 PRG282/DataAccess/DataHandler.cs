@@ -124,82 +124,96 @@ namespace Project1_PRG282.DataAccess
 
         public static void createModule(Module module)
         {
-            String query = $"INSERT INTO Module VALUES ('{module.ModuleCode}', '{module.ModuleName}', '{module.ModuleDescription}', '{module.Links}')";
-            //the query to insert all the values
-
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+                using (SqlConnection conn = new SqlConnection(connect))
                 {
-                    conn.Open();//opens the connection
+                    conn.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                    using (SqlCommand command = new SqlCommand("InsertModule", conn))
                     {
-                        command.ExecuteNonQuery();//executes the query
-                        conn.Close();//closes the connection
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        command.Parameters.AddWithValue("@ModuleCode", module.ModuleCode);
+                        command.Parameters.AddWithValue("@ModuleName", module.ModuleName);
+                        command.Parameters.AddWithValue("@ModuleDescription", module.ModuleDescription);
+                        command.Parameters.AddWithValue("@Links", module.Links);
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
                     }
 
-                    MessageBox.Show("Created Module");//dislpays if the module was created
+                    MessageBox.Show("Created Module");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);//displays if the module was not created
+                MessageBox.Show(ex.Message);
             }
         }
+
 
         public static void updateModule(Module module)
         {
-            string query = $"UPDATE Module SET ModuleCode = '{module.ModuleCode}', ModuleName = '{module.ModuleName}', ModuleDescription = '{module.ModuleDescription}'," +
-                $" Links = '{module.Links}'";
-            //the query to update all the values
-
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+                using (SqlConnection conn = new SqlConnection(connect))
                 {
-                    conn.Open();//opens the connection
+                    conn.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                    using (SqlCommand command = new SqlCommand("UpdateModule", conn))
                     {
-                        command.ExecuteNonQuery();//executes the query
-                        conn.Close();//closes the connection
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        command.Parameters.AddWithValue("@ModuleCode", module.ModuleCode);
+                        command.Parameters.AddWithValue("@ModuleName", module.ModuleName);
+                        command.Parameters.AddWithValue("@ModuleDescription", module.ModuleDescription);
+                        command.Parameters.AddWithValue("@Links", module.Links);
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
                     }
 
-                    MessageBox.Show("Module Updated");//dislpays if the module was updated
+                    MessageBox.Show("Module Updated");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);//displays if the module was not updated
+                MessageBox.Show(ex.Message);
             }
         }
+
 
         public static void deleteModule(int moduleNumber)
         {
-            string query = $"Delete from Module Where ModuleNumber = '{moduleNumber}'";
-            //the query to delete all the values
-
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+                using (SqlConnection conn = new SqlConnection(connect))
                 {
-                    conn.Open();//opens the connection
+                    conn.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                    using (SqlCommand command = new SqlCommand("DeleteModule", conn))
                     {
-                        command.ExecuteNonQuery();//executes the query
-                        conn.Close();//closes the connection
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        command.Parameters.AddWithValue("@ModuleNumber", moduleNumber);
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
                     }
 
-                    MessageBox.Show($"Data for Module {moduleNumber} deleted successfully");//dislpays if the module was deleted
+                    MessageBox.Show($"Data for Module {moduleNumber} deleted successfully");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);//displays if the module was not deleted
+                MessageBox.Show(ex.Message);
             }
         }
+
 
         public static DataTable searchModule(string search)
         {
@@ -238,13 +252,23 @@ namespace Project1_PRG282.DataAccess
 
         public static DataTable showModuleData()
         {
-            string query = @"SELECT * FROM Modules";//Selects all the values from the Modules table using datatable
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);//connects the query to the sqldataadapter
-            DataTable datatable = new DataTable();//creates a new datatable
-            adapter.Fill(datatable);//fills the datatable using the adapter
-            return datatable;//returns the datatable
-        }
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                conn.Open();
 
+                using (SqlCommand command = new SqlCommand("ShowModuleData", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable datatable = new DataTable();
+                        adapter.Fill(datatable);
+                        return datatable;
+                    }
+                }
+            }
+        }
 
 
         public static List<string> GetModuleCodesForStudent(int studentNumber)
