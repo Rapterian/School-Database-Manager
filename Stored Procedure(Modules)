@@ -1,1 +1,46 @@
+CREATE PROCEDURE InsertModule
+    @ModuleCode NVARCHAR(50),
+    @ModuleName NVARCHAR(255),
+    @ModuleDescription NVARCHAR(MAX),
+    @Links NVARCHAR(MAX)
+AS
+BEGIN
+    INSERT INTO Module (ModuleCode, ModuleName, ModuleDescription, Links)
+    VALUES (@ModuleCode, @ModuleName, @ModuleDescription, @Links);
+END;
 
+
+
+CREATE PROCEDURE UpdateModule
+    @ModuleCode NVARCHAR(50),
+    @ModuleName NVARCHAR(255),
+    @ModuleDescription NVARCHAR(MAX),
+    @Links NVARCHAR(MAX)
+AS
+BEGIN
+    UPDATE Module
+    SET ModuleCode = @ModuleCode,
+        ModuleName = @ModuleName,
+        ModuleDescription = @ModuleDescription,
+        Links = @Links
+    WHERE ModuleCode = @ModuleCode; -- Assuming ModuleCode is a unique identifier
+END;
+
+
+
+
+CREATE PROCEDURE DeleteModule
+    @ModuleNumber INT
+AS
+BEGIN
+    DELETE FROM Module WHERE ModuleNumber = @ModuleNumber;
+END;
+
+
+
+
+CREATE PROCEDURE ShowModuleData
+AS
+BEGIN
+    SELECT * FROM Modules;
+END;

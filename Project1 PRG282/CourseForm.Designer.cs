@@ -80,7 +80,9 @@
             this.txtModuleCode = new System.Windows.Forms.TextBox();
             this.lblModuleName = new System.Windows.Forms.Label();
             this.txtModuleName = new System.Windows.Forms.TextBox();
+
             this.dgvModule = new System.Windows.Forms.DataGridView();
+
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -634,6 +636,7 @@
             // rtbxYoutubeLinks
             // 
             this.rtbxYoutubeLinks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxYoutubeLinks.Enabled = false;
             this.rtbxYoutubeLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbxYoutubeLinks.Location = new System.Drawing.Point(110, 13);
             this.rtbxYoutubeLinks.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -661,6 +664,7 @@
             // rtbxCourseDescription
             // 
             this.rtbxCourseDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxCourseDescription.Enabled = false;
             this.rtbxCourseDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbxCourseDescription.Location = new System.Drawing.Point(68, 3);
             this.rtbxCourseDescription.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -713,6 +717,7 @@
             // txtModuleCode
             // 
             this.txtModuleCode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtModuleCode.Enabled = false;
             this.txtModuleCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModuleCode.Location = new System.Drawing.Point(10, 36);
             this.txtModuleCode.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -735,6 +740,7 @@
             // txtModuleName
             // 
             this.txtModuleName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtModuleName.Enabled = false;
             this.txtModuleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModuleName.Location = new System.Drawing.Point(10, 101);
             this.txtModuleName.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -742,6 +748,7 @@
             this.txtModuleName.Size = new System.Drawing.Size(258, 26);
             this.txtModuleName.TabIndex = 11;
             // 
+
             // dgvModule
             // 
             this.dgvModule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -753,6 +760,7 @@
             this.dgvModule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_CellContentClick);
             this.dgvModule.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_RowEnter);
             // 
+
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
