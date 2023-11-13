@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using Project1_PRG282.LogicLayer;
 using System.Windows.Forms;
 using System.Data;
+using System.IO;
 
 namespace Project1_PRG282.DataAccess
 {
@@ -15,84 +16,184 @@ namespace Project1_PRG282.DataAccess
         static string connect = "Server = (local); Initial Catalog = PRG281Database; Integrated Security = SSPI";
         //connects to the database
 
+        //public static void createStudent(Student student)
+        //{
+        //    String query = $"INSERT INTO Student VALUES ('{student.Name}', '{student.Surname}', '{student.StudentImage}', '{student.DOB1}', '{student.Gender}'," +
+        //        $" '{student.Phone}', '{student.Address}' );";
+        //    //the query to insert all the values into the table
+
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+        //        {
+        //            conn.Open();//opens the connection
+
+        //            using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+        //            {
+        //                command.ExecuteNonQuery();//executes the query
+        //                conn.Close();//closes the connection
+        //            }
+
+        //            MessageBox.Show("Created Student");//dislpays if the student was created
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);//displays if the student was not created
+        //    }
+        //}
         public static void createStudent(Student student)
         {
-            String query = $"INSERT INTO Student VALUES ('{student.Name}', '{student.Surname}', '{student.StudentImage}', '{student.DOB1}', '{student.Gender}'," +
-                $" '{student.Phone}', '{student.Address}' );";
-            //the query to insert all the values into the table
-
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+                using (SqlConnection conn = new SqlConnection(connect))
                 {
-                    conn.Open();//opens the connection
+                    conn.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                    using (SqlCommand command = new SqlCommand("spInsertStudent", conn))
                     {
-                        command.ExecuteNonQuery();//executes the query
-                        conn.Close();//closes the connection
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Define the parameters for the stored procedure
+                        command.Parameters.Add(new SqlParameter("@Name", student.Name));
+                        command.Parameters.Add(new SqlParameter("@Surname", student.Surname));
+                        command.Parameters.Add(new SqlParameter("@StudentImage", student.StudentImage));
+                        command.Parameters.Add(new SqlParameter("@DOB1", student.DOB1));
+                        command.Parameters.Add(new SqlParameter("@Gender", student.Gender));
+                        command.Parameters.Add(new SqlParameter("@Phone", student.Phone));
+                        command.Parameters.Add(new SqlParameter("@Address", student.Address));
+
+                        command.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Created Student");//dislpays if the student was created
+                    conn.Close();
+
+                    MessageBox.Show("Created Student");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);//displays if the student was not created
+                MessageBox.Show(ex.Message);
             }
         }
-        public static void updateStudent(Student student)
-        {
-            string query = $"UPDATE Student SET Name = '{student.Name}', Surname = '{student.Surname}', " +
-                $"StudentImage = '{student.StudentImage}', DOB = '{student.DOB1}', Gender = '{student.Gender}'," +
-                $" Phone = '{student.Phone}', Address = '{student.Address}' WHERE StudentNumber = '{student.Studentnumber}'";
-            //the query to update all the values 
 
+        //public static void updateStudent(Student student)
+        //{
+        //    string query = $"UPDATE Student SET Name = '{student.Name}', Surname = '{student.Surname}', " +
+        //        $"StudentImage = '{student.StudentImage}', DOB = '{student.DOB1}', Gender = '{student.Gender}'," +
+        //        $" Phone = '{student.Phone}', Address = '{student.Address}' WHERE StudentNumber = '{student.Studentnumber}'";
+        //    //the query to update all the values 
+
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+        //        {
+        //            conn.Open();//opens the connection
+
+        //            using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+        //            {
+        //                command.ExecuteNonQuery();//executes the query
+        //                conn.Close();//closes the connection
+        //            }
+
+        //            MessageBox.Show("Student Updated");//dislpays if the student was updated
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);//displays if the student was not updated
+        //    }
+        //}
+        public static void UpdateStudent(Student student)
+        {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+                using (SqlConnection conn = new SqlConnection(connect))
                 {
-                    conn.Open();//opens the connection
+                    conn.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+                    using (SqlCommand command = new SqlCommand("spUpdateStudentUpdateStudent", conn))
                     {
-                        command.ExecuteNonQuery();//executes the query
-                        conn.Close();//closes the connection
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Define the parameters for the stored procedure
+                        command.Parameters.Add(new SqlParameter("@StudentNumber", student.Studentnumber));
+                        command.Parameters.Add(new SqlParameter("@Name", student.Name));
+                        command.Parameters.Add(new SqlParameter("@Surname", student.Surname));
+                        command.Parameters.Add(new SqlParameter("@StudentImage", student.StudentImage));
+                        command.Parameters.Add(new SqlParameter("@DOB1", student.DOB1));
+                        command.Parameters.Add(new SqlParameter("@Gender", student.Gender));
+                        command.Parameters.Add(new SqlParameter("@Phone", student.Phone));
+                        command.Parameters.Add(new SqlParameter("@Address", student.Address));
+
+                        command.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Student Updated");//dislpays if the student was updated
+                    conn.Close();
+
+                    MessageBox.Show("Student Updated");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        //public static void deleteStudent(int StudentNumber)
+        //{
+        //    string query = $"Delete from Student Where StudentNumber = '{StudentNumber}'";
+        //    //the query to delete all the values
+
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
+        //        {
+        //            conn.Open();//opens the connection
+
+        //            using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
+        //            {
+        //                command.ExecuteNonQuery();//executes the query
+        //                conn.Close();//closes the connection
+        //            }
+
+        //            MessageBox.Show($"Data for student {StudentNumber} deleted successfully");//dislpays if the student was deleted
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);//displays if the student was not deleted
+        //    }
+        //}
+
+        public static void DeleteStudent(int StudentNumber)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand("spDeleteStudents", conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Define the parameter for the stored procedure
+                        command.Parameters.Add(new SqlParameter("@StudentNumber", StudentNumber));
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show($"Data for student {StudentNumber} deleted successfully");
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);//displays if the student was not updated
+                MessageBox.Show(e.Message);
             }
         }
-        public static void deleteStudent(int StudentNumber)
-        {
-            string query = $"Delete from Student Where StudentNumber = '{StudentNumber}'";
-            //the query to delete all the values
 
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connect))//connects to the string connect
-                {
-                    conn.Open();//opens the connection
-
-                    using (SqlCommand command = new SqlCommand(query, conn))//connects the query to the sqlconnection
-                    {
-                        command.ExecuteNonQuery();//executes the query
-                        conn.Close();//closes the connection
-                    }
-
-                    MessageBox.Show($"Data for student {StudentNumber} deleted successfully");//dislpays if the student was deleted
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);//displays if the student was not deleted
-            }
-        }
         public static DataTable searchStudent(string search)
         {
             string query = @"SELECT *
@@ -227,14 +328,46 @@ namespace Project1_PRG282.DataAccess
             }
         }
 
+        //public static DataTable showStudentData()
+        //{
+        //    string query = @"SELECT * FROM Student";//Selects all the values from the student table using datatable
+        //    SqlDataAdapter adapter = new SqlDataAdapter(query, connect);//connects the query to the sqldataadapter
+        //    DataTable datatable = new DataTable();//creates a new datatable
+        //    adapter.Fill(datatable);//fills the datatable using the adapter
+        //    return datatable;//returns the datatable
+        //}
+
         public static DataTable showStudentData()
         {
-            string query = @"SELECT * FROM Student";//Selects all the values from the student table using datatable
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);//connects the query to the sqldataadapter
-            DataTable datatable = new DataTable();//creates a new datatable
-            adapter.Fill(datatable);//fills the datatable using the adapter
-            return datatable;//returns the datatable
+            DataTable datatable = new DataTable();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand("spDisplayStudents", conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(datatable);
+                        }
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            return datatable;
         }
+
 
         public static DataTable showModuleData()
         {
@@ -363,13 +496,47 @@ namespace Project1_PRG282.DataAccess
                         command.ExecuteNonQuery();//executes the query
                         conn.Close();//closes the connection
                     }
-
-                    
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);//displays if the module was not deleted
+            }
+        }
+
+        static string path = Path.Combine(Application.StartupPath, "users.txt");
+
+        public static bool userExist(User user)
+        {
+            User admin = new User("admin","admin");
+
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.WriteLine(admin.ToString());
+            }
+
+            List<string> users = new List<string>();
+
+            if (File.Exists(path))
+            {
+                users = File.ReadAllLines(path).ToList();
+                foreach (string line in users)
+                {
+                    if (line.Contains(user.ToString()))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                MessageBox.Show("File Does not Exist");
+                return false;
             }
         }
     }
