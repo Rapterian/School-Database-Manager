@@ -223,7 +223,7 @@ namespace Project1_PRG282.DataAccess
             }
         }
 
-        public static void createModule(Module module)
+        /*public static void createModule(Module module)
         {
             String query = $"INSERT INTO Module VALUES ('{module.ModuleCode}', '{module.ModuleName}', '{module.ModuleDescription}', '{module.Links}')";
             //the query to insert all the values
@@ -247,7 +247,39 @@ namespace Project1_PRG282.DataAccess
             {
                 MessageBox.Show(ex.Message);//displays if the module was not created
             }
+        }*/
+
+        public static void createModule(Module module)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand("InsertModule", conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        command.Parameters.AddWithValue("@ModuleCode", module.ModuleCode);
+                        command.Parameters.AddWithValue("@ModuleName", module.ModuleName);
+                        command.Parameters.AddWithValue("@ModuleDescription", module.ModuleDescription);
+                        command.Parameters.AddWithValue("@Links", module.Links);
+
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    MessageBox.Show("Created Module");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         public static void updateModule(Module module)
         {
