@@ -81,6 +81,18 @@ namespace Project1_PRG282
                 lvStudent.Items.Add(item);
             }
 
+            // Inside the form or wherever you want to populate the ComboBox
+            cbxCourseCodes.Items.Clear(); // Clear existing items, if any
+
+            // Call the showModuleData method to get the DataTable
+            DataTable moduleData = DataHandler.showModuleData();
+
+            // Iterate through the rows and add module codes to the ComboBox
+            foreach (DataRow row in moduleData.Rows)
+            {
+                cbxCourseCodes.Items.Add(row["ModuleCode"].ToString());
+            }
+
 
 
         }
