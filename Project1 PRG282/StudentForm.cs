@@ -407,6 +407,13 @@ namespace Project1_PRG282
             // Clear any previous cell highlighting
             dgvStudent.ClearSelection();
 
+            // Clear any previous highlighting
+            foreach (ListViewItem item in lvStudent.Items)
+            {
+                item.BackColor = SystemColors.Window;
+                item.ForeColor = SystemColors.WindowText;
+            }
+
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
