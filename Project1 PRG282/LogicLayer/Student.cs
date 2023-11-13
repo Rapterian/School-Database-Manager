@@ -11,12 +11,12 @@ namespace Project1_PRG282.LogicLayer
         int studentnumber;
         string name, surname, studentImage;
         DateTime DOB;
-        string gender, phone, address, moduleCode;
+        string gender, phone, address;
         //creates new variebles for the student class
 
 
         //creates a constructor
-        public Student(int studentnumber, string name, string surname, string studentImage, DateTime dOB, string gender, string phone, string address, string moduleCode)
+        public Student(int studentnumber, string name, string surname, string studentImage, DateTime dOB, string gender, string phone, string address)
         {
             this.Studentnumber = studentnumber;
             this.Name = name;
@@ -26,9 +26,8 @@ namespace Project1_PRG282.LogicLayer
             this.Gender = gender;
             this.Phone = phone;
             this.Address = address;
-            this.ModuleCode = moduleCode;
         }
-        public Student( string name, string surname, string studentImage, DateTime dOB, string gender, string phone, string address, string moduleCode)
+        public Student( string name, string surname, string studentImage, DateTime dOB, string gender, string phone, string address)
         {
             
             this.Name = name;
@@ -38,7 +37,6 @@ namespace Project1_PRG282.LogicLayer
             this.Gender = gender;
             this.Phone = phone;
             this.Address = address;
-            this.ModuleCode = moduleCode;
         }
 
 
@@ -58,6 +56,5 @@ namespace Project1_PRG282.LogicLayer
         public string Gender { get => gender; set => gender = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Address { get => address; set => address = value; }
-        public string ModuleCode { get => moduleCode; set => moduleCode = value; }
     }
 }

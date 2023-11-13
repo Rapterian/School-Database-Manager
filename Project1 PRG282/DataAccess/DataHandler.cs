@@ -18,7 +18,7 @@ namespace Project1_PRG282.DataAccess
         public static void createStudent(Student student)
         {
             String query = $"INSERT INTO Student VALUES ('{student.Name}', '{student.Surname}', '{student.StudentImage}', '{student.DOB1}', '{student.Gender}'," +
-                $" '{student.Phone}', '{student.Address}', '{student.ModuleCode}' )";
+                $" '{student.Phone}', '{student.Address}' )";
             //the query to insert all the values into the table
 
             try
@@ -103,8 +103,7 @@ namespace Project1_PRG282.DataAccess
                        OR CONVERT(VARCHAR, DOB, 23) LIKE @Search
                        OR Gender LIKE @Search
                        OR Phone LIKE @Search
-                       OR Address LIKE @Search
-                       OR ModuleCode LIKE @Search";
+                       OR Address LIKE @Search";
 
             using (SqlConnection conn = new SqlConnection(connect))
             {
