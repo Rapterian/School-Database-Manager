@@ -47,6 +47,10 @@
             this.dgvModule = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvModule = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -237,6 +241,7 @@
             this.lblSearch.TabIndex = 1;
             this.lblSearch.Text = "Search";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
             // 
             // txtSearch
             // 
@@ -334,6 +339,8 @@
             this.dgvModule.Name = "dgvModule";
             this.dgvModule.Size = new System.Drawing.Size(699, 641);
             this.dgvModule.TabIndex = 0;
+            this.dgvModule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_CellContentClick);
+            this.dgvModule.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_RowEnter);
             // 
             // tabPage2
             // 
@@ -341,20 +348,43 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(675, 546);
+            this.tabPage2.Size = new System.Drawing.Size(705, 647);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "List";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // lvModule
             // 
+            this.lvModule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvModule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvModule.HideSelection = false;
             this.lvModule.Location = new System.Drawing.Point(3, 3);
             this.lvModule.Name = "lvModule";
-            this.lvModule.Size = new System.Drawing.Size(669, 540);
+            this.lvModule.Size = new System.Drawing.Size(699, 641);
             this.lvModule.TabIndex = 0;
             this.lvModule.UseCompatibleStateImageBehavior = false;
+            this.lvModule.View = System.Windows.Forms.View.Details;
+            this.lvModule.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvModule_MouseClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ModuleCode";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "ModuleName";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "ModuleDescription";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Links";
             // 
             // panel4
             // 
@@ -380,6 +410,7 @@
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // btnNext
             // 
@@ -614,6 +645,7 @@
             // rtbxYoutubeLinks
             // 
             this.rtbxYoutubeLinks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxYoutubeLinks.Enabled = false;
             this.rtbxYoutubeLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbxYoutubeLinks.Location = new System.Drawing.Point(110, 13);
             this.rtbxYoutubeLinks.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -641,6 +673,7 @@
             // rtbxCourseDescription
             // 
             this.rtbxCourseDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbxCourseDescription.Enabled = false;
             this.rtbxCourseDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbxCourseDescription.Location = new System.Drawing.Point(68, 3);
             this.rtbxCourseDescription.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -693,6 +726,7 @@
             // txtModuleCode
             // 
             this.txtModuleCode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtModuleCode.Enabled = false;
             this.txtModuleCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModuleCode.Location = new System.Drawing.Point(10, 36);
             this.txtModuleCode.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -715,6 +749,7 @@
             // txtModuleName
             // 
             this.txtModuleName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtModuleName.Enabled = false;
             this.txtModuleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModuleName.Location = new System.Drawing.Point(10, 101);
             this.txtModuleName.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
@@ -731,6 +766,7 @@
             this.MinimumSize = new System.Drawing.Size(1300, 900);
             this.Name = "CourseForm";
             this.Text = "Courses";
+            this.Load += new System.EventHandler(this.CourseForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).EndInit();
@@ -792,7 +828,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dgvModule;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListView lvModule;
         private System.Windows.Forms.Panel panel4;
@@ -814,5 +849,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.DataGridView dgvModule;
     }
 }

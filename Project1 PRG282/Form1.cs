@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Project1_PRG282.LogicLayer;
+using Project1_PRG282.DataAccess;
 
 namespace Project1_PRG282
 {
@@ -23,15 +26,29 @@ namespace Project1_PRG282
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
-        {         
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
-            this.Hide();
-        }
-
-        private void LogInForm_Load(object sender, EventArgs e)
         {
+            if (!txtUsername.Text.Equals("") && !txtPassword.Text.Equals(""))
+            {
 
+                User user = new User(txtUsername.Text, txtPassword.Text);
+
+                if (DataHandler.userExist(user))
+                {
+                    MainMenu mainMenu = new MainMenu();
+                    mainMenu.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("User does not exist");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter username and password");
+            }
+          
         }
+
     }
 }
