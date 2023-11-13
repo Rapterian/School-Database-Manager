@@ -46,7 +46,6 @@
             this.Grid = new System.Windows.Forms.TabPage();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.List = new System.Windows.Forms.TabPage();
-            this.lvStudent = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -76,7 +75,17 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbxCourseCodes = new System.Windows.Forms.RichTextBox();
             this.cbxCourseCodes = new System.Windows.Forms.ComboBox();
+            this.lvStudent = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAddCourseCodes = new System.Windows.Forms.Button();
+            this.btnDeleteCourseCodes = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -344,17 +353,6 @@
             this.List.TabIndex = 1;
             this.List.Text = "List";
             this.List.UseVisualStyleBackColor = true;
-            // 
-            // lvStudent
-            // 
-            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvStudent.HideSelection = false;
-            this.lvStudent.Location = new System.Drawing.Point(3, 3);
-            this.lvStudent.Name = "lvStudent";
-            this.lvStudent.Size = new System.Drawing.Size(669, 540);
-            this.lvStudent.TabIndex = 0;
-            this.lvStudent.UseCompatibleStateImageBehavior = false;
-            this.lvStudent.SelectedIndexChanged += new System.EventHandler(this.lvStudent_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -687,9 +685,10 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
+            this.tableLayoutPanel8.Controls.Add(this.btnDeleteCourseCodes, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnAddCourseCodes, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.rtbxCourseCodes, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.cbxCourseCodes, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.btnAddCourseCodes, 2, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 487);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -698,6 +697,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 191);
             this.tableLayoutPanel8.TabIndex = 1;
+            this.tableLayoutPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel8_Paint);
             // 
             // rtbxCourseCodes
             // 
@@ -710,7 +710,7 @@
             this.rtbxCourseCodes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.rtbxCourseCodes.Size = new System.Drawing.Size(286, 160);
             this.rtbxCourseCodes.TabIndex = 2;
-            this.rtbxCourseCodes.Text = "Course Codes:";
+            this.rtbxCourseCodes.Text = "Module Codes:";
             // 
             // cbxCourseCodes
             // 
@@ -722,16 +722,79 @@
             this.cbxCourseCodes.TabIndex = 3;
             this.cbxCourseCodes.Visible = false;
             // 
+            // lvStudent
+            // 
+            this.lvStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16});
+            this.lvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvStudent.HideSelection = false;
+            this.lvStudent.Location = new System.Drawing.Point(3, 3);
+            this.lvStudent.Name = "lvStudent";
+            this.lvStudent.Size = new System.Drawing.Size(669, 540);
+            this.lvStudent.TabIndex = 1;
+            this.lvStudent.UseCompatibleStateImageBehavior = false;
+            this.lvStudent.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "StudentNumber";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Name";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Surname";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "StudentImage";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "DOB";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Gender";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Phone";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Address";
+            // 
             // btnAddCourseCodes
             // 
             this.btnAddCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddCourseCodes.Location = new System.Drawing.Point(407, 3);
+            this.btnAddCourseCodes.Location = new System.Drawing.Point(3, 3);
             this.btnAddCourseCodes.Name = "btnAddCourseCodes";
-            this.btnAddCourseCodes.Size = new System.Drawing.Size(111, 19);
-            this.btnAddCourseCodes.TabIndex = 4;
+            this.btnAddCourseCodes.Size = new System.Drawing.Size(109, 19);
+            this.btnAddCourseCodes.TabIndex = 6;
             this.btnAddCourseCodes.Text = "Add";
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
             this.btnAddCourseCodes.Visible = false;
+            // 
+            // btnDeleteCourseCodes
+            // 
+            this.btnDeleteCourseCodes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteCourseCodes.Location = new System.Drawing.Point(407, 3);
+            this.btnDeleteCourseCodes.Name = "btnDeleteCourseCodes";
+            this.btnDeleteCourseCodes.Size = new System.Drawing.Size(111, 19);
+            this.btnDeleteCourseCodes.TabIndex = 7;
+            this.btnDeleteCourseCodes.Text = "Delete";
+            this.btnDeleteCourseCodes.UseVisualStyleBackColor = true;
+            this.btnDeleteCourseCodes.Visible = false;
             // 
             // StudentForm
             // 
@@ -820,8 +883,17 @@
         private System.Windows.Forms.TabPage Grid;
         private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.TabPage List;
-        private System.Windows.Forms.ListView lvStudent;
         private System.Windows.Forms.ComboBox cbxCourseCodes;
+        private System.Windows.Forms.ListView lvStudent;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.Button btnDeleteCourseCodes;
         private System.Windows.Forms.Button btnAddCourseCodes;
     }
 }

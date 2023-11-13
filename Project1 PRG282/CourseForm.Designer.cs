@@ -47,10 +47,6 @@
             this.dgvModule = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvModule = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -81,6 +77,10 @@
             this.txtModuleCode = new System.Windows.Forms.TextBox();
             this.lblModuleName = new System.Windows.Forms.Label();
             this.txtModuleName = new System.Windows.Forms.TextBox();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -368,22 +368,6 @@
             this.lvModule.UseCompatibleStateImageBehavior = false;
             this.lvModule.View = System.Windows.Forms.View.Details;
             this.lvModule.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvModule_MouseClick);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ModuleCode";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "ModuleName";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "ModuleDescription";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Links";
             // 
             // panel4
             // 
@@ -751,6 +735,22 @@
             this.txtModuleName.Name = "txtModuleName";
             this.txtModuleName.Size = new System.Drawing.Size(258, 26);
             this.txtModuleName.TabIndex = 11;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Links";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "ModuleDescription";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "ModuleName";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ModuleCode";
             // 
             // CourseForm
             // 

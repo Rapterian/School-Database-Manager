@@ -55,6 +55,8 @@ namespace Project1_PRG282
             txtPhone.Text = "";
             txtSearch.Text = "";
             txtSurname.Text = "";
+            lblStudentNr.Text = "-";
+            rtbxCourseCodes.Text = "Module Codes:";
             rbMale.Checked = true;
             cbxCourseCodes.Visible = true;
             btnAddCourseCodes.Visible = true;
@@ -77,9 +79,23 @@ namespace Project1_PRG282
                 item.SubItems.Add(row["Gender"].ToString());
                 item.SubItems.Add(row["Phone"].ToString());
                 item.SubItems.Add(row["Address"].ToString());
-                item.SubItems.Add(row["ModuleCode"].ToString());
                 lvStudent.Items.Add(item);
             }
+
+            // Inside the form or wherever you want to populate the ComboBox
+            cbxCourseCodes.Items.Clear(); // Clear existing items, if any
+
+            // Call the showModuleData method to get the DataTable
+            DataTable moduleData = DataHandler.showModuleData();
+
+            // Iterate through the rows and add module codes to the ComboBox
+            foreach (DataRow row in moduleData.Rows)
+            {
+                cbxCourseCodes.Items.Add(row["ModuleCode"].ToString());
+            }
+
+
+
         }
 
         private void label3_MouseClick(object sender, MouseEventArgs e)
@@ -257,7 +273,7 @@ namespace Project1_PRG282
 
             int desiredRowIndex = dgvStudent.CurrentRow.Index + 1; // Replace with the index of the row you want to set focus to
 
-            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count)
+            if (desiredRowIndex >= 0 && desiredRowIndex < dgvStudent.Rows.Count-1)
             {
                 // Set the focus to the desired row and select its first cell
                 dgvStudent.CurrentCell = dgvStudent.Rows[desiredRowIndex].Cells[0];
@@ -376,6 +392,20 @@ namespace Project1_PRG282
                 try
                 {
                     DataHandler.createStudent(student);//if the button had text of Create it will call the function createStudent
+                    List<string> modules = new List<string>();
+
+                    string[] lines = rtbxCourseCodes.Text.Split('\n');
+
+                    foreach (string line in lines)
+                    {
+                        string trimmedLine = line.Trim(); // Trim to remove leading or trailing spaces
+                        if (!string.IsNullOrEmpty(trimmedLine) && trimmedLine != "Module Codes:")
+                        {
+                            modules.Add(trimmedLine);
+                        }
+                    }
+                    DataHandler.deleteStudentModules(DataHandler.GetLastStudentNumber());
+                    DataHandler.addStudentModules(modules, DataHandler.GetLastStudentNumber());
                 }
                 catch (Exception ex)
                 {
@@ -388,6 +418,20 @@ namespace Project1_PRG282
                 {
 
                     DataHandler.updateStudent(student);//if the button had text of Update it will call the function updateStudent
+                    List<string> modules = new List<string>();
+
+                    string[] lines = rtbxCourseCodes.Text.Split('\n');
+
+                    foreach (string line in lines)
+                    {
+                        string trimmedLine = line.Trim(); // Trim to remove leading or trailing spaces
+                        if (!string.IsNullOrEmpty(trimmedLine) && trimmedLine != "Module Codes:")
+                        {
+                            modules.Add(trimmedLine);
+                        }
+                    }
+                    DataHandler.deleteStudentModules(DataHandler.GetLastStudentNumber());
+                    DataHandler.addStudentModules(modules, DataHandler.GetLastStudentNumber());
 
                 }
                 catch (Exception ex)
@@ -406,6 +450,13 @@ namespace Project1_PRG282
 
             // Clear any previous cell highlighting
             dgvStudent.ClearSelection();
+
+            // Clear any previous highlighting
+            foreach (ListViewItem item in lvStudent.Items)
+            {
+                item.BackColor = SystemColors.Window;
+                item.ForeColor = SystemColors.WindowText;
+            }
 
         }
 
@@ -426,7 +477,7 @@ namespace Project1_PRG282
 
         private void dgvStudent_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 )
             {
 
                 DataGridViewRow row = this.dgvStudent.Rows[e.RowIndex];
@@ -468,6 +519,14 @@ namespace Project1_PRG282
                         MessageBox.Show("Image file does not exist: " + imagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+                rtbxCourseCodes.Clear();
+                List<string> moduleCodes = DataHandler.GetModuleCodesForStudent(int.Parse(lblStudentNr.Text));
+                rtbxCourseCodes.AppendText("Module Codes:" + Environment.NewLine);
+                foreach (string moduleCode in moduleCodes)
+                {
+                    rtbxCourseCodes.AppendText(moduleCode + Environment.NewLine);
+                }
             }
         }
 
@@ -505,6 +564,13 @@ namespace Project1_PRG282
             // Clear any previous cell highlighting
             dgvStudent.ClearSelection();
 
+            // Clear any previous highlighting
+            foreach (ListViewItem item in lvStudent.Items)
+            {
+                item.BackColor = SystemColors.Window;
+                item.ForeColor = SystemColors.WindowText;
+            }
+
             if (!txtSearch.Text.Equals(""))
             {
                 // Iterate through each row in the DataGridView
@@ -522,10 +588,36 @@ namespace Project1_PRG282
                         }
                     }
                 }
+
+                // Iterate through each ListViewItem
+                foreach (ListViewItem item in lvStudent.Items)
+                {
+                    // Iterate through each subitem in the ListViewItem
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        // Check if the subitem text contains the search term
+                        if (subItem.Text.ToLower().Contains(txtSearch.Text.ToLower()))
+                        {
+                            // Highlight the subitem
+                            subItem.BackColor = Color.Yellow;
+                            subItem.ForeColor = Color.Black; // Optionally, set text color
+                        }
+                    }
+                }
             }
 
             
 
+
+        }
+
+        private void btnAddCourseCodes_Click(object sender, EventArgs e)
+        {
+            rtbxCourseCodes.AppendText(cbxCourseCodes.Text + Environment.NewLine);
+        }
+
+        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

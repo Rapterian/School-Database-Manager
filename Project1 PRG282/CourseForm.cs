@@ -348,6 +348,18 @@ namespace Project1_PRG282
 
                 DataHandler.deleteModule(number);//if the button had text of Delete it will call the function deleteModule
             }
+
+            dgvModule.DataSource = DataHandler.showModuleData();
+
+            // Clear any previous cell highlighting
+            dgvModule.ClearSelection();
+
+            // Clear any previous highlighting
+            foreach (ListViewItem item in lvModule.Items)
+            {
+                item.BackColor = SystemColors.Window;
+                item.ForeColor = SystemColors.WindowText;
+            }
         }
 
         private void dgvModule_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -366,16 +378,21 @@ namespace Project1_PRG282
 
         private void dgvModule_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
+            //if (e.RowIndex >= 0)
+            //{
 
-                DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
+            //    DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
 
-                txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
-                txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
-                rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
-                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
-            }
+            //    txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
+            //    txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
+            //    rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
+            //    rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
+            //}
+        }
+
+        private void lblSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
