@@ -22,6 +22,8 @@ namespace Project1_PRG282
         public StudentForm()
         {
             InitializeComponent();
+            lblCreate.MouseHover += lblCreate_MouseHover;
+            lblCreate.MouseLeave += lblCreate_MouseLeave;
         }
 
         private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
@@ -63,6 +65,8 @@ namespace Project1_PRG282
             btnAddCourseCodes.Visible = true;
             btnDeleteCourseCodes.Visible = true;
             txtName.Focus();
+
+            
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
@@ -688,6 +692,183 @@ namespace Project1_PRG282
                 linesList.Remove(linesList.Last());
             }
             rtbxCourseCodes.Lines = linesList.ToArray();
+        }
+
+        private void lblCreate_MouseHover(object sender, EventArgs e)
+        {
+            lblCreate.ForeColor = Color.White;    
+        }
+
+        private void lblCreate_MouseLeave(object sender, EventArgs e)
+        {
+            lblCreate.ForeColor = SystemColors.ControlText;
+        }
+
+        private void lblUpdate_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lblUpdate_MouseHover(object sender, EventArgs e)
+        {
+            lblUpdate.ForeColor = Color.White;
+        }
+
+        private void lblDelete_MouseHover(object sender, EventArgs e)
+        {
+            lblDelete.ForeColor = Color.White;
+        }
+
+        private void lblDelete_MouseLeave(object sender, EventArgs e)
+        {
+            lblDelete.ForeColor = SystemColors.ControlText;
+        }
+
+        private void lblCreate_ForeColorChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lblCreate_BackColorChanged(object sender, EventArgs e)
+        {
+            lblCreate.BackColor = Color.Red;
+        }
+
+        private void lblUpdate_BackColorChanged(object sender, EventArgs e)
+        {
+            lblUpdate.BackColor = Color.Red;
+        }
+
+        private void lblDelete_BackColorChanged(object sender, EventArgs e)
+        {
+            lblDelete.BackColor = Color.Red;
+        }
+
+        private void lblSearch_MouseHover(object sender, EventArgs e)
+        {
+            lblSearch.ForeColor = Color.Blue;
+        }
+
+        private void lblSearch_MouseLeave(object sender, EventArgs e)
+        {
+            lblSearch.ForeColor = SystemColors.ControlText;
+        }
+
+        private void lblUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            lblUpdate.ForeColor = SystemColors.ControlText;
+        }
+
+        private void flowLayoutPanel2_BackColorChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel2.BackColor = Color.LightBlue;
+        }
+
+        private void flowLayoutPanel1_BackColorChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.BackColor = Color.LightBlue;
+        }
+
+        private void tableLayoutPanel8_BackColorChanged(object sender, EventArgs e)
+        {
+            tableLayoutPanel8.BackColor = Color.LightBlue;
+        }
+
+        private void btnAddCourseCodes_MouseHover(object sender, EventArgs e)
+        {
+            btnAddCourseCodes.ForeColor = Color.White;
+        }
+
+        private void btnAddCourseCodes_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddCourseCodes.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnDeleteCourseCodes_MouseHover(object sender, EventArgs e)
+        {
+            btnDeleteCourseCodes.ForeColor = Color.White;
+        }
+
+        private void btnDeleteCourseCodes_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeleteCourseCodes.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnStart_MouseHover(object sender, EventArgs e)
+        {
+            btnStart.ForeColor = Color.White;
+        }
+
+        private void btnStart_MouseLeave(object sender, EventArgs e)
+        {
+            btnStart.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnStart_BackColorChanged(object sender, EventArgs e)
+        {
+            lblDelete.BackColor = Color.Yellow;
+        }
+
+        private void btnPrevious_MouseHover(object sender, EventArgs e)
+        {
+            btnPrevious.ForeColor = Color.White;
+        }
+
+        private void btnPrevious_MouseLeave(object sender, EventArgs e)
+        {
+            btnPrevious.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnPrevious_BackColorChanged(object sender, EventArgs e)
+        {
+            btnPrevious.BackColor = Color.Yellow;
+        }
+
+        private void btnAction_MouseHover(object sender, EventArgs e)
+        {
+            btnAction.ForeColor = Color.White;
+        }
+
+        private void btnAction_MouseLeave(object sender, EventArgs e)
+        {
+            btnAction.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnAction_BackColorChanged(object sender, EventArgs e)
+        {
+            btnAction.BackColor = Color.Yellow;
+        }
+
+        private void btnNext_MouseHover(object sender, EventArgs e)
+        {
+            btnNext.ForeColor = Color.White;
+        }
+    
+
+        private void btnNext_MouseLeave(object sender, EventArgs e)
+        {
+        btnNext.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnNext_BackColorChanged(object sender, EventArgs e)
+        {
+            btnNext.BackColor = Color.Yellow;
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.White;    
+        }
+    
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+        button2.ForeColor = SystemColors.ControlText;
+        }
+
+        private void button2_BackColorChanged(object sender, EventArgs e)
+        {
+        button2.BackColor = Color.Yellow;
         }
     }
 }
