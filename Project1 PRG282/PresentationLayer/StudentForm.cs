@@ -414,7 +414,7 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);//an error will show if the student could not be created
+                    MessageBox.Show(ex.Message);//an error will show if the student could not be created
                 }
             }
             else if (btnAction.Text == "Update")
@@ -441,7 +441,7 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);// an error will show if the student could not be Updated
+                    MessageBox.Show(ex.Message);// an error will show if the student could not be Updated
                 }
             }
             else if (btnAction.Text == "Delete")

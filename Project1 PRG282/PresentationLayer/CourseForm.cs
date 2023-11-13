@@ -326,7 +326,7 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);//an error will show if the Module could not be created
+                    MessageBox.Show(ex.Message);//an error will show if the Module could not be created
                 }
             }
             else if (btnAction.Text == "Update")
@@ -340,7 +340,7 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message); ;// an error will show if the Module could not be Updated
+                    MessageBox.Show(ex.Message); ;// an error will show if the Module could not be Updated
                 }
             }
             else if (btnAction.Text == "Delete")
@@ -379,21 +379,66 @@ namespace Project1_PRG282
 
         private void dgvModule_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex >= 0)
-            //{
+            if (e.RowIndex >= 0)
+            {
 
-            //    DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
+                DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
 
-            //    txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
-            //    txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
-            //    rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
-            //    rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
-            //}
+                txtModuleCode.Text = row.Cells["ModuleCode"].Value.ToString();
+                txtModuleName.Text = row.Cells["ModuleName"].Value.ToString();
+                rtbxCourseDescription.Text = row.Cells["ModuleDescription"].Value.ToString();
+                rtbxYoutubeLinks.Text = row.Cells["Links"].Value.ToString();
+            }
         }
 
         private void lblSearch_Click(object sender, EventArgs e)
         {
+            dgvModule.DataSource = DataHandler.searchModule(txtSearch.Text);
 
+            // Clear any previous cell highlighting
+            dgvModule.ClearSelection();
+
+            // Clear any previous highlighting
+            foreach (ListViewItem item in lvModule.Items)
+            {
+                item.BackColor = SystemColors.Window;
+                item.ForeColor = SystemColors.WindowText;
+            }
+
+            if (!txtSearch.Text.Equals(""))
+            {
+                // Iterate through each row in the DataGridView
+                foreach (DataGridViewRow row in dgvModule.Rows)
+                {
+                    // Iterate through each cell in the row
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        // Check if the cell value contains the search term
+                        if (cell.Value != null && cell.Value.ToString().ToLower().Contains(txtSearch.Text.ToLower()))
+                        {
+                            // Highlight the cell
+                            cell.Style.BackColor = Color.Yellow;
+                            cell.Style.ForeColor = Color.Black; // Optionally, set text color
+                        }
+                    }
+                }
+
+                // Iterate through each ListViewItem
+                foreach (ListViewItem item in lvModule.Items)
+                {
+                    // Iterate through each subitem in the ListViewItem
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        // Check if the subitem text contains the search term
+                        if (subItem.Text.ToLower().Contains(txtSearch.Text.ToLower()))
+                        {
+                            // Highlight the subitem
+                            subItem.BackColor = Color.Yellow;
+                            subItem.ForeColor = Color.Black; // Optionally, set text color
+                        }
+                    }
+                }
+            }
         }
     }
 }
