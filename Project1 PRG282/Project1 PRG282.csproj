@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="LogicLayer\Module.cs" />
     <Compile Include="LogicLayer\Student.cs" />
+    <Compile Include="LogicLayer\User.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
