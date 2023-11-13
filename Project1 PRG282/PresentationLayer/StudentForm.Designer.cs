@@ -50,7 +50,6 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -360,7 +359,6 @@
             this.columnHeader9,
             this.columnHeader10,
             this.columnHeader11,
-            this.columnHeader12,
             this.columnHeader13,
             this.columnHeader14,
             this.columnHeader15,
@@ -385,10 +383,6 @@
             // columnHeader11
             // 
             this.columnHeader11.Text = "Surname";
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "StudentImage";
             // 
             // columnHeader13
             // 
@@ -588,13 +582,14 @@
             // 
             // pbxStudent
             // 
-            this.pbxStudent.BackgroundImage = global::Project1_PRG282.Properties.Resources.kisspng_logo_person_user_person_icon_5b4d2bd25185e8_0544055615317841463339;
             this.pbxStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbxStudent.Enabled = false;
+            this.pbxStudent.Image = global::Project1_PRG282.Properties.Resources.kisspng_logo_person_user_person_icon_5b4d2bd25185e8_0544055615317841463339;
             this.pbxStudent.Location = new System.Drawing.Point(262, 3);
             this.pbxStudent.Name = "pbxStudent";
             this.pbxStudent.Size = new System.Drawing.Size(253, 133);
+            this.pbxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxStudent.TabIndex = 1;
             this.pbxStudent.TabStop = false;
             this.pbxStudent.Click += new System.EventHandler(this.pbxStudent_Click);
@@ -761,9 +756,7 @@
             this.btnDeleteCourseCodes.Text = "Delete";
             this.btnDeleteCourseCodes.UseVisualStyleBackColor = true;
             this.btnDeleteCourseCodes.Visible = false;
-<
             this.btnDeleteCourseCodes.Click += new System.EventHandler(this.btnDeleteCourseCodes_Click);
-
             // 
             // btnAddCourseCodes
             // 
@@ -775,9 +768,7 @@
             this.btnAddCourseCodes.Text = "Add";
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
             this.btnAddCourseCodes.Visible = false;
-
             this.btnAddCourseCodes.Click += new System.EventHandler(this.btnAddCourseCodes_Click);
-
             // 
             // rtbxCourseCodes
             // 
@@ -894,7 +885,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;

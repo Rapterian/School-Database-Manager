@@ -8,6 +8,8 @@ using Project1_PRG282.LogicLayer;
 using System.Windows.Forms;
 using System.Data;
 using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Project1_PRG282.DataAccess
 {
@@ -112,15 +114,18 @@ namespace Project1_PRG282.DataAccess
                 {
                     conn.Open();
 
-                    using (SqlCommand command = new SqlCommand("spUpdateStudentUpdateStudent", conn))
+                    using (SqlCommand command = new SqlCommand("spUpdateStudent", conn))
                     {
                         command.CommandType = CommandType.StoredProcedure;
+
+                        // Convert Image to byte array
+                        byte[] imageBytes = ImageToByteArray(student.StudentImage);
 
                         // Define the parameters for the stored procedure
                         command.Parameters.Add(new SqlParameter("@StudentNumber", student.Studentnumber));
                         command.Parameters.Add(new SqlParameter("@Name", student.Name));
                         command.Parameters.Add(new SqlParameter("@Surname", student.Surname));
-                        command.Parameters.Add(new SqlParameter("@StudentImage", student.StudentImage));
+                        command.Parameters.Add(new SqlParameter("@StudentImage", SqlDbType.VarBinary) { Value = imageBytes });
                         command.Parameters.Add(new SqlParameter("@DOB1", student.DOB1));
                         command.Parameters.Add(new SqlParameter("@Gender", student.Gender));
                         command.Parameters.Add(new SqlParameter("@Phone", student.Phone));
@@ -139,6 +144,16 @@ namespace Project1_PRG282.DataAccess
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private static byte[] ImageToByteArray(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Jpeg); // You may need to adjust the image format based on your requirements
+                return ms.ToArray();
+            }
+        }
+
 
         //public static void deleteStudent(int StudentNumber)
         //{
@@ -240,7 +255,7 @@ namespace Project1_PRG282.DataAccess
                         conn.Close();//closes the connection
                     }
 
-                    MessageBox.Show("Created Module");//dislpays if the module was created
+                    
                 }
             }
             catch (Exception ex)
@@ -620,20 +635,22 @@ namespace Project1_PRG282.DataAccess
             }
         }
 
-        static string path = Path.Combine(Application.StartupPath, "users.txt");
-
+       
         public static bool userExist(User user)
         {
             User admin = new User("admin","admin");
+            string path = createPermanentFilePath("users.txt");
 
             if (!File.Exists(path))
             {
                 File.Create(path).Close();
+
+                using (StreamWriter writer = new StreamWriter(path))
+                {
+                    writer.WriteLine(admin.ToString());
+                }
             }
-            using (StreamWriter writer = new StreamWriter(path))
-            {
-                writer.WriteLine(admin.ToString());
-            }
+            
 
             List<string> users = new List<string>();
 
@@ -655,5 +672,71 @@ namespace Project1_PRG282.DataAccess
                 return false;
             }
         }
+
+        public static string createPermanentFilePath(string fileName)
+        {
+            string currentDirectory = Application.StartupPath;
+
+            // Move three levels up
+            for (int i = 0; i < 4; i++)
+            {
+                currentDirectory = Path.GetDirectoryName(currentDirectory);
+            }
+
+            string path = Path.Combine(currentDirectory, fileName);
+
+            return path;
+        }
+
+        public static Image GetStudentImage(int studentNumber)
+        {
+            Image studentImage = null;
+
+            string connectionString = connect;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand("GetStudentImage", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Assuming StudentImage is of type VARBINARY(MAX)
+                            if (reader["StudentImage"] is Bitmap)
+                            {
+                                studentImage = (Image)(Bitmap)reader["StudentImage"];
+                            }
+                            else if (reader["StudentImage"] is byte[])
+                            {
+                                // Convert byte array to Image
+                                byte[] imageBytes = (byte[])reader["StudentImage"];
+                                studentImage = ByteArrayToImage(imageBytes);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return studentImage;
+        }
+
+        private static Image ByteArrayToImage(byte[] byteArray)
+        {
+            if (byteArray == null || byteArray.Length == 0)
+                return null;
+
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+
     }
 }

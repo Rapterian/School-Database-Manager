@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Project1_PRG282.LogicLayer;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project1_PRG282
@@ -33,7 +32,7 @@ namespace Project1_PRG282
 
         }
 
-        int createCounter = 0;
+       
         private void lblCreate_Click(object sender, EventArgs e)
         {
             
