@@ -251,7 +251,7 @@ namespace Project1_PRG282.DataAccess
 
         public static void updateModule(Module module)
         {
-            string query = $"UPDATE Module SET ModuleCode = '{module.ModuleCode}', ModuleName = '{module.ModuleName}', ModuleDescription = '{module.ModuleDescription}'," +
+            string query = $"UPDATE Modules SET ModuleCode = '{module.ModuleCode}', ModuleName = '{module.ModuleName}', ModuleDescription = '{module.ModuleDescription}'," +
                 $" Links = '{module.Links}'";
             //the query to update all the values
 
