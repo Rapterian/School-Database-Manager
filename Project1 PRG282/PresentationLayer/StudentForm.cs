@@ -414,7 +414,7 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);//an error will show if the student could not be created
+                    MessageBox.Show(ex.Message);//an error will show if the student could not be created
                 }
             }
             else if (btnAction.Text == "Update")
@@ -422,7 +422,7 @@ namespace Project1_PRG282
                 try
                 {
 
-                    DataHandler.updateStudent(student);//if the button had text of Update it will call the function updateStudent
+                    DataHandler.UpdateStudent(student);//if the button had text of Update it will call the function updateStudent
                     List<string> modules = new List<string>();
 
                     string[] lines = rtbxCourseCodes.Text.Split('\n');
@@ -441,14 +441,14 @@ namespace Project1_PRG282
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);// an error will show if the student could not be Updated
+                    MessageBox.Show(ex.Message);// an error will show if the student could not be Updated
                 }
             }
             else if (btnAction.Text == "Delete")
             {
                 int studentNumber = int.Parse(lblStudentNr.Text);
 
-                DataHandler.deleteStudent(studentNumber);//if the button had text of Delete it will call the function deleteStudent
+                DataHandler.DeleteStudent(studentNumber);//if the button had text of Delete it will call the function deleteStudent
             }
 
             dgvStudent.DataSource = DataHandler.showStudentData();//fills the datagridview with the new updated table
