@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using Project1_PRG282.LogicLayer;
 using System.Windows.Forms;
 using System.Data;
+using System.IO;
 
 namespace Project1_PRG282.DataAccess
 {
@@ -363,13 +364,47 @@ namespace Project1_PRG282.DataAccess
                         command.ExecuteNonQuery();//executes the query
                         conn.Close();//closes the connection
                     }
-
-                    
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);//displays if the module was not deleted
+            }
+        }
+
+        static string path = Path.Combine(Application.StartupPath, "users.txt");
+
+        public static bool userExist(User user)
+        {
+            User admin = new User("admin","admin");
+
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.WriteLine(admin.ToString());
+            }
+
+            List<string> users = new List<string>();
+
+            if (File.Exists(path))
+            {
+                users = File.ReadAllLines(path).ToList();
+                foreach (string line in users)
+                {
+                    if (line.Contains(user.ToString()))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                MessageBox.Show("File Does not Exist");
+                return false;
             }
         }
     }
