@@ -44,6 +44,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgvModule = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvModule = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -80,7 +81,6 @@
             this.txtModuleCode = new System.Windows.Forms.TextBox();
             this.lblModuleName = new System.Windows.Forms.Label();
             this.txtModuleName = new System.Windows.Forms.TextBox();
-            this.dgvModule = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHome)).BeginInit();
@@ -92,6 +92,7 @@
             this.panel3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModule)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -106,7 +107,6 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvModule)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -330,6 +330,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Grid";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgvModule
+            // 
+            this.dgvModule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvModule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvModule.Location = new System.Drawing.Point(3, 3);
+            this.dgvModule.Name = "dgvModule";
+            this.dgvModule.Size = new System.Drawing.Size(699, 641);
+            this.dgvModule.TabIndex = 0;
+            this.dgvModule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_CellContentClick);
+            this.dgvModule.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_RowEnter);
             // 
             // tabPage2
             // 
@@ -742,17 +753,6 @@
             this.txtModuleName.Size = new System.Drawing.Size(258, 26);
             this.txtModuleName.TabIndex = 11;
             // 
-            // dgvModule
-            // 
-            this.dgvModule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvModule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvModule.Location = new System.Drawing.Point(3, 3);
-            this.dgvModule.Name = "dgvModule";
-            this.dgvModule.Size = new System.Drawing.Size(699, 641);
-            this.dgvModule.TabIndex = 0;
-            this.dgvModule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_CellContentClick);
-            this.dgvModule.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModule_RowEnter);
-            // 
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -775,6 +775,7 @@
             this.panel3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModule)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -790,7 +791,6 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvModule)).EndInit();
             this.ResumeLayout(false);
 
         }
