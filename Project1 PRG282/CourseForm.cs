@@ -115,6 +115,7 @@ namespace Project1_PRG282
 
         private void CourseForm_Load(object sender, EventArgs e)
         {
+            
             //This is for the DataGridView
             dgvModule.DataSource = DataHandler.showModuleData();
 
