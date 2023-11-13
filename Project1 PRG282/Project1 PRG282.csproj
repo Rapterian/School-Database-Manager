@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CourseForm.cs">
+    <Compile Include="PresentationLayer\CourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CourseForm.Designer.cs">
+    <Compile Include="PresentationLayer\CourseForm.Designer.cs">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DataHandler.cs" />
@@ -62,27 +62,27 @@
     <Compile Include="LogicLayer\Module.cs" />
     <Compile Include="LogicLayer\Student.cs" />
     <Compile Include="LogicLayer\User.cs" />
-    <Compile Include="MainMenu.cs">
+    <Compile Include="PresentationLayer\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
+    <Compile Include="PresentationLayer\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentForm.cs">
+    <Compile Include="PresentationLayer\StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForm.Designer.cs">
+    <Compile Include="PresentationLayer\StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CourseForm.resx">
+    <EmbeddedResource Include="PresentationLayer\CourseForm.resx">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
+    <EmbeddedResource Include="PresentationLayer\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -95,7 +95,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StudentForm.resx">
+    <EmbeddedResource Include="PresentationLayer\StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

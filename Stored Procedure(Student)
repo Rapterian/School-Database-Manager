@@ -17,7 +17,7 @@ End
 CREATE PROCEDURE spInsertStudent
     @Name NVARCHAR(50),
     @Surname NVARCHAR(50),
-    @StudentImage NVARCHAR(255),
+    @StudentImage VARBINARY(MAX),
     @DOB1 DATE,
     @Gender NVARCHAR(10),
     @Phone NVARCHAR(20),
@@ -33,7 +33,7 @@ CREATE PROCEDURE spUpdateStudent
     @StudentNumber INT,
     @Name NVARCHAR(50),
     @Surname NVARCHAR(50),
-    @StudentImage NVARCHAR(255),
+    @StudentImage VARBINARY(MAX),
     @DOB1 DATE,
     @Gender NVARCHAR(10),
     @Phone NVARCHAR(20),
@@ -45,12 +45,10 @@ BEGIN
         Name = @Name,
         Surname = @Surname,
         StudentImage = @StudentImage,
-        DOB1 = @DOB1,
+        DOB = @DOB1,
         Gender = @Gender,
         Phone = @Phone,
         Address = @Address
     WHERE
         StudentNumber = @StudentNumber;
 END
-
-
