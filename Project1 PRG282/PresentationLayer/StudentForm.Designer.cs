@@ -171,7 +171,10 @@
             this.lblDelete.TabIndex = 4;
             this.lblDelete.Text = "Delete";
             this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelete.BackColorChanged += new System.EventHandler(this.lblDelete_BackColorChanged);
             this.lblDelete.Click += new System.EventHandler(this.lblDelete_Click);
+            this.lblDelete.MouseLeave += new System.EventHandler(this.lblDelete_MouseLeave);
+            this.lblDelete.MouseHover += new System.EventHandler(this.lblDelete_MouseHover);
             // 
             // lblUpdate
             // 
@@ -184,7 +187,11 @@
             this.lblUpdate.TabIndex = 3;
             this.lblUpdate.Text = "Update";
             this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUpdate.BackColorChanged += new System.EventHandler(this.lblUpdate_BackColorChanged);
             this.lblUpdate.Click += new System.EventHandler(this.lblUpdate_Click);
+            this.lblUpdate.MouseEnter += new System.EventHandler(this.lblUpdate_MouseEnter);
+            this.lblUpdate.MouseLeave += new System.EventHandler(this.lblUpdate_MouseLeave);
+            this.lblUpdate.MouseHover += new System.EventHandler(this.lblUpdate_MouseHover);
             // 
             // lblCreate
             // 
@@ -197,8 +204,12 @@
             this.lblCreate.TabIndex = 2;
             this.lblCreate.Text = "Create";
             this.lblCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCreate.BackColorChanged += new System.EventHandler(this.lblCreate_BackColorChanged);
+            this.lblCreate.ForeColorChanged += new System.EventHandler(this.lblCreate_ForeColorChanged);
             this.lblCreate.Click += new System.EventHandler(this.lblCreate_Click);
             this.lblCreate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label3_MouseClick);
+            this.lblCreate.MouseLeave += new System.EventHandler(this.lblCreate_MouseLeave);
+            this.lblCreate.MouseHover += new System.EventHandler(this.lblCreate_MouseHover);
             // 
             // tableLayoutPanel3
             // 
@@ -241,6 +252,8 @@
             this.lblSearch.Text = "Search";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
+            this.lblSearch.MouseLeave += new System.EventHandler(this.lblSearch_MouseLeave);
+            this.lblSearch.MouseHover += new System.EventHandler(this.lblSearch_MouseHover);
             // 
             // txtSearch
             // 
@@ -426,7 +439,10 @@
             this.btnAction.Text = "--";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
+            this.btnAction.BackColorChanged += new System.EventHandler(this.btnAction_BackColorChanged);
             this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
+            this.btnAction.MouseLeave += new System.EventHandler(this.btnAction_MouseLeave);
+            this.btnAction.MouseHover += new System.EventHandler(this.btnAction_MouseHover);
             // 
             // btnNext
             // 
@@ -438,7 +454,10 @@
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.BackColorChanged += new System.EventHandler(this.btnNext_BackColorChanged);
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNext.MouseLeave += new System.EventHandler(this.btnNext_MouseLeave);
+            this.btnNext.MouseHover += new System.EventHandler(this.btnNext_MouseHover);
             // 
             // btnPrevious
             // 
@@ -450,7 +469,10 @@
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.BackColorChanged += new System.EventHandler(this.btnPrevious_BackColorChanged);
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            this.btnPrevious.MouseLeave += new System.EventHandler(this.btnPrevious_MouseLeave);
+            this.btnPrevious.MouseHover += new System.EventHandler(this.btnPrevious_MouseHover);
             // 
             // button2
             // 
@@ -462,7 +484,10 @@
             this.button2.TabIndex = 1;
             this.button2.Text = ">|";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.BackColorChanged += new System.EventHandler(this.button2_BackColorChanged);
             this.button2.Click += new System.EventHandler(this.btnEnd_Click);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
+            this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
             // 
             // btnStart
             // 
@@ -474,7 +499,10 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.BackColorChanged += new System.EventHandler(this.btnStart_BackColorChanged);
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
+            this.btnStart.MouseHover += new System.EventHandler(this.btnStart_MouseHover);
             // 
             // tableLayoutPanel6
             // 
@@ -510,6 +538,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(521, 478);
             this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.BackColorChanged += new System.EventHandler(this.flowLayoutPanel1_BackColorChanged);
             // 
             // tableLayoutPanel7
             // 
@@ -538,6 +567,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(253, 133);
             this.flowLayoutPanel2.TabIndex = 0;
+            this.flowLayoutPanel2.BackColorChanged += new System.EventHandler(this.flowLayoutPanel2_BackColorChanged);
             // 
             // lblName
             // 
@@ -746,6 +776,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(521, 191);
             this.tableLayoutPanel8.TabIndex = 1;
+            this.tableLayoutPanel8.BackColorChanged += new System.EventHandler(this.tableLayoutPanel8_BackColorChanged);
             this.tableLayoutPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel8_Paint);
             // 
             // btnDeleteCourseCodes
@@ -759,6 +790,8 @@
             this.btnDeleteCourseCodes.UseVisualStyleBackColor = true;
             this.btnDeleteCourseCodes.Visible = false;
             this.btnDeleteCourseCodes.Click += new System.EventHandler(this.btnDeleteCourseCodes_Click);
+            this.btnDeleteCourseCodes.MouseLeave += new System.EventHandler(this.btnDeleteCourseCodes_MouseLeave);
+            this.btnDeleteCourseCodes.MouseHover += new System.EventHandler(this.btnDeleteCourseCodes_MouseHover);
             // 
             // btnAddCourseCodes
             // 
@@ -771,6 +804,8 @@
             this.btnAddCourseCodes.UseVisualStyleBackColor = true;
             this.btnAddCourseCodes.Visible = false;
             this.btnAddCourseCodes.Click += new System.EventHandler(this.btnAddCourseCodes_Click);
+            this.btnAddCourseCodes.MouseLeave += new System.EventHandler(this.btnAddCourseCodes_MouseLeave);
+            this.btnAddCourseCodes.MouseHover += new System.EventHandler(this.btnAddCourseCodes_MouseHover);
             // 
             // rtbxCourseCodes
             // 
