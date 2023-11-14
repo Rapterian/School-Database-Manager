@@ -173,6 +173,8 @@
             this.lblDelete.Text = "Delete";
             this.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDelete.Click += new System.EventHandler(this.lblDelete_Click);
+            this.lblDelete.MouseLeave += new System.EventHandler(this.lblDelete_MouseLeave);
+            this.lblDelete.MouseHover += new System.EventHandler(this.lblDelete_MouseHover);
             // 
             // lblUpdate
             // 
@@ -186,7 +188,8 @@
             this.lblUpdate.Text = "Update";
             this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblUpdate.Click += new System.EventHandler(this.lblUpdate_Click);
-            this.lblUpdate.MouseHover += new System.EventHandler(this.label4_MouseHover);
+            this.lblUpdate.MouseLeave += new System.EventHandler(this.lblUpdate_MouseLeave);
+            this.lblUpdate.MouseHover += new System.EventHandler(this.lblUpdate_MouseHover);
             // 
             // lblCreate
             // 
@@ -200,6 +203,8 @@
             this.lblCreate.Text = "Create";
             this.lblCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCreate.Click += new System.EventHandler(this.lblCreate_Click);
+            this.lblCreate.MouseLeave += new System.EventHandler(this.lblCreate_MouseLeave);
+            this.lblCreate.MouseHover += new System.EventHandler(this.lblCreate_MouseHover);
             // 
             // tableLayoutPanel3
             // 
@@ -242,6 +247,8 @@
             this.lblSearch.Text = "Search";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
+            this.lblSearch.MouseLeave += new System.EventHandler(this.lblSearch_MouseLeave);
+            this.lblSearch.MouseHover += new System.EventHandler(this.lblSearch_MouseHover);
             // 
             // txtSearch
             // 
@@ -348,7 +355,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(705, 647);
+            this.tabPage2.Size = new System.Drawing.Size(705, 546);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "List";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -364,7 +371,7 @@
             this.lvModule.HideSelection = false;
             this.lvModule.Location = new System.Drawing.Point(3, 3);
             this.lvModule.Name = "lvModule";
-            this.lvModule.Size = new System.Drawing.Size(699, 641);
+            this.lvModule.Size = new System.Drawing.Size(699, 540);
             this.lvModule.TabIndex = 0;
             this.lvModule.UseCompatibleStateImageBehavior = false;
             this.lvModule.View = System.Windows.Forms.View.Details;
@@ -411,6 +418,8 @@
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Visible = false;
             this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
+            this.btnAction.MouseLeave += new System.EventHandler(this.btnAction_MouseLeave);
+            this.btnAction.MouseHover += new System.EventHandler(this.btnAction_MouseHover);
             // 
             // btnNext
             // 
@@ -423,6 +432,8 @@
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNext.MouseLeave += new System.EventHandler(this.btnNext_MouseLeave);
+            this.btnNext.MouseHover += new System.EventHandler(this.btnNext_MouseHover);
             // 
             // btnPrevious
             // 
@@ -435,6 +446,8 @@
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            this.btnPrevious.MouseLeave += new System.EventHandler(this.btnPrevious_MouseLeave);
+            this.btnPrevious.MouseHover += new System.EventHandler(this.btnPrevious_MouseHover);
             // 
             // btnEnd
             // 
@@ -447,6 +460,8 @@
             this.btnEnd.Text = ">|";
             this.btnEnd.UseVisualStyleBackColor = true;
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
+            this.btnEnd.MouseLeave += new System.EventHandler(this.btnEnd_MouseLeave);
+            this.btnEnd.MouseHover += new System.EventHandler(this.btnEnd_MouseHover);
             // 
             // btnStart
             // 
@@ -459,6 +474,8 @@
             this.btnStart.Text = "|<";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
+            this.btnStart.MouseHover += new System.EventHandler(this.btnStart_MouseHover);
             // 
             // tableLayoutPanel6
             // 
@@ -754,7 +771,7 @@
             this.txtModuleName.Location = new System.Drawing.Point(281, 3);
             this.txtModuleName.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.txtModuleName.Name = "txtModuleName";
-            this.txtModuleName.Size = new System.Drawing.Size(258, 26);
+            this.txtModuleName.Size = new System.Drawing.Size(312, 26);
             this.txtModuleName.TabIndex = 11;
             // 
             // CourseForm
