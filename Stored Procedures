@@ -170,7 +170,7 @@ BEGIN
     WHERE ModuleCode = @ModuleCode; -- Assuming ModuleCode is a unique identifier
 END;
 
-USE [PRG281Database]
+
 GO
 /****** Object:  StoredProcedure [dbo].[DeleteModule]    Script Date: 2023/11/13 23:04:37 ******/
 SET ANSI_NULLS ON
