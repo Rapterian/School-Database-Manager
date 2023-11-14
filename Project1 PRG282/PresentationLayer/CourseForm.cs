@@ -397,7 +397,7 @@ namespace Project1_PRG282
 
         private void dgvModule_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex<dgvModule.RowCount-2)
             {
 
                 DataGridViewRow row = this.dgvModule.Rows[e.RowIndex];
