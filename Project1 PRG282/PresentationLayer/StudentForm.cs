@@ -696,7 +696,7 @@ namespace Project1_PRG282
 
         private void lblCreate_MouseHover(object sender, EventArgs e)
         {
-            lblCreate.ForeColor = Color.White;    
+            lblCreate.ForeColor = Color.Blue;    
         }
 
         private void lblCreate_MouseLeave(object sender, EventArgs e)
@@ -711,12 +711,12 @@ namespace Project1_PRG282
 
         private void lblUpdate_MouseHover(object sender, EventArgs e)
         {
-            lblUpdate.ForeColor = Color.White;
+            lblUpdate.ForeColor = Color.Blue;
         }
 
         private void lblDelete_MouseHover(object sender, EventArgs e)
         {
-            lblDelete.ForeColor = Color.White;
+            lblDelete.ForeColor = Color.Blue;
         }
 
         private void lblDelete_MouseLeave(object sender, EventArgs e)
@@ -776,7 +776,7 @@ namespace Project1_PRG282
 
         private void btnAddCourseCodes_MouseHover(object sender, EventArgs e)
         {
-            btnAddCourseCodes.ForeColor = Color.White;
+            btnAddCourseCodes.ForeColor = Color.Blue;
         }
 
         private void btnAddCourseCodes_MouseLeave(object sender, EventArgs e)
@@ -786,7 +786,7 @@ namespace Project1_PRG282
 
         private void btnDeleteCourseCodes_MouseHover(object sender, EventArgs e)
         {
-            btnDeleteCourseCodes.ForeColor = Color.White;
+            btnDeleteCourseCodes.ForeColor = Color.Blue;
         }
 
         private void btnDeleteCourseCodes_MouseLeave(object sender, EventArgs e)
@@ -796,7 +796,7 @@ namespace Project1_PRG282
 
         private void btnStart_MouseHover(object sender, EventArgs e)
         {
-            btnStart.ForeColor = Color.White;
+            btnStart.ForeColor = Color.Blue;
         }
 
         private void btnStart_MouseLeave(object sender, EventArgs e)
@@ -811,7 +811,7 @@ namespace Project1_PRG282
 
         private void btnPrevious_MouseHover(object sender, EventArgs e)
         {
-            btnPrevious.ForeColor = Color.White;
+            btnPrevious.ForeColor = Color.Blue;
         }
 
         private void btnPrevious_MouseLeave(object sender, EventArgs e)
@@ -826,7 +826,7 @@ namespace Project1_PRG282
 
         private void btnAction_MouseHover(object sender, EventArgs e)
         {
-            btnAction.ForeColor = Color.White;
+            btnAction.ForeColor = Color.Blue;
         }
 
         private void btnAction_MouseLeave(object sender, EventArgs e)
@@ -841,7 +841,7 @@ namespace Project1_PRG282
 
         private void btnNext_MouseHover(object sender, EventArgs e)
         {
-            btnNext.ForeColor = Color.White;
+            btnNext.ForeColor = Color.Blue;
         }
     
 
@@ -857,7 +857,7 @@ namespace Project1_PRG282
 
         private void button2_MouseHover(object sender, EventArgs e)
         {
-            button2.ForeColor = Color.White;    
+            button2.ForeColor = Color.Blue;    
         }
     
 

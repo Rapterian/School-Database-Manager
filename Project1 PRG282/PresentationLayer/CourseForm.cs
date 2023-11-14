@@ -20,6 +20,8 @@ namespace Project1_PRG282
         public CourseForm()
         {
             InitializeComponent();
+            lblCreate.MouseHover += lblCreate_MouseHover;
+            lblCreate.MouseLeave += lblCreate_MouseLeave;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -455,6 +457,110 @@ namespace Project1_PRG282
                     }
                 }
             }
+       
+        
+        }
+
+        private void lblCreate_MouseHover(object sender, EventArgs e)
+        {
+            lblCreate.ForeColor = Color.Blue;
+        }
+
+        private void lblCreate_MouseLeave(object sender, EventArgs e)
+        {
+
+            lblCreate.ForeColor = SystemColors.ControlText;
+        }
+
+
+        private void lblUpdate_MouseLeave(object sender, EventArgs e)
+        {
+
+            lblUpdate.ForeColor = SystemColors.ControlText;
+        }
+
+        private void lblDelete_MouseHover(object sender, EventArgs e)
+        {
+            lblDelete.ForeColor = Color.Blue;
+        }
+
+        private void lblDelete_MouseLeave(object sender, EventArgs e)
+        {
+
+            lblDelete.ForeColor = SystemColors.ControlText;
+        }
+
+        private void lblSearch_MouseHover(object sender, EventArgs e)
+        {
+            lblSearch.ForeColor = Color.Blue;
+        }
+
+        private void lblSearch_MouseLeave(object sender, EventArgs e)
+        {
+
+            lblSearch.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnStart_MouseHover(object sender, EventArgs e)
+        {
+            btnStart.ForeColor = Color.Blue;
+        }
+
+        private void btnStart_MouseLeave(object sender, EventArgs e)
+        {
+
+            btnStart.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnPrevious_MouseHover(object sender, EventArgs e)
+        {
+            btnPrevious.ForeColor = Color.Blue;
+        }
+
+        private void btnPrevious_MouseLeave(object sender, EventArgs e)
+        {
+
+            btnPrevious.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnAction_MouseHover(object sender, EventArgs e)
+        {
+            btnAction.ForeColor = Color.Blue;
+        }
+
+        private void btnAction_MouseLeave(object sender, EventArgs e)
+        {
+
+            btnAction.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnNext_MouseHover(object sender, EventArgs e)
+        {
+            btnNext.ForeColor = Color.Blue;
+        }
+
+        private void btnNext_MouseLeave(object sender, EventArgs e)
+        {
+
+            btnNext.ForeColor = SystemColors.ControlText;
+        }
+
+        private void btnEnd_MouseHover(object sender, EventArgs e)
+        {
+            btnEnd.ForeColor = Color.Blue;
+        }
+
+        private void btnEnd_MouseLeave(object sender, EventArgs e)
+        {
+
+            btnEnd.ForeColor = SystemColors.ControlText;
+        }
+
+        private void lblUpdate_MouseHover(object sender, EventArgs e)
+        {
+            lblUpdate.ForeColor = Color.Blue;
         }
     }
+
+
 }
